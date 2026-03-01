@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AK Renovations | Basement, Kitchen & Bathroom Renovations in Ottawa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --surface: #FFFFFF;
+      --surface-2: #F5F3EF;
+      --surface-3: #EDEBE6;
+      --border: rgba(0,0,0,0.07);
+      --border-hover: rgba(183,142,78,0.3);
+      --gold: #B78E4E;
+      --gold-light: #C9A463;
+      --gold-bright: #D4AF6A;
+      --gold-glow: rgba(183,142,78,0.06);
+      --gold-glow-md: rgba(183,142,78,0.1);
+      --gold-glow-strong: rgba(183,142,78,0.18);
+      --white: #1A1A18;
+      --text: #3A3832;
+      --text-dim: #7A776F;
+      --text-faint: #B0ADA6;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Sora', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--gold); color: white; }
+
+    /* grain */
+    .grain {
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.15;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* ════════════════ NAV ════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(250, 250, 248, 0.9);
+      backdrop-filter: blur(28px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+
+    .logo-letters {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .logo-divider {
+      width: 1px; height: 24px;
+      background: var(--text-faint);
+      margin: 0 0.2rem;
+    }
+
+    .logo-tagline {
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center; list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold) !important;
+      color: white !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+      transition: all 0.3s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-bright) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(183,142,78,0.25);
+    }
+
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 26px; height: 16px; position: relative;
+    }
+
+    .mobile-toggle span {
+      display: block; width: 100%; height: 1.5px;
+      background: var(--gold); position: absolute; left: 0; transition: 0.3s;
+    }
+
+    .mobile-toggle span:nth-child(1) { top: 0; }
+    .mobile-toggle span:nth-child(2) { top: 7px; }
+    .mobile-toggle span:nth-child(3) { top: 14px; }
+
+    /* ════════════════ HERO ════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 9rem 2rem 6rem;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-glow-1 {
+      position: absolute;
+      top: -15%; left: 50%; transform: translateX(-50%);
+      width: 1000px; height: 700px;
+      background: radial-gradient(ellipse, rgba(183,142,78,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(183,142,78,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-lines {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    }
+
+    .hero-lines::before, .hero-lines::after {
+      content: '';
+      position: absolute;
+      background: rgba(183,142,78,0.08);
+    }
+
+    .hero-lines::before {
+      width: 1px; height: 200px;
+      top: 0; left: 20%;
+    }
+
+    .hero-lines::after {
+      width: 1px; height: 300px;
+      bottom: 0; right: 25%;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 900px;
+      animation: heroIn 1s ease both;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+    }
+
+    .hero-eyebrow-line {
+      width: 40px; height: 1px; background: var(--gold); opacity: 0.4;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.92;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: -2px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-accent-line {
+      width: 64px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2.5rem auto;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex; gap: 0.75rem;
+      justify-content: center; margin-top: 3rem; flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none; border-radius: 4px;
+      font-size: 0.85rem; font-weight: 700;
+      font-family: var(--sans);
+      cursor: pointer; transition: all 0.3s;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(183,142,78,0.25);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 4px;
+      font-size: 0.85rem; font-weight: 500;
+      font-family: var(--sans);
+      cursor: pointer; transition: all 0.3s;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-glow);
+    }
+
+    /* ════════════════ MARQUEE ════════════════ */
+    .marquee-wrap {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      position: relative; z-index: 2;
+    }
+
+    .marquee {
+      display: flex; gap: 4rem;
+      animation: scroll 30s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--text-faint);
+      white-space: nowrap;
+      display: flex; align-items: center; gap: 4rem;
+    }
+
+    .marquee-item .dot {
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ════════════════ SERVICES ════════════════ */
+    .section { padding: 8rem 2rem; position: relative; z-index: 2; }
+    .container { max-width: 1140px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      line-height: 1.05; letter-spacing: -1.5px;
+      color: var(--white); margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .section-title em { color: var(--gold); font-style: italic; }
+
+    .section-desc {
+      color: var(--text-dim); max-width: 450px;
+      line-height: 1.8; font-size: 0.95rem;
+      margin-bottom: 4rem; font-weight: 300;
+    }
+
+    .services-section { background: var(--surface); }
+
+    /* ════════════════ GALLERY ════════════════ */
+    .gallery-section { background: var(--surface); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 280px;
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: default;
+    }
+
+    .gallery-large {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s;
+      filter: brightness(0.85) saturate(0.9);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.35) saturate(0.7);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.75rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-overlay h3 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.3px;
+    }
+
+    .gallery-overlay p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+    }
+
+    /* Bottom gold line on gallery items */
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.5s;
+    }
+
+    .gallery-item:hover::after {
+      transform: scaleX(1);
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .svc {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative; overflow: hidden;
+    }
+
+    .svc::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-bright), var(--gold));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s;
+    }
+
+    .svc::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 0;
+      background: linear-gradient(to top, var(--gold-glow-md), transparent);
+      transition: height 0.5s;
+    }
+
+    .svc:hover {
+      transform: translateY(-8px);
+      border-color: var(--border-hover);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.08), 0 0 60px var(--gold-glow);
+    }
+
+    .svc:hover::before { transform: scaleX(1); }
+    .svc:hover::after { height: 80%; }
+
+    .svc-number {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: rgba(183,142,78,0.12);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1rem;
+      position: relative; z-index: 1;
+    }
+
+    .svc h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      position: relative; z-index: 1;
+      letter-spacing: -0.3px;
+    }
+
+    .svc p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      position: relative; z-index: 1;
+    }
+
+    .svc-features {
+      list-style: none;
+      margin-top: 1.25rem;
+      display: flex; flex-direction: column; gap: 0.4rem;
+      position: relative; z-index: 1;
+    }
+
+    .svc-features li {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    .svc-features li::before {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ════════════════ DIFFERENCE ════════════════ */
+    .diff-section { background: var(--bg); }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+
+    .diff-statement {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.4;
+      color: var(--text);
+      font-weight: 400;
+      font-style: italic;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .diff-statement::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .diff-statement strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .diff-cards {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+
+    .d-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: all 0.3s;
+    }
+
+    .d-card:hover {
+      border-color: var(--border-hover);
+      transform: translateX(4px);
+    }
+
+    .d-icon {
+      width: 40px; height: 40px;
+      background: var(--gold-glow-md);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    .d-card h4 {
+      font-size: 0.9rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.2rem;
+    }
+
+    .d-card p {
+      font-size: 0.78rem;
+      color: var(--text-dim); line-height: 1.55;
+    }
+
+    /* ════════════════ PROCESS ════════════════ */
+    .process-section { background: var(--surface); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding-top: 2rem;
+    }
+
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      counter-increment: step;
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(183,142,78,0.12);
+      line-height: 1;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    .step-line {
+      width: 32px; height: 2px;
+      background: var(--gold);
+      margin: 1.5rem 0 0.75rem;
+      opacity: 0.4;
+    }
+
+    .step h3 {
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.3rem;
+    }
+
+    .step p {
+      font-size: 0.82rem;
+      color: var(--text-dim); line-height: 1.65;
+    }
+
+    /* ════════════════ REVIEWS ════════════════ */
+    .reviews-section { background: var(--bg); }
+
+    .rev-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .rev {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      display: flex; flex-direction: column;
+      transition: all 0.35s;
+    }
+
+    .rev:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.06);
+    }
+
+    .rev-stars {
+      display: flex; gap: 3px; margin-bottom: 1.25rem;
+    }
+    .rev-stars span { color: var(--gold); font-size: 0.9rem; }
+    .rev-quote {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      line-height: 1.45;
+      color: var(--text);
+      margin-bottom: 1.5rem; flex: 1;
+      font-style: italic;
+      letter-spacing: -0.2px;
+    }
+
+    .rev-author {
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .rev-name {
+      font-weight: 600; font-size: 0.85rem; color: var(--white);
+    }
+
+    .rev-via {
+      font-size: 0.7rem; color: var(--text-faint); margin-top: 0.15rem;
+    }
+
+    /* ════════════════ AREAS ════════════════ */
+    .areas-section { background: var(--surface); }
+
+    .area-chips {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    .chip {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.5rem 1.15rem;
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--text-dim);
+      transition: all 0.25s; cursor: default;
+    }
+
+    .chip:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-glow);
+    }
+
+    /* ════════════════ CTA ════════════════ */
+    .cta-section {
+      background: var(--bg);
+      padding: 9rem 2rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(183,142,78,0.06), transparent 55%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative; z-index: 2;
+      max-width: 650px; margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      letter-spacing: -1.5px;
+      font-weight: 400;
+    }
+
+    .cta-section h2 em { color: var(--gold); }
+
+    .cta-sub {
+      color: var(--text-dim);
+      font-size: 1rem; line-height: 1.7;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .cta-phone {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--gold);
+      text-decoration: none;
+      display: block; margin-bottom: 2.5rem;
+      transition: all 0.3s; letter-spacing: -1px;
+    }
+
+    .cta-phone:hover {
+      color: var(--gold-bright);
+      text-shadow: 0 0 40px rgba(183,142,78,0.25);
+    }
+
+    .cta-btns {
+      display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;
+    }
+
+    .cta-meta {
+      display: flex; justify-content: center; gap: 3.5rem;
+      margin-top: 4.5rem; flex-wrap: wrap;
+    }
+
+    .cta-meta-item { text-align: center; }
+
+    .cta-meta-item h5 {
+      font-size: 0.58rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--text-faint);
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-meta-item p {
+      font-size: 0.88rem; color: var(--text-dim);
+    }
+
+    /* ════════════════ FOOTER ════════════════ */
+    footer {
+      background: var(--surface);
+      padding: 2.5rem 3rem;
+      border-top: 1px solid var(--border);
+      position: relative; z-index: 2;
+    }
+
+    .footer-row {
+      display: flex; justify-content: space-between;
+      align-items: center; max-width: 1140px;
+      margin: 0 auto; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .footer-left {
+      font-size: 0.72rem; color: var(--text-faint);
+    }
+
+    .footer-right {
+      display: flex; gap: 1.5rem; list-style: none;
+    }
+
+    .footer-right a {
+      color: var(--text-faint);
+      text-decoration: none; font-size: 0.72rem;
+      font-weight: 500; transition: color 0.3s;
+    }
+
+    .footer-right a:hover { color: var(--gold); }
+
+    /* ════════════════ ANIMATIONS ════════════════ */
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(36px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ════════════════ RESPONSIVE ════════════════ */
+    @media (max-width: 1024px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .rev-grid { grid-template-columns: 1fr 1fr; }
+      .diff-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 240px; }
+      .gallery-large { grid-column: span 2; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      nav { padding: 0.85rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .section { padding: 5rem 1.5rem; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .rev-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .marquee-wrap { display: none; }
+      .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+      .gallery-large { grid-column: span 1; }
+      .footer-row { flex-direction: column; text-align: center; }
+      .footer-right { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-letters">AK</span>
+    <span class="logo-divider"></span>
+    <span class="logo-tagline">Renovations<br>Ottawa</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#difference">Why Us</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="tel:8194100892" class="nav-cta">Free Consultation</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      Ottawa Home Renovations
+      <span class="hero-eyebrow-line"></span>
+    </div>
+    <h1>Spaces that feel<br>like <em>yours.</em></h1>
+    <div class="hero-accent-line"></div>
+    <p class="hero-sub">Basement, kitchen, and bathroom renovations — built with craftsmanship, delivered on time, and designed around the way you actually live.</p>
+    <div class="hero-buttons">
+      <a href="tel:8194100892" class="btn-gold">Book Free Consultation</a>
+      <a href="#services" class="btn-ghost">View Our Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ MARQUEE ════ -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <div class="marquee-item">Basements <span class="dot"></span></div>
+    <div class="marquee-item">Kitchens <span class="dot"></span></div>
+    <div class="marquee-item">Bathrooms <span class="dot"></span></div>
+    <div class="marquee-item">Flooring <span class="dot"></span></div>
+    <div class="marquee-item">Painting <span class="dot"></span></div>
+    <div class="marquee-item">Custom Builds <span class="dot"></span></div>
+    <div class="marquee-item">Basements <span class="dot"></span></div>
+    <div class="marquee-item">Kitchens <span class="dot"></span></div>
+    <div class="marquee-item">Bathrooms <span class="dot"></span></div>
+    <div class="marquee-item">Flooring <span class="dot"></span></div>
+    <div class="marquee-item">Painting <span class="dot"></span></div>
+    <div class="marquee-item">Custom Builds <span class="dot"></span></div>
+  </div>
+</div>
+
+<!-- ════ GALLERY ════ -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Craftsmanship you can <em>see.</em></h2>
+    <p class="section-desc">Real transformations. Real Ottawa homes. Every detail considered.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-large">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Modern kitchen renovation with island" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-tag">Kitchen</span>
+          <h3>Complete Kitchen Remodel</h3>
+          <p>Custom cabinetry, quartz countertops & designer lighting</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Modern bathroom renovation" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-tag">Bathroom</span>
+          <h3>Spa-Inspired Ensuite</h3>
+          <p>Walk-in shower, heated floors & custom vanity</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Renovated living space" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-tag">Basement</span>
+          <h3>Basement Living Area</h3>
+          <p>Full finishing with entertainment space & wet bar</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Modern home interior" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-tag">Full Home</span>
+          <h3>Open-Concept Renovation</h3>
+          <p>Walls removed, layout reimagined, life improved</p>
+        </div>
+      </div>
+      <div class="gallery-item gallery-large">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Luxury bathroom with freestanding tub" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-tag">Bathroom</span>
+          <h3>Luxury Master Bath</h3>
+          <p>Freestanding tub, marble tile & double vanity</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SERVICES ════ -->
+<section class="section services-section" id="services">
+  <div class="container">
+    <div class="section-label">What We Build</div>
+    <h2 class="section-title">Three spaces.<br>Infinite <em>possibilities.</em></h2>
+    <p class="section-desc">Every project gets our full, undivided attention. We only take one job at a time — because your renovation deserves nothing less.</p>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="svc-number">01</div>
+        <h3>Basement Renovations</h3>
+        <p>Transform unused space into the room your family actually needs — a home office, entertainment area, guest suite, or rental unit.</p>
+        <ul class="svc-features">
+          <li>Full finishing from studs to trim</li>
+          <li>Bathroom additions</li>
+          <li>Egress windows & permits</li>
+          <li>Flooring, lighting & electrical</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="svc-number">02</div>
+        <h3>Kitchen Renovations</h3>
+        <p>From small layout tweaks to full gut-and-rebuild — kitchens that look beautiful and work even better.</p>
+        <ul class="svc-features">
+          <li>Custom cabinetry & countertops</li>
+          <li>Backsplash & tile work</li>
+          <li>Lighting & fixture upgrades</li>
+          <li>Plumbing & electrical</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="svc-number">03</div>
+        <h3>Bathroom Renovations</h3>
+        <p>Modern layouts, premium finishes, and spa-worthy details that turn your bathroom into the best room in the house.</p>
+        <ul class="svc-features">
+          <li>Walk-in showers & freestanding tubs</li>
+          <li>Vanity & storage solutions</li>
+          <li>Tile, waterproofing & heated floors</li>
+          <li>Full plumbing rough-in</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ DIFFERENCE ════ -->
+<section class="section diff-section" id="difference">
+  <div class="container">
+    <div class="diff-grid">
+      <div>
+        <div class="section-label">The AK Difference</div>
+        <h2 class="section-title">One job at a time.<br>Your project gets <em>100%.</em></h2>
+        <div class="diff-statement">
+          "We don't juggle five projects at once. When you hire AK, our entire team is focused on <strong>your home</strong> — until every detail is done right."
+        </div>
+      </div>
+      <div class="diff-cards">
+        <div class="d-card">
+          <div class="d-icon">🎯</div>
+          <div>
+            <h4>Undivided Attention</h4>
+            <p>One project at a time means faster timelines and better results.</p>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="d-icon">💰</div>
+          <div>
+            <h4>Budget Respected</h4>
+            <p>Clear pricing from day one. No scope creep, no surprise invoices.</p>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="d-icon">📐</div>
+          <div>
+            <h4>Design to Build</h4>
+            <p>We help you plan, design, and build — all under one roof.</p>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="d-icon">🤝</div>
+          <div>
+            <h4>Hands-On Owners</h4>
+            <p>You work directly with the people doing the work. No middlemen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROCESS ════ -->
+<section class="section process-section" id="process">
+  <div class="container">
+    <div class="section-label">Our Process</div>
+    <h2 class="section-title">From first call to <em>final reveal.</em></h2>
+    <p class="section-desc">A renovation should be exciting — not stressful. Here's how we keep it that way.</p>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-line"></div>
+        <h3>Free Consultation</h3>
+        <p>We visit your home, listen to your vision, take measurements, and discuss your budget realistically.</p>
+      </div>
+      <div class="step">
+        <div class="step-line"></div>
+        <h3>Design & Quote</h3>
+        <p>Detailed plan with materials, timeline, and a clear quote — no hidden costs or vague estimates.</p>
+      </div>
+      <div class="step">
+        <div class="step-line"></div>
+        <h3>Build Phase</h3>
+        <p>Our team takes over with weekly updates. Clean, professional, and on schedule.</p>
+      </div>
+      <div class="step">
+        <div class="step-line"></div>
+        <h3>Final Walkthrough</h3>
+        <p>We walk every inch together. If it's not perfect, it's not done. Your satisfaction is the finish line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ REVIEWS ════ -->
+<section class="section reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">Homes transformed.<br>Clients <em>delighted.</em></h2>
+    <p class="section-desc">Real words from Ottawa homeowners who trusted us with their spaces.</p>
+    <div class="rev-grid">
+      <div class="rev">
+        <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="rev-quote">"They made our renovation experience fun, enjoyable, and rewarding. The craftsmanship was exceptional and they respected our budget every step of the way."</p>
+        <div class="rev-author">
+          <div class="rev-name">Ottawa Homeowner</div>
+          <div class="rev-via">Basement Renovation</div>
+        </div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="rev-quote">"The fact that they only work on one job at a time made all the difference. We felt like a priority from day one to the final walkthrough."</p>
+        <div class="rev-author">
+          <div class="rev-name">Satisfied Client</div>
+          <div class="rev-via">Kitchen Renovation</div>
+        </div>
+      </div>
+      <div class="rev">
+        <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="rev-quote">"Professional, clean, and detail-oriented. They transformed our outdated bathroom into something we're genuinely proud to show off."</p>
+        <div class="rev-author">
+          <div class="rev-name">Happy Homeowner</div>
+          <div class="rev-via">Bathroom Renovation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ AREAS ════ -->
+<section class="section areas-section" id="areas">
+  <div class="container">
+    <div class="section-label">Service Area</div>
+    <h2 class="section-title">Proudly serving <em>Ottawa.</em></h2>
+    <p class="section-desc">And all surrounding communities in the National Capital Region.</p>
+    <div class="area-chips">
+      <div class="chip">Centretown</div>
+      <div class="chip">The Glebe</div>
+      <div class="chip">Westboro</div>
+      <div class="chip">Hintonburg</div>
+      <div class="chip">Alta Vista</div>
+      <div class="chip">Kanata</div>
+      <div class="chip">Barrhaven</div>
+      <div class="chip">Orléans</div>
+      <div class="chip">Nepean</div>
+      <div class="chip">Stittsville</div>
+      <div class="chip">Manotick</div>
+      <div class="chip">Riverside South</div>
+      <div class="chip">Gatineau</div>
+      <div class="chip">Sandy Hill</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-label">Start Your Renovation</div>
+    <h2>Let's build something<br><em>beautiful.</em></h2>
+    <p class="cta-sub">Free in-home consultation. Honest quote. No pressure. Just a conversation about what's possible.</p>
+    <a href="tel:8194100892" class="cta-phone">(819) 410-0892</a>
+    <div class="cta-btns">
+      <a href="tel:8194100892" class="btn-gold">Book Free Consultation</a>
+      <a href="mailto:info@akrenovations.ca" class="btn-ghost">Email Us</a>
+    </div>
+    <div class="cta-meta">
+      <div class="cta-meta-item">
+        <h5>Phone</h5>
+        <p>(819) 410-0892</p>
+      </div>
+      <div class="cta-meta-item">
+        <h5>Website</h5>
+        <p>akrenovations.ca</p>
+      </div>
+      <div class="cta-meta-item">
+        <h5>Service</h5>
+        <p>Ottawa & Gatineau</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-left">© 2025 AK Renovations — Ottawa, ON</div>
+    <ul class="footer-right">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="tel:8194100892">(819) 410-0892</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

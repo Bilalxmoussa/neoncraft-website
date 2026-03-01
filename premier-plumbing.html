@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Plumbing Co. — The Punctual Plumbers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   CSS VARIABLES & RESET
+   ======================================== */
+:root {
+  --primary: #1B3A5C;
+  --primary-dark: #0F2440;
+  --accent: #E8A838;
+  --accent-hover: #D4952E;
+  --accent-light: #FFF3DC;
+  --white: #FFFFFF;
+  --off-white: #F8F6F2;
+  --light-gray: #EEE9E2;
+  --mid-gray: #8A8478;
+  --dark-gray: #3D3A35;
+  --text: #2A2724;
+  --success: #2E8B57;
+  --red: #C0392B;
+  --shadow-sm: 0 2px 8px rgba(27,58,92,0.08);
+  --shadow-md: 0 8px 30px rgba(27,58,92,0.12);
+  --shadow-lg: 0 20px 60px rgba(27,58,92,0.15);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size:16px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+img { max-width:100%; display:block; }
+ul { list-style: none; }
+button, input { font-family: inherit; border: none; outline: none; }
+
+/* ========================================
+   TOP BANNER
+   ======================================== */
+.top-banner {
+  background: var(--accent);
+  color: var(--primary-dark);
+  text-align: center;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 100;
+}
+.top-banner a {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.top-banner a:hover { color: var(--white); }
+
+/* ========================================
+   HEADER / NAVIGATION
+   ======================================== */
+.header {
+  background: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 76px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  font-family: 'Playfair Display', serif;
+}
+.logo-text {
+  color: var(--white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+.logo-text span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-links > li { position: relative; }
+.nav-links > li > a {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  display: block;
+  letter-spacing: 0.2px;
+}
+.nav-links > li > a:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--accent);
+}
+
+/* Dropdown */
+.nav-links li .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  min-width: 260px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: var(--transition);
+  z-index: 100;
+}
+.nav-links li:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.dropdown a:hover {
+  background: var(--accent-light);
+  color: var(--primary);
+}
+
+.header-phone {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header-phone svg { flex-shrink: 0; }
+
+.btn-book {
+  background: var(--accent);
+  color: var(--primary-dark);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+.btn-book:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232,168,56,0.4);
+}
+
+.mobile-toggle { display: none; }
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #1e4a6e 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 620px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(232,168,56,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--off-white), transparent);
+  z-index: 1;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.hero-content h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+.hero-content .hero-sub {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 32px;
+  max-width: 500px;
+  line-height: 1.7;
+}
+.hero-search {
+  background: var(--white);
+  border-radius: 60px;
+  padding: 6px 6px 6px 28px;
+  display: flex;
+  align-items: center;
+  max-width: 460px;
+  box-shadow: var(--shadow-lg);
+}
+.hero-search input {
+  flex: 1;
+  font-size: 1rem;
+  padding: 14px 0;
+  background: transparent;
+  color: var(--text);
+}
+.hero-search input::placeholder { color: var(--mid-gray); }
+.hero-search button {
+  background: var(--accent);
+  color: var(--primary-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.hero-search button:hover { background: var(--accent-hover); }
+
+.hero-badges {
+  display: flex;
+  gap: 20px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.hero-badge {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+}
+.hero-badge .badge-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.hero-badge .badge-text { font-size: 0.82rem; font-weight: 600; line-height: 1.3; }
+.hero-badge .badge-text strong { display: block; font-size: 1rem; }
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.hero-image-wrapper {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  background: linear-gradient(135deg, var(--accent) 0%, #D4952E 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px dashed rgba(255,255,255,0.3);
+  border-radius: 50%;
+}
+.hero-plumber-placeholder {
+  font-size: 10rem;
+  line-height: 1;
+  margin-bottom: -20px;
+  opacity: 0.9;
+}
+
+.hero-review-float {
+  position: absolute;
+  bottom: 40px;
+  right: -20px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 16px 24px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: floatBadge 3s ease-in-out infinite;
+}
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.hero-review-float .stars { color: var(--accent); font-size: 1.1rem; letter-spacing: 2px; }
+.hero-review-float .review-count { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
+.hero-review-float .review-label { font-size: 0.78rem; color: var(--mid-gray); }
+
+/* ========================================
+   TRUST BAR
+   ======================================== */
+.trust-bar {
+  background: var(--off-white);
+  padding: 40px 24px;
+  border-bottom: 1px solid var(--light-gray);
+}
+.trust-bar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.trust-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+.trust-label { font-size: 0.85rem; color: var(--mid-gray); line-height: 1.3; }
+.trust-label strong { display: block; color: var(--text); font-size: 0.95rem; }
+
+/* ========================================
+   SECTION UTILITY
+   ======================================== */
+.section {
+  padding: 90px 24px;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section-header .eyebrow {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--accent-hover);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  line-height: 1.15;
+}
+.section-header p {
+  color: var(--mid-gray);
+  font-size: 1.1rem;
+  max-width: 580px;
+  margin: 14px auto 0;
+  line-height: 1.7;
+}
+.section-inner { max-width: 1280px; margin: 0 auto; }
+
+/* ========================================
+   SERVICES GRID
+   ======================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius);
+  padding: 32px 20px;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+.service-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--accent-light);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 1.8rem;
+  transition: var(--transition);
+}
+.service-card:hover .service-icon {
+  background: var(--accent);
+  transform: scale(1.1);
+}
+.service-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* ========================================
+   EMERGENCY CTA
+   ======================================== */
+.emergency-section {
+  background: var(--primary-dark);
+  position: relative;
+  overflow: hidden;
+}
+.emergency-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(232,168,56,0.06) 100%);
+}
+.emergency-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.emergency-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.emergency-content h3 {
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.emergency-content p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+.emergency-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-white {
+  background: var(--white);
+  color: var(--primary-dark);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.emergency-phone {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.emergency-visual {
+  display: flex;
+  justify-content: center;
+}
+.emergency-graphic {
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(135deg, rgba(232,168,56,0.15), rgba(232,168,56,0.05));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  border: 2px dashed rgba(232,168,56,0.3);
+  position: relative;
+}
+.pulse-ring {
+  position: absolute;
+  inset: -20px;
+  border: 2px solid rgba(232,168,56,0.2);
+  border-radius: 50%;
+  animation: pulse 2s ease-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+/* ========================================
+   REVIEWS
+   ======================================== */
+.reviews-section { background: var(--off-white); }
+.reviews-header-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.google-logo { font-weight: 800; font-size: 1.3rem; }
+.google-logo span:nth-child(1) { color: #4285F4; }
+.google-logo span:nth-child(2) { color: #EA4335; }
+.google-logo span:nth-child(3) { color: #FBBC05; }
+.google-logo span:nth-child(4) { color: #4285F4; }
+.google-logo span:nth-child(5) { color: #34A853; }
+.google-logo span:nth-child(6) { color: #EA4335; }
+.review-stat-number { font-size: 2.4rem; font-weight: 900; color: var(--primary-dark); }
+.review-stat-stars { color: var(--accent); font-size: 1.3rem; letter-spacing: 3px; }
+.review-stat-count { color: var(--mid-gray); font-size: 0.9rem; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+.review-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+.review-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.review-avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--accent-hover);
+}
+.review-name { font-weight: 700; font-size: 0.95rem; }
+.review-date { font-size: 0.78rem; color: var(--mid-gray); }
+.review-stars { color: var(--accent); margin-bottom: 12px; letter-spacing: 2px; }
+.review-text {
+  font-size: 0.92rem;
+  color: var(--dark-gray);
+  line-height: 1.7;
+}
+
+/* ========================================
+   WHY US / GUARANTEES
+   ======================================== */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.why-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--light-gray);
+  transition: var(--transition);
+}
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+.why-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--accent-light), #FDE8C0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 20px;
+}
+.why-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+.why-card p {
+  font-size: 0.92rem;
+  color: var(--mid-gray);
+  line-height: 1.7;
+}
+
+/* ========================================
+   EXPERT TIPS / BLOG
+   ======================================== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.blog-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--light-gray);
+  transition: var(--transition);
+}
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+.blog-img {
+  height: 200px;
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--mid-gray);
+  position: relative;
+  overflow: hidden;
+}
+.blog-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.06), transparent);
+}
+.blog-body { padding: 24px; }
+.blog-tag {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--accent-hover);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.blog-body h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.blog-body p {
+  font-size: 0.88rem;
+  color: var(--mid-gray);
+  line-height: 1.6;
+}
+.blog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-hover);
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-top: 14px;
+}
+.blog-link:hover { gap: 10px; }
+
+/* ========================================
+   CTA BANNER
+   ======================================== */
+.cta-banner {
+  background: linear-gradient(135deg, var(--accent) 0%, #D4952E 100%);
+  padding: 70px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+.cta-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+.cta-banner p {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+.btn-dark {
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+.btn-dark:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 70px 24px 30px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand .logo-text { font-size: 1.3rem; margin-bottom: 16px; }
+.footer-brand p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 320px;
+}
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+.footer-social a {
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.footer-social a:hover { background: var(--accent); color: var(--primary-dark); }
+
+.footer-col h4 {
+  color: var(--white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+.footer-col a {
+  display: block;
+  padding: 5px 0;
+  font-size: 0.88rem;
+  transition: var(--transition);
+}
+.footer-col a:hover { color: var(--accent); padding-left: 4px; }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  font-size: 0.82rem;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-guarantee {
+  background: rgba(232,168,56,0.1);
+  border: 1px solid rgba(232,168,56,0.2);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   STICKY MOBILE BAR
+   ======================================== */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--primary-dark);
+  padding: 12px 16px;
+  z-index: 999;
+  gap: 10px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+}
+.mobile-cta-bar a {
+  flex: 1;
+  text-align: center;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.mobile-cta-bar .call-btn { background: var(--white); color: var(--primary-dark); }
+.mobile-cta-bar .book-btn { background: var(--accent); color: var(--primary-dark); }
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-content h1 { font-size: 2.6rem; }
+  .hero-content .hero-sub { margin: 0 auto 32px; }
+  .hero-search { margin: 0 auto; }
+  .hero-badges { justify-content: center; }
+  .hero-visual { display: none; }
+  .emergency-inner { grid-template-columns: 1fr; text-align: center; }
+  .emergency-visual { display: none; }
+  .emergency-actions { justify-content: center; }
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .header-phone { display: none; }
+  .mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .mobile-toggle span {
+    width: 24px;
+    height: 2.5px;
+    background: var(--white);
+    border-radius: 2px;
+  }
+  .hero-content h1 { font-size: 2.1rem; }
+  .section { padding: 60px 16px; }
+  .section-header h2 { font-size: 2rem; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .why-us-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .mobile-cta-bar { display: flex; }
+  body { padding-bottom: 80px; }
+  .cta-banner h2 { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  ⭐ Named <a href="#about">Forbes' Top Ranked Plumbing Company</a> — Serving Your Community Since 1998!
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#hero" class="logo">
+      <div class="logo-icon">P</div>
+      <div class="logo-text">Premier<br><span>Plumbing Co.</span></div>
+    </a>
+    <ul class="nav-links">
+      <li>
+        <a href="#services">Services ▾</a>
+        <div class="dropdown">
+          <a href="#services">Drains & Sewers</a>
+          <a href="#services">Water Heaters</a>
+          <a href="#services">Leak Detection</a>
+          <a href="#emergency">Emergency Plumbing</a>
+          <a href="#services">Faucets & Fixtures</a>
+          <a href="#services">Piping & Repiping</a>
+          <a href="#services">Toilets & Showers</a>
+          <a href="#services">Gas Lines</a>
+          <a href="#services">Water Treatment</a>
+          <a href="#services">Commercial Plumbing</a>
+        </div>
+      </li>
+      <li>
+        <a href="#tips">Resources ▾</a>
+        <div class="dropdown">
+          <a href="#tips">Expert Tips</a>
+          <a href="#tips">FAQ</a>
+          <a href="#book">Club Membership</a>
+          <a href="#book">Newsletter</a>
+        </div>
+      </li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li>
+        <a href="#about">About Us ▾</a>
+        <div class="dropdown">
+          <a href="#about">Our Story</a>
+          <a href="#about">Code of Ethics</a>
+          <a href="#about">Our Guarantees</a>
+          <a href="#about">In The Media</a>
+          <a href="#about">Careers</a>
+        </div>
+      </li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="tel:8002597705" class="header-phone">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (800) 259-7705
+      </a>
+      <a href="#book" class="btn-book">Book Now →</a>
+    </div>
+    <div class="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content fade-up">
+      <h1>You Can Count on the <em>Punctual Plumbers!</em></h1>
+      <p class="hero-sub">Find your local licensed plumber and request service. Available 24/7 for emergencies — if we're late, we pay you.</p>
+      <div class="hero-search">
+        <input type="text" placeholder="Enter your ZIP code...">
+        <button>Find Plumber →</button>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <div class="badge-icon">🛡️</div>
+          <div class="badge-text"><strong>Licensed & Insured</strong>Background-checked pros</div>
+        </div>
+        <div class="hero-badge">
+          <div class="badge-icon">⏰</div>
+          <div class="badge-text"><strong>24/7 Emergency</strong>No after-hours fees</div>
+        </div>
+        <div class="hero-badge">
+          <div class="badge-icon">✅</div>
+          <div class="badge-text"><strong>100% Guaranteed</strong>Satisfaction promise</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual fade-up" style="animation-delay:0.2s">
+      <div class="hero-image-wrapper">
+        <div class="hero-plumber-placeholder">🔧</div>
+      </div>
+      <div class="hero-review-float">
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="review-count">4.82</div>
+          <div class="review-label">108,713 Google Reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <div class="trust-icon">🏆</div>
+      <div class="trust-label"><strong>Forbes Top Ranked</strong>Plumbing Company 2024</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📋</div>
+      <div class="trust-label"><strong>Upfront Pricing</strong>No surprise charges</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🚛</div>
+      <div class="trust-label"><strong>Fully-Stocked Trucks</strong>90% fixed in one visit</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⏱️</div>
+      <div class="trust-label"><strong>$5/Min Late Pay</strong>We value your time</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🤝</div>
+      <div class="trust-label"><strong>Locally Owned</strong>Community-rooted service</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="eyebrow">Our Services</div>
+      <h2>Plumbing Services</h2>
+      <p>From routine maintenance to emergency repairs, our licensed professionals handle it all with expertise and care.</p>
+    </div>
+    <div class="services-grid fade-up">
+      <div class="service-card">
+        <div class="service-icon">🚿</div>
+        <h3>Drains</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚨</div>
+        <h3>Emergency Service</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Water Heaters</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Leak Detection</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪠</div>
+        <h3>Sewers</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛁</div>
+        <h3>Bathtubs</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚰</div>
+        <h3>Faucets</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Plumbing Repairs</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪣</div>
+        <h3>Sinks</h3>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚽</div>
+        <h3>Toilets</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY -->
+<section class="emergency-section" id="emergency">
+  <div class="emergency-inner">
+    <div class="emergency-content fade-up">
+      <h2>Emergency Response Plumbing Services</h2>
+      <h3>Our Licensed Plumbers Are Prepared, Anytime</h3>
+      <p>When you need plumbing repairs now, we'll be there. Our 24/7 home plumbers are available to address your emergency plumbing service needs day or night. Whether you have an emergency burst pipe, a water leak, or an overflowing toilet, we're here to help.</p>
+      <div class="emergency-actions">
+        <a href="#book" class="btn-white">Book Now →</a>
+        <a href="tel:8002597705" class="emergency-phone">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (800) 259-7705
+        </a>
+      </div>
+    </div>
+    <div class="emergency-visual fade-up">
+      <div class="emergency-graphic">
+        <div class="pulse-ring"></div>
+        🚨
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews-section" id="reviews">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="eyebrow">Testimonials</div>
+      <h2>Customer Reviews</h2>
+    </div>
+    <div class="reviews-header-stats fade-up">
+      <div class="google-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+      <div>
+        <div class="review-stat-number">4.82</div>
+        <div class="review-stat-stars">★★★★★</div>
+        <div class="review-stat-count">108,713 reviews</div>
+      </div>
+    </div>
+    <div class="reviews-grid fade-up">
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="review-avatar">KQ</div>
+          <div><div class="review-name">Katie Q.</div><div class="review-date">2 weeks ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Called for an estimate and they had a tech out to my house within 20 minutes on a Friday afternoon. The pricing was reasonable, much less than other places. Michael was phenomenal and took the time to answer my questions!</div>
+      </div>
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="review-avatar">LW</div>
+          <div><div class="review-name">Lisa W.</div><div class="review-date">1 month ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Monday evening on a holiday — I called at 9:20 PM with an emergency. Tom was here within 30 minutes. Very well mannered, professional, and knowledgeable. He was finished within a couple hours and I had water again!</div>
+      </div>
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="review-avatar">CD</div>
+          <div><div class="review-name">Chantell D.</div><div class="review-date">3 weeks ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Nick was fantastic! My water filtration system blew. He diagnosed it and installed a brand new system cleanly and efficiently. Explained the whole process. Really happy with the service!</div>
+      </div>
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="review-avatar">MB</div>
+          <div><div class="review-name">Madeline B.</div><div class="review-date">1 week ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">I wish I could give more stars! Quick response time, skilled and knowledgeable, and wonderful to work with! Will be calling them for all future plumbing needs.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="review-avatar">SK</div>
+          <div><div class="review-name">S.K.</div><div class="review-date">5 days ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Ryan communicated when he was en route and showed up on time. I explained my issue and he immediately understood the situation. Offered a great solution and executed the work professionally.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="review-avatar">DK</div>
+          <div><div class="review-name">Dana K.</div><div class="review-date">2 weeks ago</div></div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">They are very professional, courteous and knowledgeable. I highly recommend Premier Plumbing. The entire experience was smooth from the initial call to the completed work.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="eyebrow">Why Choose Us</div>
+      <h2>National Expertise, Local Support</h2>
+      <p>With our team, you get the best of both worlds — local licensed plumbers backed by a trusted national service.</p>
+    </div>
+    <div class="why-us-grid fade-up">
+      <div class="why-card">
+        <div class="why-icon">⏰</div>
+        <h3>On-Time Guarantee</h3>
+        <p>We pay you $5 for every minute we're late, up to $300. Because your time matters as much as ours.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Upfront Pricing</h3>
+        <p>StraightForward Pricing® means you'll know the costs before we perform any work. No surprises, ever.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏠</div>
+        <h3>Locally Owned</h3>
+        <p>Each location is independently owned & operated. We live and work in the communities we serve.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚛</div>
+        <h3>Fully-Stocked Trucks</h3>
+        <p>Our plumbers arrive prepared with parts to complete 90% of repairs in a single visit. No return trips.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>100% Satisfaction</h3>
+        <p>We back all our work with a satisfaction guarantee. If you're not happy, we'll make it right.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📞</div>
+        <h3>24/7 Availability</h3>
+        <p>Plumbing emergencies don't wait — and neither do we. No after-hours fees, even on holidays.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / TIPS -->
+<section class="section" id="tips" style="background:var(--off-white);">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="eyebrow">Expert Tips</div>
+      <h2>Tips from the Experts</h2>
+      <p>Stay informed with helpful advice from our licensed plumbing professionals.</p>
+    </div>
+    <div class="blog-grid fade-up">
+      <div class="blog-card">
+        <div class="blog-img">💧</div>
+        <div class="blog-body">
+          <div class="blog-tag">General Plumbing</div>
+          <h3>10 Common Causes of Household Plumbing Leaks</h3>
+          <p>Learn to identify the most common sources of leaks before they become costly emergencies.</p>
+          <a href="#tips" class="blog-link">Read Post →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">🔥</div>
+        <div class="blog-body">
+          <div class="blog-tag">Water Heaters</div>
+          <h3>Can I Finance a New Water Heater?</h3>
+          <p>Everything you need to know about financing options for water heater replacement.</p>
+          <a href="#tips" class="blog-link">Read Post →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">🌊</div>
+        <div class="blog-body">
+          <div class="blog-tag">Water Treatment</div>
+          <h3>Water Filtration in Emergency Preparedness</h3>
+          <p>How modern filtration systems can revitalize your home's water quality and safety.</p>
+          <a href="#tips" class="blog-link">Read Post →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="book">
+  <h2>Ready for Worry-Free Plumbing?</h2>
+  <p>Schedule your service today and experience the difference our punctual plumbers make.</p>
+  <a href="#book" class="btn-dark">Book Your Appointment →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text" style="color:var(--white);">Premier <span style="color:var(--accent);">Plumbing Co.</span></div>
+        <p>Your trusted local plumbers backed by national expertise. We've built our company around bringing a higher level of excellence to every customer experience.</p>
+        <div class="footer-social">
+          <a href="#">f</a>
+          <a href="#">𝕏</a>
+          <a href="#">▶</a>
+          <a href="#">📷</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Drains & Sewers</a>
+        <a href="#services">Water Heaters</a>
+        <a href="#services">Leak Detection</a>
+        <a href="#emergency">Emergency Service</a>
+        <a href="#services">Faucets & Fixtures</a>
+        <a href="#services">Piping & Repiping</a>
+        <a href="#services">Toilets</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#about">Our Guarantees</a>
+        <a href="#about">Code of Ethics</a>
+        <a href="#about">Careers</a>
+        <a href="#about">In The Media</a>
+        <a href="#book">Newsletter</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="#tips">Expert Tips</a>
+        <a href="#tips">FAQ</a>
+        <a href="#book">Club Membership</a>
+        <a href="#about">Franchise Info</a>
+        <a href="#hero">Find a Location</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Premier Plumbing Co. All Rights Reserved. Each location independently owned and operated.</div>
+      <div class="footer-guarantee">⏱️ If we're not on time, we pay you $5/min — up to $300.</div>
+      <div>
+        <a href="#" style="margin-right:16px;">Privacy Policy</a>
+        <a href="#" style="margin-right:16px;">Terms of Use</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta-bar">
+  <a href="tel:8002597705" class="call-btn">📞 Call Us</a>
+  <a href="#book" class="book-btn">Book Now →</a>
+</div>
+
+<!-- SCROLL ANIMATION -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

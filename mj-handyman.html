@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJ Handyman | Orléans & Ottawa | (613) 762-4705</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F2F0EB;--bg2:#E8E5DD;--white:#FDFCF9;
+  --char:#1E1E1E;--char2:#2A2A2A;--char3:#3D3D3D;
+  --ink:#1A1A1A;--ink2:#555;--ink3:#888;--ink4:#BBB;
+  --border:rgba(0,0,0,.07);
+  --yellow:#E8C800;--yellow2:#FFE030;--yellow-bg:rgba(232,200,0,.06);--yellow-bg2:rgba(232,200,0,.12);
+  --display:'Anton',sans-serif;--mono:'Space Mono',monospace;--body:'Manrope',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--ink2);overflow-x:hidden}
+::selection{background:var(--yellow);color:var(--char)}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--char)}
+.nav-in{display:flex;justify-content:space-between;align-items:center;padding:.7rem 3rem;max-width:1400px;margin:0 auto}
+.n-logo{text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.n-box{
+  width:38px;height:38px;background:var(--yellow);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:1.15rem;color:var(--char);letter-spacing:-1px;
+}
+.n-txt{font-family:var(--display);font-size:1.1rem;color:#fff;letter-spacing:.5px;text-transform:uppercase}
+.n-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.n-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.72rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
+.n-links a:hover{color:#fff}
+.n-phone{
+  color:var(--char)!important;background:var(--yellow);padding:.5rem 1.2rem;border-radius:3px;
+  font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:0;text-transform:none;
+  transition:all .25s!important;
+}
+.n-phone:hover{background:var(--yellow2)!important;transform:translateY(-1px)}
+.mob-t{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px}
+.mob-t span{display:block;width:22px;height:2px;background:#fff}
+
+/* ═══ HERO ═══ */
+.hero{padding:7rem 0 0;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{
+  content:'MJ';position:absolute;top:50%;right:-5%;transform:translateY(-50%);
+  font-family:var(--display);font-size:clamp(15rem,30vw,28rem);
+  color:rgba(0,0,0,.02);pointer-events:none;letter-spacing:5px;line-height:.8;
+}
+.hero-grid{
+  max-width:1400px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;min-height:85vh;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+  padding:7rem 0 4rem 3rem;animation:slideR .7s ease both;
+}
+.hero-tag{
+  font-family:var(--mono);font-size:.62rem;font-weight:700;
+  color:var(--char3);letter-spacing:2px;text-transform:uppercase;
+  display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem;
+}
+.hero-tag::before{content:'';width:28px;height:2px;background:var(--yellow)}
+.hero h1{
+  font-family:var(--display);font-size:clamp(3.2rem,7vw,6rem);
+  line-height:.88;color:var(--ink);text-transform:uppercase;letter-spacing:-1px;
+  text-align:left;width:100%;
+}
+.hero h1 em{
+  color:var(--yellow);font-style:normal;
+  text-shadow:2px 2px 0 rgba(0,0,0,.06);
+}
+.hero h1 .stroke{
+  -webkit-text-stroke:2px var(--char);-webkit-text-fill-color:transparent;
+}
+.hero-p{font-size:.95rem;line-height:1.8;color:var(--ink2);margin-top:1.5rem;max-width:420px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.5rem}
+.hb{
+  background:var(--yellow-bg);border:1px solid var(--yellow-bg2);
+  padding:.35rem .8rem;border-radius:2px;
+  font-size:.68rem;font-weight:700;color:var(--char3);letter-spacing:.3px;
+}
+.hero-ctas{display:flex;gap:.6rem;margin-top:2rem;flex-wrap:wrap}
+.btn-y{
+  background:var(--yellow);color:var(--char);padding:1rem 2rem;
+  border:none;border-radius:3px;font-size:.85rem;font-weight:700;
+  font-family:var(--body);cursor:pointer;transition:all .3s;
+  text-decoration:none;text-transform:uppercase;letter-spacing:.5px;
+}
+.btn-y:hover{background:var(--yellow2);transform:translateY(-2px);box-shadow:0 12px 28px rgba(232,200,0,.2)}
+.btn-bdr{
+  background:transparent;color:var(--ink);padding:1rem 2rem;
+  border:2px solid var(--ink);border-radius:3px;font-size:.85rem;font-weight:700;
+  font-family:var(--body);cursor:pointer;transition:all .3s;
+  text-decoration:none;text-transform:uppercase;letter-spacing:.5px;
+}
+.btn-bdr:hover{border-color:var(--yellow);color:var(--char)}
+
+/* hero right */
+.hero-right{position:relative;overflow:hidden;animation:slideL .7s ease .1s both}
+.hero-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;height:100%}
+.hero-photo{width:100%;height:100%;object-fit:cover;transition:filter .5s}
+.hero-photo:hover{filter:brightness(1.05)}
+.hero-float{
+  position:absolute;bottom:2.5rem;left:1.5rem;z-index:3;
+  background:var(--yellow);color:var(--char);
+  padding:1.2rem 1.8rem;border-radius:3px;
+  box-shadow:0 16px 40px rgba(0,0,0,.2);
+}
+.hero-float h4{font-family:var(--display);font-size:2.2rem;letter-spacing:1px;line-height:1}
+.hero-float p{font-size:.68rem;font-weight:700;color:var(--char3);margin-top:.1rem;letter-spacing:.5px}
+
+/* ═══ TICKER ═══ */
+.ticker{background:var(--char);overflow:hidden;padding:.9rem 0;white-space:nowrap}
+.ticker-track{display:flex;animation:scroll 28s linear infinite}
+.ticker-item{
+  font-family:var(--display);font-size:1rem;
+  color:rgba(255,255,255,.2);text-transform:uppercase;
+  letter-spacing:3px;padding:0 2.5rem;flex-shrink:0;
+}
+.ticker-item b{color:var(--yellow)}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ SERVICES ═══ */
+.sec{padding:6rem 3rem}
+.con{max-width:1200px;margin:0 auto}
+.sec-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;flex-wrap:wrap;gap:1rem}
+.sec-tag{font-family:var(--mono);font-size:.62rem;font-weight:700;color:var(--char3);letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem}
+.sec-tag::before{content:'';width:24px;height:2px;background:var(--yellow)}
+.sec-h{font-family:var(--display);font-size:clamp(2.2rem,4.5vw,3.5rem);color:var(--ink);text-transform:uppercase;letter-spacing:-1px;line-height:.92}
+.sec-h em{color:var(--yellow);font-style:normal}
+.sec-p{color:var(--ink3);font-size:.88rem;line-height:1.7;max-width:380px}
+.svc-sec{background:var(--white)}
+
+.svc-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.85rem}
+.sv{
+  background:var(--bg);border:1px solid var(--border);border-radius:4px;
+  overflow:hidden;transition:all .35s;position:relative;
+}
+.sv:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.06)}
+.sv:hover .sv-bar{transform:scaleX(1)}
+.sv-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.sv-in{padding:2rem}
+.sv-num{font-family:var(--display);font-size:4.5rem;color:rgba(232,200,0,.08);line-height:.85;margin-bottom:.5rem}
+.sv h3{font-family:var(--display);font-size:1.2rem;color:var(--ink);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.35rem}
+.sv p{font-size:.8rem;color:var(--ink2);line-height:1.65}
+.sv-list{list-style:none;margin-top:.6rem}
+.sv-list li{font-size:.72rem;color:var(--ink3);padding:.25rem 0;display:flex;align-items:center;gap:.35rem}
+.sv-list li::before{content:'—';color:var(--yellow);font-weight:700}
+.s1{grid-column:span 7}.s2{grid-column:span 5}
+.s3{grid-column:span 4}.s4{grid-column:span 4}.s5{grid-column:span 4}
+.s6{grid-column:span 5}.s7{grid-column:span 3}.s8{grid-column:span 4}
+.sv-photo{width:100%;height:170px;object-fit:cover;transition:filter .4s}
+.sv:hover .sv-photo{filter:brightness(1.05)}
+/* cta card */
+.sv-cta{background:var(--char);border-color:var(--char)}
+.sv-cta .sv-num{color:rgba(232,200,0,.1)}
+.sv-cta h3{color:var(--yellow)}
+.sv-cta p{color:rgba(255,255,255,.4)}
+.sv-cta a.sv-link{
+  display:inline-block;margin-top:.85rem;background:var(--yellow);color:var(--char);
+  padding:.6rem 1.4rem;border-radius:2px;font-size:.75rem;font-weight:700;
+  text-decoration:none;letter-spacing:.3px;transition:all .3s;text-transform:uppercase;
+}
+.sv-cta a.sv-link:hover{background:var(--yellow2)}
+
+/* ═══ WHY ═══ */
+.why-sec{background:var(--char);color:#fff;position:relative;overflow:hidden}
+.why-sec::after{
+  content:'EST. 2017';position:absolute;right:3rem;top:50%;transform:translateY(-50%);
+  font-family:var(--display);font-size:clamp(6rem,14vw,14rem);
+  color:rgba(255,255,255,.015);pointer-events:none;letter-spacing:5px;white-space:nowrap;
+}
+.why-sec .sec-tag{color:var(--yellow)}.why-sec .sec-tag::before{background:var(--yellow)}
+.why-sec .sec-h{color:#fff}
+.why-row{display:flex;gap:0;margin-top:3rem;flex-wrap:wrap}
+.why-item{
+  flex:1;min-width:180px;padding:2rem 2.5rem;
+  border-right:1px solid rgba(255,255,255,.05);transition:background .3s;
+}
+.why-item:last-child{border-right:none}
+.why-item:hover{background:rgba(255,255,255,.02)}
+.why-n{font-family:var(--display);font-size:3.5rem;color:rgba(232,200,0,.1);line-height:1;margin-bottom:.65rem}
+.why-item h4{font-size:.88rem;font-weight:800;color:#fff;margin-bottom:.3rem}
+.why-item p{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.6}
+
+/* ═══ REVIEWS ═══ */
+.rev-sec{background:var(--bg)}
+.rev-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.rev-left{position:sticky;top:7rem}
+.rev-big{
+  font-family:var(--display);font-size:clamp(2rem,4vw,3.2rem);
+  color:var(--ink);line-height:.95;text-transform:uppercase;letter-spacing:-1px;
+  margin:1.25rem 0 1rem;
+}
+.rev-big em{color:var(--yellow);font-style:normal}
+.rev-stack{display:flex;flex-direction:column;gap:.85rem}
+.rv{
+  background:var(--white);border:1px solid var(--border);border-radius:4px;
+  padding:1.75rem;transition:all .3s;position:relative;
+  border-left:3px solid transparent;
+}
+.rv:hover{border-left-color:var(--yellow);transform:translateX(5px);box-shadow:0 10px 28px rgba(0,0,0,.04)}
+.rv-txt{font-size:.88rem;color:var(--ink);line-height:1.65;font-weight:400}
+.rv-bot{display:flex;align-items:center;gap:.65rem;margin-top:.85rem}
+.rv-dot{
+  width:32px;height:32px;background:var(--char);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:.65rem;color:var(--yellow);
+}
+.rv-name{font-size:.78rem;font-weight:800;color:var(--ink)}
+.rv-loc{font-size:.65rem;color:var(--ink3)}
+
+/* ═══ PROCESS ═══ */
+.proc-sec{background:var(--yellow);position:relative;overflow:hidden}
+.proc-sec::before{
+  content:'1 2 3';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--display);font-size:clamp(10rem,22vw,20rem);
+  color:rgba(0,0,0,.03);pointer-events:none;letter-spacing:1rem;
+}
+.proc-sec .sec-tag{color:var(--char)}.proc-sec .sec-tag::before{background:var(--char)}
+.proc-sec .sec-h{color:var(--char)}
+.proc-row{display:flex;gap:0;margin-top:3rem}
+.proc-step{
+  flex:1;padding:2.5rem;
+  border-right:2px solid rgba(0,0,0,.06);position:relative;
+}
+.proc-step:last-child{border-right:none}
+.proc-num{font-family:var(--display);font-size:5rem;color:rgba(0,0,0,.06);line-height:.85;margin-bottom:.5rem}
+.proc-step h3{font-family:var(--display);font-size:1.1rem;color:var(--char);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.25rem}
+.proc-step p{font-size:.82rem;color:var(--char3);line-height:1.6}
+.proc-arrow{
+  position:absolute;right:-14px;top:50%;transform:translateY(-50%);z-index:2;
+  width:28px;height:28px;background:var(--char);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--yellow);font-size:.65rem;font-weight:900;
+}
+
+/* ═══ AREAS ═══ */
+.area-sec{background:var(--white)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem}
+.chip{
+  background:var(--bg);border:1px solid var(--border);border-radius:2px;
+  padding:.45rem 1rem;font-size:.78rem;font-weight:600;color:var(--ink2);
+  transition:all .25s;cursor:default;
+}
+.chip:hover{background:var(--char);color:var(--yellow);border-color:var(--char)}
+
+/* ═══ CTA ═══ */
+.cta-sec{background:var(--char);padding:7rem 3rem;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{
+  content:'CALL';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--display);font-size:clamp(10rem,20vw,18rem);
+  color:rgba(255,255,255,.015);pointer-events:none;letter-spacing:8px;
+}
+.cta-in{max-width:580px;margin:0 auto;position:relative;z-index:2}
+.cta-sec .sec-tag{color:var(--yellow);justify-content:center;display:flex}.cta-sec .sec-tag::before{background:var(--yellow)}
+.cta-sec h2{font-family:var(--display);font-size:clamp(2.5rem,5.5vw,4rem);color:#fff;text-transform:uppercase;letter-spacing:-1px;line-height:.92;margin:.75rem 0}
+.cta-sec h2 em{color:var(--yellow);font-style:normal}
+.cta-sub{color:rgba(255,255,255,.4);font-size:1rem;line-height:1.7;margin-bottom:2rem}
+.cta-phone{
+  display:inline-block;font-family:var(--display);
+  font-size:clamp(2.5rem,5vw,4rem);color:var(--yellow);
+  text-decoration:none;letter-spacing:1px;transition:all .3s;
+  border-bottom:4px solid rgba(232,200,0,.2);padding-bottom:.15rem;
+}
+.cta-phone:hover{color:var(--yellow2);text-shadow:0 0 30px rgba(232,200,0,.15)}
+.cta-btns{display:flex;justify-content:center;gap:.6rem;margin-top:2rem;flex-wrap:wrap}
+.btn-w{
+  background:#fff;color:var(--char);padding:1rem 2rem;
+  border:none;border-radius:3px;font-size:.85rem;font-weight:700;
+  font-family:var(--body);cursor:pointer;transition:all .3s;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;
+}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.3)}
+.btn-gw{
+  background:transparent;color:#fff;padding:1rem 2rem;
+  border:2px solid rgba(255,255,255,.12);border-radius:3px;font-size:.85rem;font-weight:700;
+  font-family:var(--body);cursor:pointer;transition:all .3s;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;
+}
+.btn-gw:hover{border-color:var(--yellow);color:var(--yellow)}
+.cta-meta{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}
+.cta-meta div{text-align:center}
+.cta-meta h5{font-family:var(--mono);font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:.1rem}
+.cta-meta p{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.6)}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--char2);padding:1.75rem 3rem;border-top:1px solid rgba(255,255,255,.04)}
+.ft{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.ft span{font-size:.7rem;color:rgba(255,255,255,.25)}
+.ft-links{display:flex;gap:1.5rem;list-style:none}
+.ft-links a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.7rem;font-weight:600;transition:color .3s}
+.ft-links a:hover{color:var(--yellow)}
+
+/* ═══ ANIM ═══ */
+@keyframes slideR{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideL{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}.hero-right{display:none}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr}
+  .s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8{grid-column:span 1}
+  .why-row,.proc-row{flex-direction:column}
+  .why-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.05)}
+  .proc-step{border-right:none;border-bottom:2px solid rgba(0,0,0,.06)}.proc-arrow{display:none}
+  .rev-layout{grid-template-columns:1fr}.rev-left{position:static}
+}
+@media(max-width:768px){
+  .n-links{display:none}.mob-t{display:flex}
+  nav .nav-in{padding:.7rem 1.5rem}
+  .hero,.sec,.cta-sec{padding-left:1.5rem;padding-right:1.5rem}
+  .hero-left{padding:2rem 0}
+  .svc-grid{grid-template-columns:1fr}
+  .ft{flex-direction:column;text-align:center}.ft-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a href="#" class="n-logo"><div class="n-box">MJ</div><span class="n-txt">MJ Handyman</span></a>
+    <ul class="n-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="tel:6137624705" class="n-phone">(613) 762-4705</a></li>
+    </ul>
+    <button class="mob-t" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-tag">Est. 2017 — Orléans, Ontario</div>
+      <h1>The<br><span class="stroke">handyman</span><br><em>effect.</em></h1>
+      <p class="hero-p">Minor plumbing, electrical, TV mounting, furniture assembly, smart home setup and everything in between. One call and your to-do list disappears.</p>
+      <div class="hero-badges">
+        <span class="hb">✓ Est. 2017</span>
+        <span class="hb">✓ Orléans Based</span>
+        <span class="hb">✓ Same-Day Available</span>
+        <span class="hb">✓ Free Estimates</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="tel:6137624705" class="btn-y">Get a Free Estimate</a>
+        <a href="#services" class="btn-bdr">View Services</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photos">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80" alt="Handyman with tools">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80" alt="TV mounting">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?w=600&q=80" alt="Modern kitchen">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=600&q=80" alt="Home interior">
+      </div>
+      <div class="hero-float">
+        <h4>SINCE 2017</h4>
+        <p>SERVING ORLÉANS & OTTAWA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><b>★</b> Plumbing</span><span class="ticker-item"><b>★</b> Electrical</span>
+    <span class="ticker-item"><b>★</b> TV Mounting</span><span class="ticker-item"><b>★</b> Furniture Assembly</span>
+    <span class="ticker-item"><b>★</b> Appliances</span><span class="ticker-item"><b>★</b> Smart Home</span>
+    <span class="ticker-item"><b>★</b> Hanging & Mounting</span><span class="ticker-item"><b>★</b> General Repairs</span>
+    <span class="ticker-item"><b>★</b> Plumbing</span><span class="ticker-item"><b>★</b> Electrical</span>
+    <span class="ticker-item"><b>★</b> TV Mounting</span><span class="ticker-item"><b>★</b> Furniture Assembly</span>
+    <span class="ticker-item"><b>★</b> Appliances</span><span class="ticker-item"><b>★</b> Smart Home</span>
+    <span class="ticker-item"><b>★</b> Hanging & Mounting</span><span class="ticker-item"><b>★</b> General Repairs</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec svc-sec" id="services">
+  <div class="con">
+    <div class="sec-top">
+      <div><div class="sec-tag">What We Fix</div><h2 class="sec-h">No job too small.<br>No list too <em>long.</em></h2></div>
+      <p class="sec-p">From leaky faucets to smart thermostats. If it's in your home, we fix it, install it, or build it.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="sv s1">
+        <div class="sv-bar"></div>
+        <img class="sv-photo" src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=500&q=80" alt="Plumbing repair" loading="lazy">
+        <div class="sv-in">
+          <div class="sv-num">01</div>
+          <h3>Minor Plumbing</h3>
+          <p>Quick, efficient fixes for everyday plumbing issues.</p>
+          <ul class="sv-list"><li>Faucet repairs</li><li>Drain clearing</li><li>Toilet fixes</li><li>Sink installs</li></ul>
+        </div>
+      </div>
+      <div class="sv s2">
+        <div class="sv-bar"></div>
+        <div class="sv-in">
+          <div class="sv-num">02</div>
+          <h3>Minor Electrical</h3>
+          <p>Outlets, switches, light fixtures, ceiling fans, bathroom exhaust fans, and bulb replacements. Safe and properly done.</p>
+        </div>
+      </div>
+      <div class="sv s3">
+        <div class="sv-bar"></div>
+        <div class="sv-in">
+          <div class="sv-num">03</div>
+          <h3>TV Mounting</h3>
+          <p>Secure mounting on drywall, brick, or concrete. Cable management included for a showroom look.</p>
+        </div>
+      </div>
+      <div class="sv s4">
+        <div class="sv-bar"></div>
+        <div class="sv-in">
+          <div class="sv-num">04</div>
+          <h3>Furniture Assembly</h3>
+          <p>IKEA, Wayfair, Amazon — we build it all. Fast, solid, no leftover mystery screws.</p>
+        </div>
+      </div>
+      <div class="sv s5">
+        <div class="sv-bar"></div>
+        <div class="sv-in">
+          <div class="sv-num">05</div>
+          <h3>Appliance Install</h3>
+          <p>Dishwashers, washers, dryers, range hoods. Properly connected and ready to use.</p>
+        </div>
+      </div>
+      <div class="sv s6">
+        <div class="sv-bar"></div>
+        <img class="sv-photo" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=500&q=80" alt="Smart home setup" loading="lazy">
+        <div class="sv-in">
+          <div class="sv-num">06</div>
+          <h3>Smart Home Setup</h3>
+          <p>Thermostats, doorbells, cameras, smart switches — installed, paired, and working. Your husband couldn't figure it out. We will in 20 minutes.</p>
+        </div>
+      </div>
+      <div class="sv s7 sv-cta">
+        <div class="sv-bar" style="background:var(--yellow)"></div>
+        <div class="sv-in">
+          <div class="sv-num">+</div>
+          <h3>Something Else?</h3>
+          <p>Shelves, mirrors, curtain rods, drywall patches, caulking — just ask.</p>
+          <a href="tel:6137624705" class="sv-link">Call Now</a>
+        </div>
+      </div>
+      <div class="sv s8">
+        <div class="sv-bar"></div>
+        <div class="sv-in">
+          <div class="sv-num">07</div>
+          <h3>Mounting & Hanging</h3>
+          <p>Shelves, mirrors, art, curtain rods. Level, secure, exactly where you want them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec why-sec" id="why">
+  <div class="con">
+    <div class="sec-tag">The MJ Difference</div>
+    <h2 class="sec-h">PROBLEM SOLVING IS<br>WHAT WE DO.</h2>
+    <div class="why-row">
+      <div class="why-item"><div class="why-n">01</div><h4>Since 2017</h4><p>Dedicated to customer satisfaction from day one. Orléans built, Ottawa trusted.</p></div>
+      <div class="why-item"><div class="why-n">02</div><h4>Same-Day Service</h4><p>Need it fixed now? We respond fast and often come the same day you call.</p></div>
+      <div class="why-item"><div class="why-n">03</div><h4>Honest Pricing</h4><p>Clear quotes before any work starts. No hidden fees, no surprise add-ons.</p></div>
+      <div class="why-item"><div class="why-n">04</div><h4>Clean & Respectful</h4><p>We treat your home like our own. Shoes off, drop cloths down, space left spotless.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec" id="reviews">
+  <div class="con">
+    <div class="rev-layout">
+      <div class="rev-left">
+        <div class="sec-tag">Client Reviews</div>
+        <div class="rev-big">REAL REVIEWS FROM REAL <em>NEIGHBOURS.</em></div>
+        <p class="sec-p" style="margin:0">Your neighbours trust MJ Handyman with their homes. Here's what they have to say about working with us.</p>
+      </div>
+      <div class="rev-stack">
+        <div class="rv">
+          <p class="rv-txt">Called for a leaky faucet and a TV mount. Both done same day, clean work, fair price. MJ is the real deal — no upselling, no nonsense.</p>
+          <div class="rv-bot"><div class="rv-dot">JK</div><div><div class="rv-name">James K.</div><div class="rv-loc">Orléans, ON</div></div></div>
+        </div>
+        <div class="rv">
+          <p class="rv-txt">Assembled our entire IKEA kitchen island and two bookshelves. Everything level, solid, and done way faster than expected. Very impressed.</p>
+          <div class="rv-bot"><div class="rv-dot">SR</div><div><div class="rv-name">Sarah R.</div><div class="rv-loc">Kanata, ON</div></div></div>
+        </div>
+        <div class="rv">
+          <p class="rv-txt">Had three outlets replaced and a ceiling fan installed. Showed up on time, explained everything, left no mess. Already booked the next job.</p>
+          <div class="rv-bot"><div class="rv-dot">DM</div><div><div class="rv-name">Daniel M.</div><div class="rv-loc">Barrhaven, ON</div></div></div>
+        </div>
+        <div class="rv">
+          <p class="rv-txt">Installed our Nest thermostat and Ring doorbell. Set everything up on our phones too. My husband tried for two hours — MJ had it done in 20 minutes.</p>
+          <div class="rv-bot"><div class="rv-dot">LP</div><div><div class="rv-name">Lisa P.</div><div class="rv-loc">Gloucester, ON</div></div></div>
+        </div>
+        <div class="rv">
+          <p class="rv-txt">Mounted our 65" Samsung on a full-motion bracket. Cables hidden inside the wall. Looks like a showroom. Couldn't be happier with the result.</p>
+          <div class="rv-bot"><div class="rv-dot">AT</div><div><div class="rv-name">Ahmed T.</div><div class="rv-loc">Alta Vista, ON</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec proc-sec" id="process">
+  <div class="con">
+    <div class="sec-tag">How It Works</div>
+    <h2 class="sec-h">FIXED IN THREE STEPS.</h2>
+    <div class="proc-row">
+      <div class="proc-step"><div class="proc-num">01</div><h3>Call or Text</h3><p>Reach out at (613) 762-4705. Tell us what needs fixing — no job is too small.</p><div class="proc-arrow">→</div></div>
+      <div class="proc-step"><div class="proc-num">02</div><h3>Get a Quote</h3><p>We give you a clear, honest quote before any work begins. No hidden fees. Ever.</p><div class="proc-arrow">→</div></div>
+      <div class="proc-step"><div class="proc-num">03</div><h3>We Fix It</h3><p>We show up on time, get it done right, and leave your home better than we found it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="sec area-sec" id="areas">
+  <div class="con">
+    <div class="sec-tag">Service Area</div>
+    <h2 class="sec-h">BASED IN ORLÉANS.<br>SERVING <em>OTTAWA.</em></h2>
+    <div class="chips">
+      <div class="chip">Orléans</div><div class="chip">Beacon Hill</div><div class="chip">Blackburn Hamlet</div>
+      <div class="chip">Gloucester</div><div class="chip">Rockcliffe Park</div><div class="chip">Alta Vista</div>
+      <div class="chip">Sandy Hill</div><div class="chip">ByWard Market</div><div class="chip">Centretown</div>
+      <div class="chip">The Glebe</div><div class="chip">Kanata</div><div class="chip">Barrhaven</div>
+      <div class="chip">Nepean</div><div class="chip">Stittsville</div><div class="chip">Riverside South</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="cta-in">
+    <div class="sec-tag" style="justify-content:center;display:flex">Get Started</div>
+    <h2>YOUR TO-DO LIST.<br><em>DONE.</em></h2>
+    <p class="cta-sub">Free estimates. Same-day service. No job too small. One call between you and a fixed home.</p>
+    <a href="tel:6137624705" class="cta-phone">(613) 762-4705</a>
+    <div class="cta-btns">
+      <a href="tel:6137624705" class="btn-w">Call for Free Estimate</a>
+      <a href="mailto:mjhandyman@email.com" class="btn-gw">Email Us</a>
+    </div>
+    <div class="cta-meta">
+      <div><h5>Address</h5><p>Bilberry Dr, Orléans ON</p></div>
+      <div><h5>Since</h5><p>2017</p></div>
+      <div><h5>Availability</h5><p>Same-Day</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <span>© 2025 MJ Handyman — Orléans, ON K1C 2C1</span>
+    <ul class="ft-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="tel:6137624705">(613) 762-4705</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

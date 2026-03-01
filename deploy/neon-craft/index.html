@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Craft | Web Designer & Developer — Ottawa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090B;
+      --surface: #111113;
+      --surface-2: #18181B;
+      --border: rgba(255,255,255,0.06);
+      --accent: #6D5CFF;
+      --accent-light: #8B7EFF;
+      --accent-glow: rgba(109,92,255,0.08);
+      --accent-glow-md: rgba(109,92,255,0.15);
+      --green: #34D399;
+      --white: #FAFAFA;
+      --text: #A1A1AA;
+      --text-dim: #71717A;
+      --text-faint: #3F3F46;
+      --serif: 'Instrument Serif', serif;
+      --sans: 'Outfit', sans-serif;
+      --mono: 'Geist Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: white; }
+
+    .grain {
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* ════════ NAV ════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(9,9,11,0.88);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-weight: 700; font-size: 1.75rem;
+      color: var(--white); text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-name span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center; list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-size: 0.8rem !important;
+      transition: all 0.25s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(109,92,255,0.3);
+    }
+
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 24px; height: 16px; position: relative;
+    }
+
+    .mobile-toggle span {
+      display: block; width: 100%; height: 1.5px;
+      background: var(--white); position: absolute; left: 0;
+    }
+
+    .mobile-toggle span:nth-child(1) { top: 0; }
+    .mobile-toggle span:nth-child(2) { top: 7px; }
+    .mobile-toggle span:nth-child(3) { top: 14px; }
+
+    /* ════════ HERO ════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 8rem 2.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -20%; left: 30%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(109,92,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1.3fr 0.7fr;
+      gap: 4rem; align-items: center;
+    }
+
+    .hero-left { animation: fadeIn 0.8s ease both; }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.7rem; font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag .dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2.5s infinite;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      line-height: 0.95;
+      color: var(--white);
+      letter-spacing: -2px;
+      font-weight: 400;
+    }
+
+    .hero h1 em { color: var(--accent); font-style: italic; }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-top: 1.5rem;
+      max-width: 480px;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex; gap: 0.75rem;
+      margin-top: 2.5rem; flex-wrap: wrap;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+      padding: 0.85rem 2rem;
+      border: none; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      font-family: var(--sans);
+      cursor: pointer; transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(109,92,255,0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem; font-weight: 500;
+      font-family: var(--sans);
+      cursor: pointer; transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Hero right — stats */
+    .hero-right {
+      animation: fadeIn 0.8s ease 0.2s both;
+    }
+
+    .stat-stack {
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(109,92,255,0.15);
+      transform: translateX(-4px);
+    }
+
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stat-val span { color: var(--accent); }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    /* ════════ PROJECTS ════════ */
+    .section { padding: 7rem 2.5rem; position: relative; z-index: 2; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.75rem;
+    }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      line-height: 1.05; letter-spacing: -1.5px;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .section-heading em { color: var(--accent); }
+
+    .section-sub {
+      color: var(--text-dim);
+      max-width: 440px;
+      line-height: 1.75; font-size: 0.95rem;
+      margin-bottom: 4rem; font-weight: 300;
+    }
+
+    .projects-section { background: var(--surface); }
+
+    .project-grid {
+      display: flex; flex-direction: column; gap: 2rem;
+    }
+
+    .project {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      transition: all 0.4s;
+    }
+
+    .project:hover {
+      border-color: rgba(109,92,255,0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+
+    .project-preview {
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+      background: #0D0D0F;
+    }
+
+    .project-preview iframe {
+      width: 200%;
+      height: 200%;
+      border: none;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .project-preview-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(9,9,11,0.1), rgba(9,9,11,0.4));
+      pointer-events: none;
+    }
+
+    .project-info {
+      padding: 3rem;
+      display: flex; flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--white);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-type {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-tech {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(109,92,255,0.08);
+      border: 1px solid rgba(109,92,255,0.12);
+      border-radius: 4px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.68rem;
+      font-family: var(--mono);
+      color: var(--accent-light);
+      font-weight: 500;
+    }
+
+    .project-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      width: fit-content;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+      gap: 0.6rem;
+    }
+
+    .project-link .arrow {
+      transition: transform 0.3s;
+    }
+
+    .project-link:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* ════════ ABOUT ════════ */
+    .about-section { background: var(--bg); }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+
+    .about-text h3 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--white);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text h3 strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .about-text p {
+      font-size: 0.92rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .about-skills {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.75rem;
+      font-family: var(--mono);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .metric:hover {
+      border-color: rgba(109,92,255,0.15);
+    }
+
+    .metric-val {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .metric-val span { color: var(--accent); }
+
+    .metric-label {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* ════════ PRICING ════════ */
+    .pricing-section { background: var(--surface); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .price-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(109,92,255,0.2);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+
+    .price-card:hover::before { transform: scaleX(1); }
+
+    .price-card.featured {
+      border-color: rgba(109,92,255,0.25);
+      background: linear-gradient(to bottom, rgba(109,92,255,0.06), var(--surface-2));
+    }
+
+    .price-card.featured::before { transform: scaleX(1); }
+
+    .price-badge {
+      display: inline-block;
+      background: var(--accent-glow-md);
+      border: 1px solid rgba(109,92,255,0.2);
+      color: var(--accent-light);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      margin-bottom: 1.25rem;
+      font-family: var(--mono);
+    }
+
+    .price-tier {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .price-amount {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-amount span { color: var(--accent); font-size: 1.2rem; }
+
+    .price-desc {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .price-features {
+      list-style: none;
+      display: flex; flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-features li {
+      font-size: 0.8rem;
+      color: var(--text);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+
+    .price-features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .price-cta {
+      display: block;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: var(--sans);
+    }
+
+    .price-cta-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .price-cta-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(109,92,255,0.25);
+    }
+
+    .price-cta-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .price-cta-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ════════ FAQ ════════ */
+    .faq-section { background: var(--bg); }
+
+    .faq-grid {
+      max-width: 720px;
+      display: flex; flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .faq-item:hover { border-color: rgba(109,92,255,0.12); }
+
+    .faq-q {
+      width: 100%;
+      background: none; border: none;
+      padding: 1.25rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--white);
+      text-align: left;
+    }
+
+    .faq-q:hover { color: var(--accent-light); }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+
+    .faq-a-inner {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ════════ CTA ════════ */
+    .cta-section {
+      background: var(--surface);
+      padding: 8rem 2.5rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(109,92,255,0.04), transparent 55%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      max-width: 580px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+
+    .cta-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .cta-section h2 em { color: var(--accent); }
+
+    .cta-desc {
+      color: var(--text-dim);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-email {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--accent);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 2rem;
+      transition: all 0.3s;
+    }
+
+    .cta-email:hover {
+      color: var(--accent-light);
+      text-shadow: 0 0 30px rgba(109,92,255,0.2);
+    }
+
+    .cta-btns {
+      display: flex; justify-content: center;
+      gap: 0.75rem; flex-wrap: wrap;
+    }
+
+    /* ════════ FOOTER ════════ */
+    footer {
+      background: var(--bg);
+      padding: 2rem 2.5rem;
+      border-top: 1px solid var(--border);
+      position: relative; z-index: 2;
+    }
+
+    .footer-row {
+      display: flex; justify-content: space-between;
+      align-items: center; max-width: 1100px;
+      margin: 0 auto; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .footer-left {
+      font-size: 0.72rem; color: var(--text-faint);
+    }
+
+    .footer-right {
+      display: flex; gap: 1.5rem; list-style: none;
+    }
+
+    .footer-right a {
+      color: var(--text-faint); text-decoration: none;
+      font-size: 0.72rem; font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .footer-right a:hover { color: var(--accent); }
+
+    /* ════════ ANIMATIONS ════════ */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ════════ RESPONSIVE ════════ */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .project { grid-template-columns: 1fr; }
+      .project-preview { min-height: 280px; }
+      .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      nav, .section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .about-metrics { grid-template-columns: 1fr 1fr; }
+      .footer-row { flex-direction: column; text-align: center; }
+      .footer-right { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <a href="#" class="nav-name">neon<span>craft</span></a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+<li><a href="#faq">FAQ</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        Available for new projects
+      </div>
+      <h1>I build websites that get local businesses <em>more customers.</em></h1>
+      <p class="hero-desc">Web designer & developer based in Ottawa. I help small businesses look professional online — with fast, modern websites that actually convert visitors into calls and bookings.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-accent">Work With Me</a>
+        <a href="#projects" class="btn-outline">View Projects ↓</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-stack">
+        <div class="stat-card">
+          <div class="stat-val">10<span>+</span></div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">100<span>%</span></div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Ottawa</div>
+          <div class="stat-label">Based & Serving Local Businesses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROJECTS ════ -->
+<section class="section projects-section" id="projects">
+  <div class="container">
+    <div class="section-eyebrow">// Recent Work</div>
+    <h2 class="section-heading">Projects that <em>perform.</em></h2>
+    <p class="section-sub">Real redesigns for real Ottawa businesses. Built for speed, conversions, and mobile-first experiences.</p>
+
+    <div class="project-grid">
+      <!-- Project 1: Spark Auto -->
+      <div class="project">
+        <div class="project-preview" style="background: #141414; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+          <div style="font-size: 2.5rem;">⚡</div>
+          <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: #E63226; letter-spacing: -0.5px;">SPARK<span style="color: white;">AUTO</span></div>
+          <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Ottawa's Most Honest Mechanic</div>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <span style="background: #E63226; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">20+ Years</span>
+            <span style="background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">4.4★ Google</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Auto Repair</div>
+          <h3 class="project-name">Spark Auto</h3>
+          <p class="project-type">Full website redesign for a 20+ year Ottawa mechanic. Replaced an outdated Joomla site (with lorem ipsum still on it) with a conversion-focused, mobile-first experience.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">Responsive</span>
+            <span class="tech-tag">Dark & Red</span>
+          </div>
+          <a href="spark-auto-redesign.html" class="project-link" target="_blank">
+            View Live <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2: Offset Plumbing -->
+      <div class="project">
+        <div class="project-preview" style="background: #0C0C0C; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+          <div style="font-size: 2.5rem;">🔧</div>
+          <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: white; letter-spacing: -0.5px;">Offset <span style="color: #FF9B28;">Plumbing</span></div>
+          <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Ottawa's Highest Rated Plumber</div>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <span style="background: #FF9B28; color: black; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">5.0★ Perfect</span>
+            <span style="background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">24/7 Emergency</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Plumbing Services</div>
+          <h3 class="project-name">Offset Plumbing</h3>
+          <p class="project-type">Premium redesign for Ottawa's highest-rated plumber (5.0★, 83 reviews). Transformed a bare-bones one-page site into a bold, trust-building experience with 24/7 emergency CTA.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">Responsive</span>
+            <span class="tech-tag">Black & Orange</span>
+          </div>
+          <a href="offset-plumbing.html" class="project-link" target="_blank">
+            View Live <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3: AK Renovations -->
+      <div class="project">
+        <div class="project-preview" style="background: #FAFAF8; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+          <div style="font-size: 2.5rem;">🏠</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.8rem; color: #B78E4E; letter-spacing: 2px;">AK</div>
+          <div style="font-size: 0.7rem; color: rgba(0,0,0,0.35); letter-spacing: 2px; text-transform: uppercase;">Renovations · Ottawa</div>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <span style="background: #B78E4E; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">Luxury Design</span>
+            <span style="background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.4); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">Photo Gallery</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Home Renovations</div>
+          <h3 class="project-name">AK Renovations</h3>
+          <p class="project-type">Luxury editorial redesign for a basement, kitchen & bathroom renovation company. Features a photo gallery, animated service cards, scrolling marquee, and a 4-step process section.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">Responsive</span>
+            <span class="tech-tag">White & Gold</span>
+          </div>
+          <a href="ak-renovations.html" class="project-link" target="_blank">
+            View Live <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 4: MJ Handyman -->
+      <div class="project">
+        <div class="project-preview" style="background: #1E1E1E; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+          <div style="font-size: 2.5rem;">🔧</div>
+          <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: #E8C800; letter-spacing: -0.5px;">MJ <span style="color: white;">Handyman</span></div>
+          <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Orléans & Ottawa</div>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <span style="background: #E8C800; color: #1E1E1E; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">Est. 2017</span>
+            <span style="background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">Same-Day Service</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">Handyman Services</div>
+          <h3 class="project-name">MJ Handyman</h3>
+          <p class="project-type">Bold, editorial website for an Orléans & Ottawa handyman service. Features a service grid, scrolling ticker, review stack, and strong same-day booking CTA.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">Responsive</span>
+            <span class="tech-tag">Dark & Yellow</span>
+          </div>
+          <a href="mj-handyman.html" class="project-link" target="_blank">
+            View Live <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-text">
+        <div class="section-eyebrow">// About Me</div>
+        <h3>I'm a web developer in Ottawa who helps local businesses <strong>look as good online</strong> as they are in person.</h3>
+        <p>Most local businesses have outdated websites — or no website at all. Meanwhile, their customers are Googling them every day. I fix that gap by designing fast, modern sites that build trust and drive action.</p>
+        <p>I specialize in one-page and multi-page websites for service businesses: contractors, auto shops, restaurants, clinics, and more. Every site I build is mobile-first, fast-loading, and designed to convert visitors into customers.</p>
+        <div class="about-skills">
+          <span class="skill-tag">HTML / CSS / JS</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Responsive Design</span>
+          <span class="skill-tag">SEO Basics</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Website Hosting</span>
+          <span class="skill-tag">Speed Optimization</span>
+          <span class="skill-tag">Claude Code</span>
+        </div>
+      </div>
+      <div class="about-metrics">
+        <div class="metric">
+          <div class="metric-val">10<span>+</span></div>
+          <div class="metric-label">Projects Built</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">&lt;2<span>s</span></div>
+          <div class="metric-label">Avg Load Time</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">100<span>%</span></div>
+          <div class="metric-label">Mobile Responsive</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">Ottawa</div>
+          <div class="metric-label">Local & Available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="section-eyebrow">// FAQ</div>
+    <h2 class="section-heading">Common <em>questions.</em></h2>
+    <p class="section-sub">Everything you need to know before we get started.</p>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-q">How much does a website cost?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Packages start at $1,499 for a 5-page site. Most local businesses go with the Growth plan at $3,499 which includes CMS, SEO, and a blog. I also do custom quotes for larger projects.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How long does it take to build?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Most websites are delivered in 2–4 weeks depending on the package. I'll give you a clear timeline before we start and keep you updated every step of the way.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Will my site work on mobile?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. Every site I build is mobile-first — meaning I design for phones first, then scale up. Over 70% of your visitors will be on mobile, so this is non-negotiable.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can you help me rank on Google?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Every site includes basic on-page SEO (meta tags, speed optimization, schema markup). The Growth and Premium plans include local SEO optimization to help you rank in Ottawa searches.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you offer maintenance after launch?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — I offer monthly maintenance plans starting at $99/month which includes updates, backups, security monitoring, and small content changes. No long-term contracts required.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I need to provide content?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">It helps, but it's not required. I can write copy for your site based on a short conversation about your business. Photos can be sourced from professional stock libraries or your own collection.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-eyebrow">// Let's Work Together</div>
+    <h2>Need a website that<br>actually <em>works?</em></h2>
+    <p class="cta-desc">Whether you need a new site from scratch or a redesign that brings your business into 2025 — I'd love to chat. Free consultation, no pressure.</p>
+    <a href="mailto:bilalxmoussa@gmail.com" class="cta-email">bilalxmoussa@gmail.com</a>
+    <div class="cta-btns">
+      <a href="mailto:bilalxmoussa@gmail.com" class="btn-accent">Send Me an Email</a>
+      <a href="tel:6135583577" class="btn-outline">Call (613) 558-3577</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-left">© 2025 Neon Craft — Web Designer & Developer, Ottawa ON</div>
+    <ul class="footer-right">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
+</body>
+</html>

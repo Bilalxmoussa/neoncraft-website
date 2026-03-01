@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ottawa's Handyman — 20+ Years of Home Repairs Done Right</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#F5F0E8;--cream2:#EDE7DB;--white:#FDFCF9;
+  --green:#1B4332;--green2:#2D6A4F;--green3:#40916C;--green-l:rgba(27,67,50,.06);
+  --ink:#1A1A1A;--ink2:#555;--ink3:#888;--ink4:#BBB;
+  --border:rgba(0,0,0,.08);--gold:#C9A84C;
+  --display:'Anton',sans-serif;--mono:'Space Mono',monospace;--body:'Manrope',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink2);overflow-x:hidden}
+::selection{background:var(--green);color:#fff}
+
+/* ═══ NAV ═══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--green);padding:0;
+}
+.nav-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.7rem 3rem;max-width:1400px;margin:0 auto;
+}
+.n-logo{
+  text-decoration:none;display:flex;align-items:center;gap:.6rem;
+}
+.n-logo-box{
+  width:36px;height:36px;background:var(--gold);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:1.1rem;color:var(--green);
+}
+.n-logo-txt{font-family:var(--display);font-size:1.15rem;color:#fff;letter-spacing:.5px;text-transform:uppercase}
+.n-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.n-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.75rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .3s}
+.n-links a:hover{color:#fff}
+.n-phone{
+  color:#fff!important;background:var(--gold);padding:.5rem 1.2rem;border-radius:4px;
+  font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:0;text-transform:none;
+  transition:all .25s!important;
+}
+.n-phone:hover{background:#D4AF5A!important;transform:translateY(-1px)}
+.mob-t{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px}
+.mob-t span{display:block;width:22px;height:2px;background:#fff}
+
+/* ═══ HERO ═══ */
+.hero{
+  padding:8rem 3rem 0;
+  min-height:100vh;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'HANDYMAN';position:absolute;bottom:-4rem;left:-2rem;
+  font-family:var(--display);font-size:clamp(8rem,20vw,18rem);
+  color:rgba(0,0,0,.025);white-space:nowrap;pointer-events:none;
+  letter-spacing:5px;
+}
+.hero-grid{
+  max-width:1400px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;min-height:80vh;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:4rem 4rem 4rem 0;
+  animation:slideR .7s ease both;
+}
+.hero-tag{
+  font-family:var(--mono);font-size:.65rem;font-weight:700;
+  color:var(--green);letter-spacing:2px;text-transform:uppercase;
+  display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem;
+}
+.hero-tag::before{content:'';width:32px;height:2px;background:var(--green)}
+.hero h1{
+  font-family:var(--display);font-size:clamp(3rem,6vw,5.5rem);
+  line-height:.9;color:var(--ink);text-transform:uppercase;
+  letter-spacing:-1px;
+}
+.hero h1 em{
+  color:var(--green);font-style:normal;
+  -webkit-text-stroke:2px var(--green);-webkit-text-fill-color:transparent;
+}
+.hero-desc{
+  font-size:1rem;line-height:1.8;color:var(--ink2);
+  margin-top:1.5rem;max-width:440px;
+}
+.hero-badges{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;
+}
+.h-badge{
+  background:var(--green-l);border:1px solid rgba(27,67,50,.12);
+  padding:.4rem .9rem;border-radius:3px;
+  font-size:.7rem;font-weight:700;color:var(--green);
+  letter-spacing:.3px;
+}
+.hero-ctas{display:flex;gap:.65rem;margin-top:2rem;flex-wrap:wrap}
+.btn-g{
+  background:var(--green);color:#fff;padding:1rem 2.25rem;
+  border:none;border-radius:4px;font-size:.85rem;font-weight:700;
+  font-family:var(--body);cursor:pointer;transition:all .3s;
+  text-decoration:none;text-transform:uppercase;letter-spacing:.5px;
+}
+.btn-g:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 12px 28px rgba(27,67,50,.2)}
+.btn-o2{
+  background:transparent;color:var(--ink);padding:1rem 2.25rem;
+  border:2px solid var(--ink);border-radius:4px;font-size:.85rem;font-weight:700;
+  font-family:var(--body);cursor:pointer;transition:all .3s;
+  text-decoration:none;text-transform:uppercase;letter-spacing:.5px;
+}
+.btn-o2:hover{border-color:var(--green);color:var(--green)}
+
+/* hero right — photo collage */
+.hero-right{
+  position:relative;overflow:hidden;
+  animation:slideL .7s ease .1s both;
+}
+.hero-photos{
+  display:grid;grid-template-rows:1fr 1fr;height:100%;gap:0;
+}
+.hero-photo{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.85)saturate(.9);
+  transition:filter .5s;
+}
+.hero-photo:hover{filter:brightness(1)saturate(1)}
+.hero-overlay{
+  position:absolute;bottom:2rem;left:2rem;
+  background:var(--green);color:#fff;
+  padding:1.25rem 1.75rem;border-radius:4px;
+  box-shadow:0 16px 40px rgba(0,0,0,.2);
+  z-index:3;
+}
+.hero-overlay h4{font-family:var(--display);font-size:2rem;letter-spacing:1px}
+.hero-overlay p{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:.15rem}
+
+/* ═══ TICKER ═══ */
+.ticker{
+  background:var(--green);overflow:hidden;padding:1rem 0;
+  white-space:nowrap;
+}
+.ticker-track{
+  display:flex;animation:scroll 30s linear infinite;
+}
+.ticker-item{
+  font-family:var(--display);font-size:1.1rem;
+  color:rgba(255,255,255,.3);text-transform:uppercase;
+  letter-spacing:3px;padding:0 2rem;flex-shrink:0;
+}
+.ticker-item b{color:var(--gold)}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ SERVICES ═══ */
+.sec{padding:6rem 3rem}
+.con{max-width:1200px;margin:0 auto}
+.sec-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;flex-wrap:wrap;gap:1rem}
+.sec-lab{font-family:var(--mono);font-size:.65rem;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.sec-lab::before{content:'';width:24px;height:2px;background:var(--green)}
+.sec-h{font-family:var(--display);font-size:clamp(2rem,4vw,3.2rem);color:var(--ink);text-transform:uppercase;letter-spacing:-1px;line-height:.95}
+.sec-h em{color:var(--green);font-style:normal}
+.sec-sub{color:var(--ink3);font-size:.9rem;line-height:1.7;max-width:400px}
+.svc-sec{background:var(--white)}
+
+/* asymmetric service grid */
+.svc-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;grid-auto-rows:auto}
+.svc{
+  background:var(--cream);border:1px solid var(--border);border-radius:6px;
+  overflow:hidden;position:relative;transition:all .35s;
+}
+.svc:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.06)}
+.s1{grid-column:span 5}.s2{grid-column:span 7}
+.s3{grid-column:span 4}.s4{grid-column:span 4}.s5{grid-column:span 4}
+.s6{grid-column:span 6}.s7{grid-column:span 6}
+.svc-inner{padding:2rem}
+.svc-num{font-family:var(--display);font-size:4rem;color:rgba(27,67,50,.06);line-height:1;margin-bottom:.5rem}
+.svc h3{font-family:var(--display);font-size:1.3rem;color:var(--ink);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem}
+.svc p{font-size:.82rem;color:var(--ink2);line-height:1.65}
+.svc-photo{
+  width:100%;height:180px;object-fit:cover;
+  filter:brightness(.85)saturate(.85);transition:filter .4s;
+}
+.svc:hover .svc-photo{filter:brightness(1)saturate(1)}
+
+/* ═══ WHY ═══ */
+.why-sec{
+  background:var(--ink);color:#fff;position:relative;overflow:hidden;
+}
+.why-sec::after{
+  content:'20+';position:absolute;right:3rem;top:50%;transform:translateY(-50%);
+  font-family:var(--display);font-size:clamp(10rem,18vw,22rem);
+  color:rgba(255,255,255,.02);pointer-events:none;letter-spacing:5px;
+}
+.why-sec .sec-lab{color:var(--gold)}.why-sec .sec-lab::before{background:var(--gold)}
+.why-sec .sec-h{color:#fff}
+.why-sec .sec-sub{color:rgba(255,255,255,.35)}
+.why-row{display:flex;gap:0;flex-wrap:wrap}
+.why-item{
+  flex:1;min-width:200px;padding:2rem 2.5rem;
+  border-right:1px solid rgba(255,255,255,.06);
+  transition:background .3s;
+}
+.why-item:last-child{border-right:none}
+.why-item:hover{background:rgba(255,255,255,.03)}
+.why-n{font-family:var(--display);font-size:3rem;color:rgba(201,168,76,.15);margin-bottom:.75rem}
+.why-item h4{font-size:.9rem;font-weight:800;color:#fff;margin-bottom:.3rem}
+.why-item p{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.6}
+
+/* ═══ REVIEWS ═══ */
+.rev-sec{background:var(--cream)}
+.rev-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.rev-left{position:sticky;top:7rem}
+.rev-big-quote{
+  font-family:var(--display);font-size:clamp(1.8rem,3.5vw,3rem);
+  color:var(--ink);line-height:1.05;text-transform:uppercase;
+  margin:1.5rem 0;
+}
+.rev-big-quote em{color:var(--green);font-style:normal}
+.rev-stack{display:flex;flex-direction:column;gap:1rem}
+.rv{
+  background:var(--white);border:1px solid var(--border);border-radius:6px;
+  padding:2rem;transition:all .3s;position:relative;
+  padding-left:2.5rem;
+}
+.rv::before{
+  content:'"';position:absolute;top:.75rem;left:.85rem;
+  font-family:var(--display);font-size:3rem;color:var(--green);
+  opacity:.15;line-height:1;
+}
+.rv:hover{transform:translateX(6px);box-shadow:0 12px 30px rgba(0,0,0,.04)}
+.rv-txt{font-size:.88rem;color:var(--ink);line-height:1.65;font-weight:500}
+.rv-a{display:flex;align-items:center;gap:.75rem;margin-top:1rem}
+.rv-dot{width:32px;height:32px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.65rem;font-weight:800}
+.rv-info{}
+.rv-n{font-size:.78rem;font-weight:800;color:var(--ink)}
+.rv-l{font-size:.68rem;color:var(--ink3)}
+
+/* ═══ PROCESS ═══ */
+.proc-sec{background:var(--green);color:#fff}
+.proc-sec .sec-lab{color:var(--gold)}.proc-sec .sec-lab::before{background:var(--gold)}
+.proc-sec .sec-h{color:#fff}
+.proc-row{display:flex;gap:0;margin-top:3rem}
+.proc-step{
+  flex:1;padding:2.5rem;
+  border-right:1px solid rgba(255,255,255,.08);
+  position:relative;
+}
+.proc-step:last-child{border-right:none}
+.proc-n{font-family:var(--display);font-size:5rem;color:rgba(255,255,255,.06);line-height:1;margin-bottom:.5rem}
+.proc-step h3{font-size:1rem;font-weight:800;color:#fff;margin-bottom:.3rem}
+.proc-step p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6}
+.proc-arrow{
+  position:absolute;right:-12px;top:50%;transform:translateY(-50%);
+  width:24px;height:24px;background:var(--gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;color:var(--green);font-weight:900;z-index:2;
+}
+
+/* ═══ AREAS ═══ */
+.area-sec{background:var(--white)}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chip{
+  background:var(--cream);border:1px solid var(--border);border-radius:3px;
+  padding:.45rem 1rem;font-size:.78rem;font-weight:600;color:var(--ink2);
+  transition:all .25s;cursor:default;
+}
+.chip:hover{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* ═══ CTA ═══ */
+.cta-sec{
+  background:var(--cream2);padding:7rem 3rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-sec::before{
+  content:'CALL NOW';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--display);font-size:clamp(6rem,15vw,14rem);
+  color:rgba(0,0,0,.02);white-space:nowrap;pointer-events:none;letter-spacing:5px;
+}
+.cta-in{max-width:600px;margin:0 auto;position:relative;z-index:2}
+.cta-sec h2{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.5rem);color:var(--ink);text-transform:uppercase;letter-spacing:-1px;line-height:.95;margin-bottom:.75rem}
+.cta-sec h2 em{color:var(--green);font-style:normal}
+.cta-p{color:var(--ink3);font-size:1rem;line-height:1.7;margin-bottom:2rem}
+.cta-phone{
+  display:inline-block;font-family:var(--display);
+  font-size:clamp(2rem,5vw,3.5rem);color:var(--green);
+  text-decoration:none;letter-spacing:1px;transition:all .3s;
+  border-bottom:3px solid var(--gold);padding-bottom:.2rem;
+}
+.cta-phone:hover{color:var(--green2)}
+.cta-btns{display:flex;justify-content:center;gap:.65rem;margin-top:2rem;flex-wrap:wrap}
+.cta-meta{display:flex;justify-content:center;gap:3.5rem;margin-top:3rem;flex-wrap:wrap}
+.cta-meta div{text-align:center}
+.cta-meta h5{font-family:var(--mono);font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:.15rem}
+.cta-meta p{font-size:.88rem;font-weight:700;color:var(--ink)}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--green);padding:2.5rem 3rem;color:rgba(255,255,255,.4)}
+.ft-row{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+}
+.ft-row a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.75rem;transition:color .3s}
+.ft-row a:hover{color:#fff}
+.ft-links{display:flex;gap:1.5rem;list-style:none}
+.ft-copy{font-size:.72rem}
+
+/* ═══ ANIM ═══ */
+@keyframes slideR{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideL{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}.hero-right{display:none}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr}
+  .s1,.s2,.s3,.s4,.s5,.s6,.s7{grid-column:span 1}
+  .why-row{flex-direction:column}.why-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+  .rev-layout{grid-template-columns:1fr}.rev-left{position:static}
+  .proc-row{flex-direction:column}.proc-step{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .proc-arrow{display:none}
+}
+@media(max-width:768px){
+  .n-links{display:none}.mob-t{display:flex}
+  nav .nav-inner{padding:.7rem 1.5rem}
+  .hero,.sec,.cta-sec{padding-left:1.5rem;padding-right:1.5rem}
+  .hero{padding-top:6rem}
+  .hero-left{padding:2rem 0}
+  .svc-grid{grid-template-columns:1fr}
+  .ft-row{flex-direction:column;text-align:center}
+  .ft-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="n-logo">
+      <div class="n-logo-box">OH</div>
+      <span class="n-logo-txt">Ottawa's Handyman</span>
+    </a>
+    <ul class="n-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="tel:6132927982" class="n-phone">(613) 292-7982</a></li>
+    </ul>
+    <button class="mob-t" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-tag">Est. 2003 — Ottawa, Ontario</div>
+      <h1>Same day.<br>Quick response.<br><em>Done right.</em></h1>
+      <p class="hero-desc">We fix or install almost anything in your home or business. Over 20 years of experience. Family-owned. One client at a time — so your project gets our full, undivided attention.</p>
+      <div class="hero-badges">
+        <span class="h-badge">✓ Family Owned</span>
+        <span class="h-badge">✓ No Subcontracting</span>
+        <span class="h-badge">✓ Written Estimates</span>
+        <span class="h-badge">✓ WHMIS Certified</span>
+        <span class="h-badge">✓ Security Clearance</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="tel:6132927982" class="btn-g">Get a Free Estimate</a>
+        <a href="#services" class="btn-o2">View Services</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photos">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=700&q=80" alt="Handyman at work">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=700&q=80" alt="Carpentry work">
+      </div>
+      <div class="hero-overlay">
+        <h4>20+ YEARS</h4>
+        <p>Serving Ottawa homeowners since 2003</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><b>★</b> Plumbing</span>
+    <span class="ticker-item"><b>★</b> Kitchen & Bath</span>
+    <span class="ticker-item"><b>★</b> Flooring</span>
+    <span class="ticker-item"><b>★</b> Drywall & Paint</span>
+    <span class="ticker-item"><b>★</b> Cement & Brick</span>
+    <span class="ticker-item"><b>★</b> Carpentry</span>
+    <span class="ticker-item"><b>★</b> Framing</span>
+    <span class="ticker-item"><b>★</b> Trim Work</span>
+    <span class="ticker-item"><b>★</b> Home Repairs</span>
+    <span class="ticker-item"><b>★</b> Landscaping</span>
+    <span class="ticker-item"><b>★</b> Plumbing</span>
+    <span class="ticker-item"><b>★</b> Kitchen & Bath</span>
+    <span class="ticker-item"><b>★</b> Flooring</span>
+    <span class="ticker-item"><b>★</b> Drywall & Paint</span>
+    <span class="ticker-item"><b>★</b> Cement & Brick</span>
+    <span class="ticker-item"><b>★</b> Carpentry</span>
+    <span class="ticker-item"><b>★</b> Framing</span>
+    <span class="ticker-item"><b>★</b> Trim Work</span>
+    <span class="ticker-item"><b>★</b> Home Repairs</span>
+    <span class="ticker-item"><b>★</b> Landscaping</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec svc-sec" id="services">
+  <div class="con">
+    <div class="sec-top">
+      <div>
+        <div class="sec-lab">What We Do</div>
+        <h2 class="sec-h">No job too small.<br>No list too <em>long.</em></h2>
+      </div>
+      <p class="sec-sub">From hanging blinds to remodelling your bathroom. We bring 20+ years of knowledge to every project.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc s1">
+        <img class="svc-photo" src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=500&q=80" alt="Plumbing" loading="lazy">
+        <div class="svc-inner">
+          <div class="svc-num">01</div>
+          <h3>Plumbing</h3>
+          <p>Leaky faucets, slow drains, toilet repairs, sewer line fixes. Quick, efficient, and properly done.</p>
+        </div>
+      </div>
+      <div class="svc s2">
+        <img class="svc-photo" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Kitchen" loading="lazy">
+        <div class="svc-inner">
+          <div class="svc-num">02</div>
+          <h3>Kitchen & Bath</h3>
+          <p>Cabinets, countertops, vanities, flooring, and full bathroom remodels. We'll enhance your space and make it functional.</p>
+        </div>
+      </div>
+      <div class="svc s3">
+        <div class="svc-inner">
+          <div class="svc-num">03</div>
+          <h3>Flooring</h3>
+          <p>Tile, hardwood, laminate, vinyl — plus baseboards and trim. Your choices are endless.</p>
+        </div>
+      </div>
+      <div class="svc s4">
+        <div class="svc-inner">
+          <div class="svc-num">04</div>
+          <h3>Drywall & Paint</h3>
+          <p>Fresh paint, drywall hanging, ceiling repairs, texture matching for seamless results.</p>
+        </div>
+      </div>
+      <div class="svc s5">
+        <div class="svc-inner">
+          <div class="svc-num">05</div>
+          <h3>Cement & Brick</h3>
+          <p>Parging, foundation patching, mortar repointing, and structural brick repairs.</p>
+        </div>
+      </div>
+      <div class="svc s6">
+        <img class="svc-photo" src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500&q=80" alt="Carpentry" loading="lazy">
+        <div class="svc-inner">
+          <div class="svc-num">06</div>
+          <h3>Carpentry & Framing</h3>
+          <p>Gates, fences, decks, framing, custom shelving. We handle the structural work that keeps your home solid.</p>
+        </div>
+      </div>
+      <div class="svc s7" style="background:var(--green);border-color:var(--green)">
+        <div class="svc-inner">
+          <div class="svc-num" style="color:rgba(255,255,255,.06)">+</div>
+          <h3 style="color:#fff">Something Else?</h3>
+          <p style="color:rgba(255,255,255,.5)">Blinds, landscaping, general maintenance — if it's in your home, we probably fix it. Call us and ask.</p>
+          <a href="tel:6132927982" style="display:inline-block;margin-top:1rem;background:var(--gold);color:var(--green);padding:.65rem 1.5rem;border-radius:3px;font-size:.78rem;font-weight:700;text-decoration:none;letter-spacing:.3px;transition:all .3s">(613) 292-7982</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec why-sec" id="why">
+  <div class="con">
+    <div class="sec-lab">The Difference</div>
+    <h2 class="sec-h">ON TIME. ON BUDGET.<br>WE PROMISE.</h2>
+    <div class="why-row" style="margin-top:3rem">
+      <div class="why-item"><div class="why-n">01</div><h4>Family Owned</h4><p>You deal directly with the people doing the work. No call centres, no runaround.</p></div>
+      <div class="why-item"><div class="why-n">02</div><h4>One Client at a Time</h4><p>No overbooking. No juggling. Your project gets 100% of our attention and focus.</p></div>
+      <div class="why-item"><div class="why-n">03</div><h4>Written Estimates</h4><p>Clear pricing with written proposals. No surprises when the invoice comes.</p></div>
+      <div class="why-item"><div class="why-n">04</div><h4>No Subcontracting</h4><p>Every job done by our team. Never passed off to a random third-party crew.</p></div>
+      <div class="why-item"><div class="why-n">05</div><h4>Smart Alternatives</h4><p>Replacing isn't always the answer. We find affordable fixes that make sense.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec" id="reviews">
+  <div class="con">
+    <div class="rev-layout">
+      <div class="rev-left">
+        <div class="sec-lab">Client Reviews</div>
+        <div class="rev-big-quote">Real reviews from real <em>neighbours</em> across Ottawa.</div>
+        <p class="sec-sub" style="margin-bottom:0">Five-star service backed by two decades of experience. Don't take our word for it — hear from the people who've trusted us with their homes.</p>
+      </div>
+      <div class="rev-stack">
+        <div class="rv">
+          <p class="rv-txt">Noah and his brother were very friendly and helpful. The scheduling was easy, the estimate was accurate, and the project was completed perfectly. We will definitely contact them again.</p>
+          <div class="rv-a"><div class="rv-dot">MB</div><div class="rv-info"><div class="rv-n">Margaret B.</div><div class="rv-l">Orléans, ON</div></div></div>
+        </div>
+        <div class="rv">
+          <p class="rv-txt">A pleasure to do business with. Communication was clear and transparent. The estimate was spot on and included several options. Work was done professionally and timely.</p>
+          <div class="rv-a"><div class="rv-dot">SS</div><div class="rv-info"><div class="rv-n">Steven S.</div><div class="rv-l">Barrhaven, ON</div></div></div>
+        </div>
+        <div class="rv">
+          <p class="rv-txt">The entire process was wonderful. He showed up exactly at 8am every morning and was kind enough to work around my meetings. Added costs were explained beforehand.</p>
+          <div class="rv-a"><div class="rv-dot">CC</div><div class="rv-info"><div class="rv-n">Carina C.</div><div class="rv-l">Nepean, ON</div></div></div>
+        </div>
+        <div class="rv">
+          <p class="rv-txt">What a meticulous handyman! Repaired my kitchen cabinet quickly without removing an adjoining cabinet another contractor said was necessary. Fee was reasonable too.</p>
+          <div class="rv-a"><div class="rv-dot">RE</div><div class="rv-info"><div class="rv-n">Richard & Elizabeth</div><div class="rv-l">Ottawa, ON</div></div></div>
+        </div>
+        <div class="rv">
+          <p class="rv-txt">Noah is dependable, responds promptly, shows up on time, works efficiently, does quality work, and his prices are reasonable. He's my go-to handyman from now on!</p>
+          <div class="rv-a"><div class="rv-dot">SF</div><div class="rv-info"><div class="rv-n">Susan F.</div><div class="rv-l">Kanata, ON</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec proc-sec" id="process">
+  <div class="con">
+    <div class="sec-lab">How It Works</div>
+    <h2 class="sec-h" style="color:#fff">SIMPLE AS 1-2-3.</h2>
+    <div class="proc-row">
+      <div class="proc-step">
+        <div class="proc-n">01</div>
+        <h3>Call or Email</h3>
+        <p>Reach out at (613) 292-7982 or send us a message. We'll arrange a time that's convenient for you.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-n">02</div>
+        <h3>Written Estimate</h3>
+        <p>We visit, assess the work, and provide a detailed written estimate with multiple options. No pressure.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-n">03</div>
+        <h3>We Fix It</h3>
+        <p>On time, on budget, done right. We leave your home better than we found it. That's the promise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="sec area-sec" id="areas">
+  <div class="con">
+    <div class="sec-lab">Service Area</div>
+    <h2 class="sec-h">SERVING ALL OF <em>OTTAWA.</em></h2>
+    <p class="sec-sub" style="margin-bottom:2rem">Home repair experts in the nation's capital and surrounding areas.</p>
+    <div class="chips">
+      <div class="chip">Orléans</div><div class="chip">Barrhaven</div><div class="chip">Kanata</div>
+      <div class="chip">Nepean</div><div class="chip">The Glebe</div><div class="chip">Centretown</div>
+      <div class="chip">Alta Vista</div><div class="chip">Gloucester</div><div class="chip">Westboro</div>
+      <div class="chip">Hintonburg</div><div class="chip">Sandy Hill</div><div class="chip">Stittsville</div>
+      <div class="chip">Manotick</div><div class="chip">Riverside South</div><div class="chip">Rockcliffe Park</div>
+      <div class="chip">ByWard Market</div><div class="chip">Beacon Hill</div><div class="chip">Blackburn Hamlet</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="cta-in">
+    <div class="sec-lab" style="justify-content:center">Get Started</div>
+    <h2>READY TO CROSS IT<br>OFF YOUR <em>LIST?</em></h2>
+    <p class="cta-p">Free written estimates. No obligation. Just an honest conversation about what your home needs.</p>
+    <a href="tel:6132927982" class="cta-phone">(613) 292-7982</a>
+    <div class="cta-btns">
+      <a href="tel:6132927982" class="btn-g">Call for Free Estimate</a>
+      <a href="mailto:info@ottawashandyman.com" class="btn-o2">Email Us</a>
+    </div>
+    <div class="cta-meta">
+      <div><h5>Location</h5><p>Ottawa, ON</p></div>
+      <div><h5>Experience</h5><p>20+ Years</p></div>
+      <div><h5>Same-Day</h5><p>Available</p></div>
+      <div><h5>Policy</h5><p>No Subcontracting</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-row">
+    <span class="ft-copy">© 2025 Ottawa's Handyman — Family Owned Since 2003</span>
+    <ul class="ft-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="tel:6132927982">(613) 292-7982</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
