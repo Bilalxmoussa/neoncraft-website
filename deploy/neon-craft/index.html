@@ -8,19 +8,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #09090B;
-      --surface: #111113;
-      --surface-2: #18181B;
-      --border: rgba(255,255,255,0.06);
-      --accent: #6D5CFF;
-      --accent-light: #8B7EFF;
-      --accent-glow: rgba(109,92,255,0.08);
-      --accent-glow-md: rgba(109,92,255,0.15);
-      --green: #34D399;
-      --white: #FAFAFA;
-      --text: #A1A1AA;
+      --bg: #FAFAFA;
+      --surface: #FFFFFF;
+      --surface-2: #F4F4F5;
+      --border: rgba(0,0,0,0.06);
+      --accent: #2563EB;
+      --accent-light: #3B82F6;
+      --accent-glow: rgba(37,99,235,0.06);
+      --accent-glow-md: rgba(37,99,235,0.12);
+      --green: #10B981;
+      --white: #18181B;
+      --text: #52525B;
       --text-dim: #71717A;
-      --text-faint: #3F3F46;
+      --text-faint: #A1A1AA;
       --serif: 'Instrument Serif', serif;
       --sans: 'Outfit', sans-serif;
       --mono: 'Geist Mono', monospace;
@@ -41,7 +41,7 @@
 
     .grain {
       position: fixed; inset: 0; z-index: 9999;
-      pointer-events: none; opacity: 0.3;
+      pointer-events: none; opacity: 0.15;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
     }
 
@@ -50,7 +50,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 1rem 2.5rem;
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(9,9,11,0.88);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
     }
@@ -82,13 +82,13 @@
       border-radius: 6px;
       font-weight: 600 !important;
       font-size: 0.8rem !important;
-      transition: all 0.25s !important;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s !important;
     }
 
     .nav-cta:hover {
       background: var(--accent-light) !important;
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(109,92,255,0.3);
+      box-shadow: 0 6px 20px rgba(37,99,235,0.25);
     }
 
     .mobile-toggle {
@@ -98,7 +98,7 @@
 
     .mobile-toggle span {
       display: block; width: 100%; height: 1.5px;
-      background: var(--white); position: absolute; left: 0;
+      background: #18181B; position: absolute; left: 0;
     }
 
     .mobile-toggle span:nth-child(1) { top: 0; }
@@ -117,7 +117,7 @@
       position: absolute;
       top: -20%; left: 30%;
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(109,92,255,0.06) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -178,14 +178,14 @@
       border: none; border-radius: 8px;
       font-size: 0.9rem; font-weight: 600;
       font-family: var(--sans);
-      cursor: pointer; transition: all 0.3s;
+      cursor: pointer; transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
       text-decoration: none;
     }
 
     .btn-accent:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(109,92,255,0.25);
+      box-shadow: 0 12px 32px rgba(37,99,235,0.2);
     }
 
     .btn-outline {
@@ -196,7 +196,7 @@
       border-radius: 8px;
       font-size: 0.9rem; font-weight: 500;
       font-family: var(--sans);
-      cursor: pointer; transition: all 0.3s;
+      cursor: pointer; transition: border-color 0.3s, color 0.3s;
       text-decoration: none;
     }
 
@@ -219,12 +219,14 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1.5rem 1.75rem;
-      transition: all 0.3s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
     }
 
     .stat-card:hover {
-      border-color: rgba(109,92,255,0.15);
+      border-color: rgba(37,99,235,0.15);
       transform: translateX(-4px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(37,99,235,0.06);
     }
 
     .stat-val {
@@ -279,26 +281,27 @@
     }
 
     .project {
-      background: var(--surface-2);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
       overflow: hidden;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      transition: all 0.4s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 6px 20px rgba(0,0,0,0.03);
+      transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
     }
 
     .project:hover {
-      border-color: rgba(109,92,255,0.15);
+      border-color: rgba(37,99,235,0.15);
       transform: translateY(-4px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 24px 48px rgba(37,99,235,0.06);
     }
 
     .project-preview {
       position: relative;
       min-height: 380px;
       overflow: hidden;
-      background: #0D0D0F;
+      background: #1A1A1A;
     }
 
     .project-preview iframe {
@@ -312,7 +315,7 @@
 
     .project-preview-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(9,9,11,0.1), rgba(9,9,11,0.4));
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.15));
       pointer-events: none;
     }
 
@@ -354,8 +357,8 @@
     }
 
     .tech-tag {
-      background: rgba(109,92,255,0.08);
-      border: 1px solid rgba(109,92,255,0.12);
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.1);
       border-radius: 4px;
       padding: 0.3rem 0.7rem;
       font-size: 0.68rem;
@@ -370,7 +373,7 @@
       font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: color 0.3s, gap 0.3s;
       width: fit-content;
     }
 
@@ -446,11 +449,12 @@
       border-radius: 12px;
       padding: 1.75rem;
       text-align: center;
-      transition: all 0.3s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     .metric:hover {
-      border-color: rgba(109,92,255,0.15);
+      border-color: rgba(37,99,235,0.15);
     }
 
     .metric-val {
@@ -479,11 +483,12 @@
     }
 
     .price-card {
-      background: var(--surface-2);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2.5rem 2rem;
-      transition: all 0.4s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+      transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
       position: relative;
       overflow: hidden;
     }
@@ -499,15 +504,15 @@
 
     .price-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(109,92,255,0.2);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+      border-color: rgba(37,99,235,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 24px 48px rgba(37,99,235,0.06);
     }
 
     .price-card:hover::before { transform: scaleX(1); }
 
     .price-card.featured {
-      border-color: rgba(109,92,255,0.25);
-      background: linear-gradient(to bottom, rgba(109,92,255,0.06), var(--surface-2));
+      border-color: rgba(37,99,235,0.2);
+      background: linear-gradient(to bottom, rgba(37,99,235,0.04), var(--surface-2));
     }
 
     .price-card.featured::before { transform: scaleX(1); }
@@ -515,7 +520,7 @@
     .price-badge {
       display: inline-block;
       background: var(--accent-glow-md);
-      border: 1px solid rgba(109,92,255,0.2);
+      border: 1px solid rgba(37,99,235,0.15);
       color: var(--accent-light);
       font-size: 0.62rem;
       font-weight: 700;
@@ -580,7 +585,7 @@
       font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s, color 0.3s;
       font-family: var(--sans);
     }
 
@@ -592,7 +597,7 @@
     .price-cta-primary:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(109,92,255,0.25);
+      box-shadow: 0 8px 24px rgba(37,99,235,0.2);
     }
 
     .price-cta-secondary {
@@ -620,10 +625,11 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      transition: border-color 0.3s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
-    .faq-item:hover { border-color: rgba(109,92,255,0.12); }
+    .faq-item:hover { border-color: rgba(37,99,235,0.12); }
 
     .faq-q {
       width: 100%;
@@ -684,7 +690,7 @@
       position: absolute;
       top: 50%; left: 50%; transform: translate(-50%, -50%);
       width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(109,92,255,0.04), transparent 55%);
+      background: radial-gradient(circle, rgba(37,99,235,0.04), transparent 55%);
       pointer-events: none;
     }
 
@@ -719,12 +725,12 @@
       text-decoration: none;
       display: block;
       margin-bottom: 2rem;
-      transition: all 0.3s;
+      transition: color 0.3s, text-shadow 0.3s;
     }
 
     .cta-email:hover {
       color: var(--accent-light);
-      text-shadow: 0 0 30px rgba(109,92,255,0.2);
+      text-shadow: 0 0 30px rgba(37,99,235,0.2);
     }
 
     .cta-btns {
@@ -856,13 +862,13 @@
     <div class="project-grid">
       <!-- Project 1: Spark Auto -->
       <div class="project">
-        <div class="project-preview" style="background: #141414; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+        <div class="project-preview" style="background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
           <div style="font-size: 2.5rem;">⚡</div>
           <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: #E63226; letter-spacing: -0.5px;">SPARK<span style="color: white;">AUTO</span></div>
           <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Ottawa's Most Honest Mechanic</div>
           <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
             <span style="background: #E63226; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">20+ Years</span>
-            <span style="background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">4.4★ Google</span>
+            <span style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">4.4★ Google</span>
           </div>
         </div>
         <div class="project-info">
@@ -883,13 +889,13 @@
 
       <!-- Project 2: Offset Plumbing -->
       <div class="project">
-        <div class="project-preview" style="background: #0C0C0C; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+        <div class="project-preview" style="background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
           <div style="font-size: 2.5rem;">🔧</div>
           <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: white; letter-spacing: -0.5px;">Offset <span style="color: #FF9B28;">Plumbing</span></div>
           <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Ottawa's Highest Rated Plumber</div>
           <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
             <span style="background: #FF9B28; color: black; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">5.0★ Perfect</span>
-            <span style="background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">24/7 Emergency</span>
+            <span style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">24/7 Emergency</span>
           </div>
         </div>
         <div class="project-info">
@@ -937,13 +943,13 @@
 
       <!-- Project 4: MJ Handyman -->
       <div class="project">
-        <div class="project-preview" style="background: #1E1E1E; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+        <div class="project-preview" style="background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
           <div style="font-size: 2.5rem;">🔧</div>
           <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: #E8C800; letter-spacing: -0.5px;">MJ <span style="color: white;">Handyman</span></div>
           <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Orléans & Ottawa</div>
           <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-            <span style="background: #E8C800; color: #1E1E1E; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">Est. 2017</span>
-            <span style="background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">Same-Day Service</span>
+            <span style="background: #E8C800; color: #1A1A1A; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">Est. 2017</span>
+            <span style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">Same-Day Service</span>
           </div>
         </div>
         <div class="project-info">
