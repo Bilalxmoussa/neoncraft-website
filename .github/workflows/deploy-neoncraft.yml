@@ -20,23 +20,8 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -p 65002 82.29.191.98 >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Find document root and deploy
+      - name: Deploy to Hostinger
         run: |
-          SSH_CMD="ssh -i ~/.ssh/deploy_key -p 65002 u788930128@82.29.191.98"
-
-          # Discover the correct document root
-          echo "=== Checking possible document roots ==="
-          $SSH_CMD "ls -la ~/public_html/ 2>/dev/null | head -5; echo '---'; ls -la ~/domains/ 2>/dev/null | head -5; echo '---'; ls -la ~/domains/neoncraft.me/public_html/ 2>/dev/null | head -5" || true
-
-          # Try to find where index.html actually lives
-          DOCROOT=$($SSH_CMD "if [ -d ~/domains/neoncraft.me/public_html ]; then echo ~/domains/neoncraft.me/public_html; elif [ -d ~/public_html ]; then echo ~/public_html; fi")
-          echo "Detected document root: $DOCROOT"
-
-          # Deploy with rsync (no --delete to preserve existing .htaccess etc.)
           rsync -avz -e "ssh -i ~/.ssh/deploy_key -p 65002" \
             deploy/neon-craft/ \
-            u788930128@82.29.191.98:${DOCROOT}/
-
-          # Verify deployment
-          echo "=== Verifying deployed files ==="
-          $SSH_CMD "ls -la ${DOCROOT}/services/ 2>/dev/null; echo '---'; ls -la ${DOCROOT}/blog/ 2>/dev/null; echo '---'; ls -la ${DOCROOT}/areas/ 2>/dev/null"
+            u788930128@82.29.191.98:/home/u788930128/domains/neoncraft.me/public_html/
