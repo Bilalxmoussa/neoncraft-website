@@ -1,0 +1,11 @@
+# Enable extensionless URLs
+RewriteEngine On
+
+# If the request doesn't have a file extension and isn't a directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# Custom 404 page
+ErrorDocument 404 /404.html
