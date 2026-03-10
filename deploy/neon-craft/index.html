@@ -3,24 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neon Craft | Web Designer & Developer — Ottawa</title>
+  <title>Neon Craft | Web Design Ottawa — Websites That Get You More Customers</title>
+  <meta name="description" content="Ottawa web design & development by Neon Craft. Custom websites, local SEO, and fast-loading designs that help Ottawa businesses rank higher and convert more visitors. Free consultation.">
+  <meta name="keywords" content="web design Ottawa, Ottawa web designer, web development Ottawa, Ottawa SEO, website design Ottawa ON, Ottawa small business website">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neoncraft.me/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta property="og:title" content="Neon Craft | Web Design Ottawa — Websites That Get You More Customers">
+  <meta property="og:description" content="Ottawa web design & development by Neon Craft. Custom websites, local SEO, and fast-loading designs that help Ottawa businesses rank higher and convert more visitors.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neoncraft.me/">
+  <meta property="og:site_name" content="Neon Craft">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Neon Craft | Web Design Ottawa — Websites That Get You More Customers">
+  <meta name="twitter:description" content="Ottawa web design & development by Neon Craft. Custom websites, local SEO, and fast-loading designs that help Ottawa businesses rank higher and convert more visitors.">
+  <meta name="geo.region" content="CA-ON">
+  <meta name="geo.placename" content="Ottawa">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #FAFAFA;
-      --surface: #FFFFFF;
-      --surface-2: #F4F4F5;
-      --border: rgba(0,0,0,0.06);
-      --accent: #2563EB;
-      --accent-light: #3B82F6;
-      --accent-glow: rgba(37,99,235,0.06);
-      --accent-glow-md: rgba(37,99,235,0.12);
-      --green: #10B981;
-      --white: #18181B;
+      --bg: #FFFFFF;
+      --surface: #F5F5F7;
+      --surface-2: #EDEDF0;
+      --border: rgba(0,0,0,0.08);
+      --accent: #6D5CFF;
+      --accent-light: #8B7EFF;
+      --accent-glow: rgba(109,92,255,0.06);
+      --accent-glow-md: rgba(109,92,255,0.10);
+      --green: #34D399;
+      --white: #09090B;
       --text: #52525B;
       --text-dim: #71717A;
-      --text-faint: #A1A1AA;
+      --text-faint: #D4D4D8;
       --serif: 'Instrument Serif', serif;
       --sans: 'Outfit', sans-serif;
       --mono: 'Geist Mono', monospace;
@@ -45,65 +61,184 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
     }
 
+    /* ════════ CURSOR GLOW ════════ */
+    .cursor-glow {
+      position: fixed;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(109,92,255,0.04) 0%, transparent 70%);
+      pointer-events: none; z-index: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    /* ════════ SCROLL REVEAL ════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
     /* ════════ NAV ════════ */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 1rem 2.5rem;
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.6);
       backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,0.92);
+      border-bottom-color: var(--border);
+      padding: 0.75rem 2.5rem;
     }
 
     .nav-name {
       font-weight: 700; font-size: 1.75rem;
       color: var(--white); text-decoration: none;
       letter-spacing: -0.3px;
+      transition: transform 0.3s;
     }
-
+    .nav-name:hover { transform: scale(1.02); }
     .nav-name span { color: var(--accent); }
+
+    .nav-phone {
+      display: flex; align-items: center; gap: 0.4rem;
+      color: var(--green); text-decoration: none;
+      font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
+      padding: 0.35rem 0.85rem; border-radius: 6px;
+      background: rgba(52,211,153,0.08);
+      border: 1px solid rgba(52,211,153,0.15);
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+      white-space: nowrap;
+    }
+    .nav-phone:hover {
+      background: rgba(52,211,153,0.15);
+      border-color: rgba(52,211,153,0.3);
+      transform: translateY(-1px);
+    }
+    .nav-phone:active { transform: translateY(0) scale(0.98); }
+    .nav-phone:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .nav-phone-icon { font-size: 0.85rem; }
 
     .nav-links {
       display: flex; gap: 2rem; align-items: center; list-style: none;
     }
-
     .nav-links a {
       color: var(--text-dim); text-decoration: none;
       font-size: 0.82rem; font-weight: 500;
       transition: color 0.3s;
+      position: relative;
     }
-
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -4px; left: 0; right: 0; height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: left;
+    }
     .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { transform: scaleX(1); }
 
     .nav-cta {
       background: var(--accent) !important;
       color: white !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 600 !important;
-      font-size: 0.8rem !important;
-      transition: background 0.25s, transform 0.25s, box-shadow 0.25s !important;
+      padding: 0.5rem 1.2rem; border-radius: 6px;
+      font-weight: 600 !important; font-size: 0.8rem !important;
+      transition: transform 0.25s, background 0.25s, box-shadow 0.25s !important;
     }
-
+    .nav-cta::after { display: none !important; }
     .nav-cta:hover {
       background: var(--accent-light) !important;
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(37,99,235,0.25);
+      box-shadow: 0 6px 20px rgba(109,92,255,0.3);
     }
+    .nav-cta:active { transform: translateY(0) scale(0.98); }
 
+    /* Mobile nav */
     .mobile-toggle {
       display: none; background: none; border: none; cursor: pointer;
-      width: 24px; height: 16px; position: relative;
+      width: 28px; height: 20px; position: relative; z-index: 110;
     }
-
     .mobile-toggle span {
-      display: block; width: 100%; height: 1.5px;
-      background: #18181B; position: absolute; left: 0;
+      display: block; width: 100%; height: 2px;
+      background: var(--white); position: absolute; left: 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .mobile-toggle span:nth-child(1) { top: 0; }
+    .mobile-toggle span:nth-child(2) { top: 9px; }
+    .mobile-toggle span:nth-child(3) { top: 18px; }
+    .mobile-toggle.open span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+    .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.open span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(32px);
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2rem; color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+      letter-spacing: -0.5px;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* Mobile phone in nav */
+    .mobile-phone {
+      display: none;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.7rem;
+      margin-right: 0.5rem;
     }
 
-    .mobile-toggle span:nth-child(1) { top: 0; }
-    .mobile-toggle span:nth-child(2) { top: 7px; }
-    .mobile-toggle span:nth-child(3) { top: 14px; }
+    /* Sticky mobile CTA bar */
+    .mobile-cta-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(24px);
+      border-top: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      gap: 0.5rem;
+    }
+    .mobile-cta-bar a {
+      flex: 1; text-align: center;
+      padding: 0.75rem 1rem; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; font-family: var(--sans);
+    }
+    .mobile-cta-call {
+      background: var(--green); color: #FFFFFF;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .mobile-cta-call:hover { background: #4ade80; transform: translateY(-1px); }
+    .mobile-cta-call:active { transform: translateY(0) scale(0.98); }
+    .mobile-cta-msg {
+      background: var(--accent); color: white;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .mobile-cta-msg:hover { background: var(--accent-light); transform: translateY(-1px); }
+    .mobile-cta-msg:active { transform: translateY(0) scale(0.98); }
 
     /* ════════ HERO ════════ */
     .hero {
@@ -112,627 +247,566 @@
       padding: 8rem 2.5rem 5rem;
       position: relative; overflow: hidden;
     }
-
     .hero-glow {
+      position: absolute; top: -20%; left: 30%;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(109,92,255,0.07) 0%, transparent 55%);
+      pointer-events: none; animation: glowFloat 8s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute; bottom: -30%; right: 10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(52,211,153,0.03) 0%, transparent 55%);
+      pointer-events: none; animation: glowFloat 10s ease-in-out infinite reverse;
+    }
+    @keyframes glowFloat {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -20px); }
+    }
+
+    /* ════════ BACKGROUND PATHS ════════ */
+    .bg-paths-container {
       position: absolute;
-      top: -20%; left: 30%;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 60%);
+      inset: 0;
       pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .bg-paths-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .bg-path {
+      fill: none;
+      stroke-dasharray: 0.3 0.7;
+      animation: pathFlow var(--path-dur) linear var(--path-delay) infinite;
+    }
+    @keyframes pathFlow {
+      0%   { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -1; }
     }
 
     .hero-inner {
       max-width: 1100px; margin: 0 auto; width: 100%;
-      position: relative; z-index: 2;
+      position: relative; z-index: 10;
       display: grid; grid-template-columns: 1.3fr 0.7fr;
       gap: 4rem; align-items: center;
     }
-
-    .hero-left { animation: fadeIn 0.8s ease both; }
+    .hero-left { animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     .hero-tag {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: var(--mono);
-      font-size: 0.7rem; font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.5px;
-      margin-bottom: 1.5rem;
+      font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+      color: var(--accent); letter-spacing: 0.5px; margin-bottom: 1.5rem;
+      background: var(--accent-glow);
+      padding: 0.4rem 0.9rem; border-radius: 20px;
+      border: 1px solid rgba(109,92,255,0.1);
     }
-
     .hero-tag .dot {
-      width: 6px; height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 2.5s infinite;
+      width: 6px; height: 6px; background: var(--green);
+      border-radius: 50%; animation: pulse 2.5s infinite;
+      box-shadow: 0 0 8px rgba(52,211,153,0.4);
     }
 
     .hero h1 {
       font-family: var(--serif);
       font-size: clamp(3rem, 6vw, 4.8rem);
-      line-height: 0.95;
-      color: var(--white);
-      letter-spacing: -2px;
-      font-weight: 400;
+      line-height: 0.95; color: var(--white);
+      letter-spacing: -2px; font-weight: 400;
     }
-
-    .hero h1 em { color: var(--accent); font-style: italic; }
-
+    .hero h1 em {
+      color: var(--accent); font-style: italic;
+      position: relative;
+    }
+    .hero h1 em::after {
+      content: ''; position: absolute;
+      bottom: 2px; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px; opacity: 0.5;
+    }
     .hero-desc {
-      font-size: 1.05rem;
-      color: var(--text);
-      line-height: 1.75;
-      margin-top: 1.5rem;
-      max-width: 480px;
-      font-weight: 300;
+      font-size: 1.05rem; color: var(--text);
+      line-height: 1.75; margin-top: 1.5rem;
+      max-width: 480px; font-weight: 300;
     }
-
     .hero-actions {
       display: flex; gap: 0.75rem;
       margin-top: 2.5rem; flex-wrap: wrap;
     }
 
     .btn-accent {
-      background: var(--accent);
-      color: white;
-      padding: 0.85rem 2rem;
-      border: none; border-radius: 8px;
-      font-size: 0.9rem; font-weight: 600;
-      font-family: var(--sans);
-      cursor: pointer; transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-      text-decoration: none;
+      background: var(--accent); color: white;
+      padding: 0.85rem 2rem; border: none; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; font-family: var(--sans);
+      cursor: pointer; text-decoration: none;
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
+    .btn-accent::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
     .btn-accent:hover {
-      background: var(--accent-light);
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(37,99,235,0.2);
+      box-shadow: 0 12px 32px rgba(109,92,255,0.3), 0 0 0 1px rgba(109,92,255,0.2);
     }
+    .btn-accent:hover::before { opacity: 1; }
+    .btn-accent:active { transform: translateY(0) scale(0.98); }
+    .btn-accent:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
 
     .btn-outline {
-      background: transparent;
-      color: var(--text);
+      background: transparent; color: var(--text);
       padding: 0.85rem 2rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.9rem; font-weight: 500;
-      font-family: var(--sans);
-      cursor: pointer; transition: border-color 0.3s, color 0.3s;
-      text-decoration: none;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 0.9rem; font-weight: 500; font-family: var(--sans);
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
     }
-
     .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(109,92,255,0.1);
     }
+    .btn-outline:active { transform: translateY(0) scale(0.98); }
+    .btn-outline:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
 
-    /* Hero right — stats */
-    .hero-right {
-      animation: fadeIn 0.8s ease 0.2s both;
+    /* Hero proof strip */
+    .hero-proof {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-top: 1.75rem; flex-wrap: wrap;
     }
+    .hero-proof-item { display: flex; align-items: center; gap: 0.35rem; }
+    .hero-proof-stars { color: #FEBC2E; font-size: 0.75rem; letter-spacing: 1px; }
+    .hero-proof-text { font-size: 0.75rem; color: var(--text-dim); font-weight: 500; }
+    .hero-proof-sep { color: var(--text-faint); font-size: 0.65rem; }
 
-    .stat-stack {
-      display: flex; flex-direction: column; gap: 1.25rem;
-    }
-
+    /* Hero right — stat cards */
+    .hero-right { animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+    .stat-stack { display: flex; flex-direction: column; gap: 1.25rem; }
     .stat-card {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      border: 1px solid var(--border); border-radius: 12px;
       padding: 1.5rem 1.75rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
       transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
     }
-
+    .stat-card::after {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, rgba(109,92,255,0.06), transparent);
+      pointer-events: none;
+    }
     .stat-card:hover {
-      border-color: rgba(37,99,235,0.15);
+      border-color: rgba(109,92,255,0.15);
       transform: translateX(-4px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 24px rgba(37,99,235,0.06);
+      box-shadow: 4px 0 20px rgba(109,92,255,0.06);
     }
-
-    .stat-val {
-      font-family: var(--serif);
-      font-size: 2.2rem;
-      color: var(--white);
-      line-height: 1;
-    }
-
+    .stat-val { font-family: var(--serif); font-size: 2.2rem; color: var(--white); line-height: 1; }
     .stat-val span { color: var(--accent); }
+    .stat-label { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; font-weight: 500; }
 
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      margin-top: 0.25rem;
-      font-weight: 500;
-    }
-
-    /* ════════ PROJECTS ════════ */
-    .section { padding: 7rem 2.5rem; position: relative; z-index: 2; }
-    .container { max-width: 1100px; margin: 0 auto; }
+    /* ════════ SECTION SHARED ════════ */
+    .section { padding: 7rem 2.5rem; position: relative; z-index: 2; overflow: hidden; }
+    .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
 
     .section-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.65rem; font-weight: 500;
+      font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
       letter-spacing: 3px; text-transform: uppercase;
       color: var(--accent); margin-bottom: 0.75rem;
     }
-
     .section-heading {
       font-family: var(--serif);
       font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--white);
-      line-height: 1.05; letter-spacing: -1.5px;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
+      color: var(--white); line-height: 1.05;
+      letter-spacing: -1.5px; margin-bottom: 0.5rem; font-weight: 400;
     }
-
     .section-heading em { color: var(--accent); }
-
     .section-sub {
-      color: var(--text-dim);
-      max-width: 440px;
+      color: var(--text-dim); max-width: 440px;
       line-height: 1.75; font-size: 0.95rem;
       margin-bottom: 4rem; font-weight: 300;
     }
 
-    .projects-section { background: var(--surface); }
-
-    .project-grid {
-      display: flex; flex-direction: column; gap: 2rem;
+    /* ════════ SCROLLING MARQUEE ════════ */
+    .marquee-wrap {
+      overflow: hidden; padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface); position: relative; z-index: 2;
+    }
+    .marquee-track {
+      display: flex; gap: 3rem;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      font-family: var(--serif); font-size: 1.3rem;
+      color: var(--text-faint); white-space: nowrap;
+      display: flex; align-items: center; gap: 3rem;
+      letter-spacing: -0.5px;
+    }
+    .marquee-item span { color: var(--accent); font-size: 0.6rem; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
+    /* ════════ PROJECTS ════════ */
+    .projects-section { background: var(--surface); }
+    .project-grid { display: flex; flex-direction: column; gap: 2rem; }
     .project {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      display: grid;
+      background: var(--surface-2);
+      border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 6px 20px rgba(0,0,0,0.03);
       transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
     }
-
     .project:hover {
-      border-color: rgba(37,99,235,0.15);
+      border-color: rgba(109,92,255,0.15);
       transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 24px 48px rgba(37,99,235,0.06);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(109,92,255,0.06);
     }
-
     .project-preview {
-      position: relative;
-      min-height: 380px;
-      overflow: hidden;
-      background: #1A1A1A;
+      position: relative; min-height: 380px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
     }
 
-    .project-preview iframe {
-      width: 200%;
-      height: 200%;
-      border: none;
-      transform: scale(0.5);
-      transform-origin: top left;
-      pointer-events: none;
+    /* Browser mockup frame */
+    .browser-frame {
+      width: 88%; max-width: 420px;
+      border-radius: 10px; overflow: hidden;
+      background: #09090B;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.03);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s;
+    }
+    .project:hover .browser-frame {
+      transform: scale(1.02);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(109,92,255,0.1);
+    }
+    .browser-frame--light { background: #FAFAF8; border-color: rgba(0,0,0,0.08); }
+    .browser-topbar {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 0.85rem;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .browser-frame--light .browser-topbar {
+      background: rgba(0,0,0,0.03);
+      border-bottom-color: rgba(0,0,0,0.06);
+    }
+    .browser-dots { display: flex; gap: 5px; flex-shrink: 0; }
+    .browser-dots span { width: 8px; height: 8px; border-radius: 50%; }
+    .browser-dots span:nth-child(1) { background: #FF5F57; }
+    .browser-dots span:nth-child(2) { background: #FEBC2E; }
+    .browser-dots span:nth-child(3) { background: #28C840; }
+    .browser-url {
+      flex: 1; background: rgba(255,255,255,0.05);
+      border-radius: 5px; padding: 0.3rem 0.65rem;
+      font-family: var(--mono); font-size: 0.55rem;
+      color: var(--text-faint); white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .browser-frame--light .browser-url {
+      background: rgba(0,0,0,0.04); color: rgba(0,0,0,0.3);
+      border-color: rgba(0,0,0,0.06);
+    }
+    .browser-body {
+      padding: 2rem 1.5rem;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.75rem; min-height: 220px;
     }
 
-    .project-preview-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.15));
-      pointer-events: none;
+    .preview-emoji { font-size: 2.2rem; }
+    .preview-brand { font-family: var(--sans); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.5px; }
+    .preview-sub { font-size: 0.62rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; }
+    .preview-badges { display: flex; gap: 0.4rem; margin-top: 0.3rem; }
+    .preview-badge { padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.58rem; font-weight: 700; }
+    .preview-badge-outline {
+      background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5);
+      padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.58rem; font-weight: 600;
     }
 
     .project-info {
-      padding: 3rem;
-      display: flex; flex-direction: column;
-      justify-content: center;
+      padding: 3rem; display: flex;
+      flex-direction: column; justify-content: center;
     }
-
     .project-tag {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      font-family: var(--mono); font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
     }
-
     .project-name {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      color: var(--white);
-      font-weight: 400;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.5rem;
+      font-family: var(--serif); font-size: 1.8rem;
+      color: var(--white); font-weight: 400;
+      letter-spacing: -0.5px; margin-bottom: 0.5rem;
     }
-
     .project-type {
-      font-size: 0.88rem;
-      color: var(--text-dim);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
+      font-size: 0.88rem; color: var(--text-dim);
+      margin-bottom: 1.5rem; line-height: 1.6;
     }
-
-    .project-tech {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin-bottom: 1.5rem;
-    }
-
+    .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
     .tech-tag {
-      background: rgba(37,99,235,0.06);
-      border: 1px solid rgba(37,99,235,0.1);
-      border-radius: 4px;
-      padding: 0.3rem 0.7rem;
-      font-size: 0.68rem;
-      font-family: var(--mono);
-      color: var(--accent-light);
-      font-weight: 500;
+      background: rgba(109,92,255,0.08);
+      border: 1px solid rgba(109,92,255,0.12); border-radius: 4px;
+      padding: 0.3rem 0.7rem; font-size: 0.68rem;
+      font-family: var(--mono); color: var(--accent-light); font-weight: 500;
+      transition: background 0.3s, border-color 0.3s;
     }
-
+    .project:hover .tech-tag {
+      background: rgba(109,92,255,0.12);
+      border-color: rgba(109,92,255,0.2);
+    }
     .project-link {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      color: var(--white);
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s, gap 0.3s;
+      color: var(--white); font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; transition: color 0.3s, gap 0.3s;
       width: fit-content;
     }
+    .project-link:hover { color: var(--accent); gap: 0.6rem; }
+    .project-link:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+    .project-link .arrow { transition: transform 0.3s; }
+    .project-link:hover .arrow { transform: translateX(3px); }
 
-    .project-link:hover {
-      color: var(--accent);
-      gap: 0.6rem;
+    /* ════════ PROCESS ════════ */
+    .process-section { background: var(--bg); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
     }
-
-    .project-link .arrow {
-      transition: transform 0.3s;
+    .process-grid::before {
+      content: '';
+      position: absolute; top: 2.5rem; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent) 20%, var(--accent) 80%, transparent);
+      opacity: 0.15;
     }
-
-    .project-link:hover .arrow {
-      transform: translateX(3px);
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+    .process-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: var(--mono); font-size: 0.75rem;
+      color: var(--accent); font-weight: 500;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      position: relative; z-index: 2;
+    }
+    .process-step:hover .process-num {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      transform: scale(1.1);
+    }
+    .process-title {
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .process-desc {
+      font-size: 0.8rem; color: var(--text-dim);
+      line-height: 1.6; max-width: 200px; margin: 0 auto;
     }
 
     /* ════════ ABOUT ════════ */
-    .about-section { background: var(--bg); }
-
+    .about-section { background: var(--surface); }
     .about-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: 1fr 1fr;
       gap: 5rem; align-items: center;
     }
-
     .about-text h3 {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      color: var(--white);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
+      font-family: var(--serif); font-size: 1.6rem;
+      color: var(--white); font-weight: 400; font-style: italic;
+      line-height: 1.4; margin-bottom: 1.5rem;
     }
-
-    .about-text h3 strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
+    .about-text h3 strong { color: var(--accent); font-weight: 600; }
     .about-text p {
-      font-size: 0.92rem;
-      color: var(--text-dim);
-      line-height: 1.8;
-      margin-bottom: 1rem;
+      font-size: 0.92rem; color: var(--text-dim);
+      line-height: 1.8; margin-bottom: 1rem;
     }
-
-    .about-skills {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin-top: 1.5rem;
-    }
-
+    .about-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
     .skill-tag {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0.4rem 0.85rem;
-      font-size: 0.75rem;
-      font-family: var(--mono);
-      color: var(--text);
-      font-weight: 500;
+      background: var(--surface-2);
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 0.4rem 0.85rem; font-size: 0.75rem;
+      font-family: var(--mono); color: var(--text); font-weight: 500;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .skill-tag:hover {
+      border-color: rgba(109,92,255,0.2);
+      color: var(--accent-light);
     }
 
-    .about-metrics {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
+    .about-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .metric {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem;
-      text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-      transition: border-color 0.3s, box-shadow 0.3s;
+      background: var(--surface-2);
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.75rem; text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
     }
-
     .metric:hover {
-      border-color: rgba(37,99,235,0.15);
+      border-color: rgba(109,92,255,0.15);
+      transform: translateY(-2px);
     }
-
-    .metric-val {
-      font-family: var(--serif);
-      font-size: 2.5rem;
-      color: var(--white);
-      line-height: 1;
-    }
-
+    .metric-val { font-family: var(--serif); font-size: 2.5rem; color: var(--white); line-height: 1; }
     .metric-val span { color: var(--accent); }
+    .metric-label { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.3rem; font-weight: 500; }
 
-    .metric-label {
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      margin-top: 0.3rem;
-      font-weight: 500;
-    }
-
-    /* ════════ PRICING ════════ */
-    .pricing-section { background: var(--surface); }
-
-    .pricing-grid {
+    /* ════════ TESTIMONIALS ════════ */
+    .testimonials-section { background: var(--bg); }
+    .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
     }
-
-    .price-card {
+    .testimonial {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-      transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
       position: relative;
-      overflow: hidden;
     }
-
-    .price-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transition: transform 0.4s;
+    .testimonial:hover {
+      border-color: rgba(109,92,255,0.12);
+      transform: translateY(-3px);
     }
-
-    .price-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(37,99,235,0.2);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 24px 48px rgba(37,99,235,0.06);
-    }
-
-    .price-card:hover::before { transform: scaleX(1); }
-
-    .price-card.featured {
-      border-color: rgba(37,99,235,0.2);
-      background: linear-gradient(to bottom, rgba(37,99,235,0.04), var(--surface-2));
-    }
-
-    .price-card.featured::before { transform: scaleX(1); }
-
-    .price-badge {
-      display: inline-block;
-      background: var(--accent-glow-md);
-      border: 1px solid rgba(37,99,235,0.15);
-      color: var(--accent-light);
-      font-size: 0.62rem;
-      font-weight: 700;
+    .testimonial-stars {
+      color: #FEBC2E;
+      font-size: 0.85rem;
       letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      margin-bottom: 1.25rem;
-      font-family: var(--mono);
+      margin-bottom: 1rem;
     }
-
-    .price-tier {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-
-    .price-amount {
-      font-family: var(--serif);
-      font-size: 3rem;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-
-    .price-amount span { color: var(--accent); font-size: 1.2rem; }
-
-    .price-desc {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
-    .price-features {
-      list-style: none;
-      display: flex; flex-direction: column;
-      gap: 0.6rem;
-      margin-bottom: 2rem;
-    }
-
-    .price-features li {
-      font-size: 0.8rem;
+    .testimonial-text {
+      font-size: 0.88rem;
       color: var(--text);
-      display: flex; align-items: center; gap: 0.6rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
     }
-
-    .price-features li::before {
-      content: '✓';
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.75rem;
+    .testimonial-author {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; color: white;
       flex-shrink: 0;
     }
-
-    .price-cta {
-      display: block;
-      text-align: center;
-      padding: 0.85rem;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s, color 0.3s;
-      font-family: var(--sans);
+    .testimonial-name {
+      font-size: 0.82rem; font-weight: 600; color: var(--white);
     }
-
-    .price-cta-primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .price-cta-primary:hover {
-      background: var(--accent-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37,99,235,0.2);
-    }
-
-    .price-cta-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .price-cta-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+    .testimonial-role {
+      font-size: 0.7rem; color: var(--text-dim);
     }
 
     /* ════════ FAQ ════════ */
-    .faq-section { background: var(--bg); }
-
+    .faq-section { background: var(--surface); }
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 0.4fr 1fr;
+      gap: 4rem; align-items: start;
+    }
     .faq-grid {
-      max-width: 720px;
-      display: flex; flex-direction: column;
-      gap: 0.75rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
     }
-
     .faq-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-      transition: border-color 0.3s, box-shadow 0.3s;
+      background: var(--surface-2);
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; transition: border-color 0.3s;
     }
-
-    .faq-item:hover { border-color: rgba(37,99,235,0.12); }
-
+    .faq-item:hover { border-color: rgba(109,92,255,0.12); }
     .faq-q {
-      width: 100%;
-      background: none; border: none;
+      width: 100%; background: none; border: none;
       padding: 1.25rem 1.5rem;
       display: flex; justify-content: space-between; align-items: center;
-      cursor: pointer;
-      font-family: var(--sans);
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--white);
-      text-align: left;
+      cursor: pointer; font-family: var(--sans);
+      font-size: 0.92rem; font-weight: 600;
+      color: var(--white); text-align: left;
+      transition: color 0.3s;
     }
-
     .faq-q:hover { color: var(--accent-light); }
-
+    .faq-q:focus-visible { outline: 2px solid var(--accent-light); outline-offset: -2px; }
     .faq-icon {
-      font-size: 1.2rem;
-      color: var(--accent);
-      transition: transform 0.3s;
-      flex-shrink: 0;
-      margin-left: 1rem;
+      font-size: 1.2rem; color: var(--accent);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0; margin-left: 1rem;
     }
-
     .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-    }
-
-    .faq-item.open .faq-a {
-      max-height: 300px;
-    }
-
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .faq-item.open .faq-a { max-height: 300px; }
     .faq-a-inner {
-      padding: 0 1.5rem 1.25rem;
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      line-height: 1.75;
-    }
-
-    @media (max-width: 768px) {
-      .pricing-grid { grid-template-columns: 1fr; }
+      padding: 0 1.5rem 1.25rem; font-size: 0.85rem;
+      color: var(--text-dim); line-height: 1.75;
     }
 
     /* ════════ CTA ════════ */
     .cta-section {
-      background: var(--surface);
+      background: var(--bg);
       padding: 8rem 2.5rem;
       text-align: center;
       position: relative; overflow: hidden;
     }
-
     .cta-section::before {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(37,99,235,0.04), transparent 55%);
-      pointer-events: none;
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(109,92,255,0.05), transparent 50%);
+      pointer-events: none; animation: glowFloat 12s ease-in-out infinite;
     }
-
     .cta-inner {
       max-width: 580px; margin: 0 auto;
       position: relative; z-index: 2;
     }
-
+    .cta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
     .cta-section h2 {
       font-family: var(--serif);
       font-size: clamp(2.2rem, 5vw, 3.5rem);
-      color: var(--white);
-      line-height: 1;
-      letter-spacing: -1.5px;
-      margin-bottom: 1rem;
-      font-weight: 400;
+      color: var(--white); line-height: 1;
+      letter-spacing: -1.5px; margin-bottom: 1rem; font-weight: 400;
     }
-
     .cta-section h2 em { color: var(--accent); }
-
     .cta-desc {
-      color: var(--text-dim);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
+      color: var(--text-dim); font-size: 1rem;
+      line-height: 1.7; margin-bottom: 2.5rem;
     }
-
     .cta-email {
       font-family: var(--serif);
       font-size: clamp(1.5rem, 3vw, 2.2rem);
-      color: var(--accent);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 2rem;
-      transition: color 0.3s, text-shadow 0.3s;
+      color: var(--accent); text-decoration: none;
+      display: inline-block; margin-bottom: 2rem;
+      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
     }
-
     .cta-email:hover {
       color: var(--accent-light);
-      text-shadow: 0 0 30px rgba(37,99,235,0.2);
+      text-shadow: 0 0 30px rgba(109,92,255,0.3);
+      transform: scale(1.02);
     }
-
     .cta-btns {
       display: flex; justify-content: center;
       gap: 0.75rem; flex-wrap: wrap;
@@ -740,40 +814,213 @@
 
     /* ════════ FOOTER ════════ */
     footer {
-      background: var(--bg);
-      padding: 2rem 2.5rem;
+      background: var(--surface);
+      padding: 3rem 2.5rem 2rem;
       border-top: 1px solid var(--border);
       position: relative; z-index: 2;
     }
-
-    .footer-row {
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .footer-top {
       display: flex; justify-content: space-between;
-      align-items: center; max-width: 1100px;
-      margin: 0 auto; flex-wrap: wrap; gap: 1rem;
+      align-items: start; padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem; flex-wrap: wrap; gap: 2rem;
+    }
+    .footer-brand {
+      font-weight: 700; font-size: 1.5rem;
+      color: var(--white); letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-tagline {
+      font-size: 0.78rem; color: var(--text-dim);
+      max-width: 260px; line-height: 1.6;
+    }
+    .footer-links-group { display: flex; gap: 4rem; }
+    .footer-col h4 {
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--text-faint); text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 0.75rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy { font-size: 0.7rem; color: var(--text-faint); }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-socials a {
+      width: 32px; height: 32px; border-radius: 6px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.8rem;
+      transition: border-color 0.3s, color 0.3s, transform 0.3s;
+    }
+    .footer-socials a:hover {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-2px);
     }
 
-    .footer-left {
-      font-size: 0.72rem; color: var(--text-faint);
+    /* ════════ LEAD FORM ════════ */
+    .lead-form {
+      margin: 2rem 0 1.5rem;
+      text-align: left;
     }
-
-    .footer-right {
-      display: flex; gap: 1.5rem; list-style: none;
+    .form-steps-indicator {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.5rem; margin-bottom: 2rem;
     }
-
-    .footer-right a {
-      color: var(--text-faint); text-decoration: none;
-      font-size: 0.72rem; font-weight: 500;
-      transition: color 0.3s;
+    .step-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--surface-2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 0.7rem; color: var(--text-faint);
+      font-weight: 500; transition: background 0.3s, border-color 0.3s, color 0.3s;
     }
+    .step-dot.active {
+      background: var(--accent); border-color: var(--accent);
+      color: white;
+    }
+    .step-dot.done {
+      background: var(--green); border-color: var(--green);
+      color: white;
+    }
+    .step-line {
+      width: 40px; height: 2px;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+    .step-line.done { background: var(--green); }
 
-    .footer-right a:hover { color: var(--accent); }
-
-    /* ════════ ANIMATIONS ════════ */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(24px); }
+    .form-step { display: none; }
+    .form-step.active { display: block; animation: formFadeIn 0.35s ease both; }
+    @keyframes formFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .form-step-label {
+      font-family: var(--serif); font-size: 1.3rem;
+      color: var(--white); margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .form-options {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .form-option input { display: none; }
+    .form-option-box {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.4rem; padding: 1.25rem 1rem;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 12px; cursor: pointer;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      text-align: center;
+    }
+    .form-option-box:hover {
+      border-color: rgba(109,92,255,0.2);
+      background: rgba(109,92,255,0.04);
+      transform: translateY(-2px);
+    }
+    .form-option input:checked + .form-option-box {
+      border-color: var(--accent);
+      background: rgba(109,92,255,0.08);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    .form-option-icon { font-size: 1.5rem; }
+    .form-option-text {
+      font-size: 0.82rem; font-weight: 600; color: var(--white);
+    }
+
+    .form-fields { display: flex; flex-direction: column; gap: 0.75rem; }
+    .form-input {
+      width: 100%; padding: 0.85rem 1rem;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--white);
+      font-family: var(--sans); font-size: 0.88rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      outline: none;
+    }
+    .form-input::placeholder { color: var(--text-faint); }
+    .form-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(109,92,255,0.1);
+    }
+    .form-textarea { resize: vertical; min-height: 80px; }
+
+    .form-back {
+      background: none; border: none; cursor: pointer;
+      color: var(--text-dim); font-size: 0.78rem; font-family: var(--sans);
+      margin-top: 1rem; padding: 0.35rem 0;
+      transition: color 0.3s;
+      display: block;
+    }
+    .form-back:hover { color: var(--accent); }
+
+    .form-submit:disabled {
+      opacity: 0.5; cursor: not-allowed;
+    }
+
+    .form-success-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(52,211,153,0.12); border: 2px solid var(--green);
+      color: var(--green); font-size: 1.5rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    /* ════════ TRUST SIGNALS ════════ */
+    .cta-trust {
+      display: flex; justify-content: center;
+      gap: 1.5rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .trust-badge {
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .trust-icon { font-size: 0.85rem; }
+    .trust-text {
+      font-size: 0.72rem; color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .cta-direct { text-align: center; }
+
+    /* ════════ BACK TO TOP ════════ */
+    .back-to-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s, border-color 0.3s;
+      z-index: 90;
+    }
+    .back-to-top.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .back-to-top:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ════════ ANIMATIONS ════════ */
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
@@ -786,61 +1033,251 @@
       .project { grid-template-columns: 1fr; }
       .project-preview { min-height: 280px; }
       .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .process-grid::before { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .faq-layout { grid-template-columns: 1fr; gap: 2rem; }
     }
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
+      .mobile-phone { display: flex; }
+      .mobile-cta-bar { display: flex; }
       nav, .section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
       .hero { padding: 7rem 1.5rem 4rem; }
+      .hero-proof { justify-content: center; }
       .about-metrics { grid-template-columns: 1fr 1fr; }
-      .footer-row { flex-direction: column; text-align: center; }
-      .footer-right { justify-content: center; }
+      .footer-top { flex-direction: column; }
+      .footer-links-group { gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; padding-bottom: 5rem; }
+      .cursor-glow { display: none; }
+      .cta-card { padding: 2.5rem 1.5rem; }
+      .form-options { grid-template-columns: 1fr 1fr; }
+      .cta-trust { gap: 1rem; }
+      .cta-btns { flex-direction: column; align-items: stretch; }
     }
   </style>
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Neon Craft",
+    "description": "Ottawa web design & development. Custom websites, local SEO, and fast-loading designs that help Ottawa businesses rank higher and convert more visitors.",
+    "url": "https://neoncraft.me",
+    "telephone": "+1-613-558-3577",
+    "email": "bilalxmoussa@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ottawa",
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.4215,
+      "longitude": -75.6972
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Ottawa",
+      "sameAs": "https://en.wikipedia.org/wiki/Ottawa"
+    },
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [],
+    "serviceType": ["Web Design", "Web Development", "SEO", "Local SEO"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Design Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Design Ottawa",
+            "url": "https://neoncraft.me/services/web-design-ottawa.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SEO Ottawa",
+            "url": "https://neoncraft.me/services/seo-ottawa.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Development Ottawa",
+            "url": "https://neoncraft.me/services/web-development-ottawa.html"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Neon Craft",
+    "url": "https://neoncraft.me",
+    "description": "Ottawa web design & development by Neon Craft.",
+    "publisher": {
+      "@type": "ProfessionalService",
+      "name": "Neon Craft"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a website cost in Ottawa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Packages start at $1,499 for a 5-page site. Most Ottawa local businesses go with the Growth plan at $3,499 which includes CMS, SEO, and a blog. Custom quotes available for larger projects."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build a website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most websites are delivered in 2–4 weeks depending on the package. You'll get a clear timeline before we start and updates every step of the way."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my site work on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Every site is mobile-first — designed for phones first, then scaled up. Over 70% of your visitors will be on mobile, so this is non-negotiable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help my Ottawa business rank on Google?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every site includes basic on-page SEO (meta tags, speed optimization, schema markup). The Growth and Premium plans include local SEO optimization to help you rank in Ottawa searches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer website maintenance after launch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — monthly maintenance plans start at $99/month including updates, backups, security monitoring, and small content changes. No long-term contracts required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to provide content for my website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It helps, but it's not required. Copy can be written based on a short conversation about your business. Photos can be sourced from professional stock libraries or your own collection."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
 <div class="grain"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
 
 <!-- ════ NAV ════ -->
-<nav>
+<nav id="mainNav">
   <a href="#" class="nav-name">neon<span>craft</span></a>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
-<li><a href="#faq">FAQ</a></li>
+    <li><a href='/services/web-design-ottawa'>Services</a></li>
+    <li><a href="/blog/">Blog</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="tel:6135583577" class="nav-phone"><span class="nav-phone-icon">📞</span> (613) 558-3577</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
-  <button class="mobile-toggle" aria-label="Menu">
+  <a href="tel:6135583577" class="nav-phone mobile-phone" aria-label="Call us">📞</a>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a class='mobile-link' href='/services/web-design-ottawa'>Services</a>
+  <a href="/blog/" class="mobile-link">Blog</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
 <!-- ════ HERO ════ -->
 <section class="hero">
   <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+
+  <!-- Animated Background Paths -->
+  <div class="bg-paths-container" id="bg-paths-1"></div>
+  <div class="bg-paths-container" id="bg-paths-2"></div>
+
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-tag">
         <span class="dot"></span>
         Available for new projects
       </div>
-      <h1>I build websites that get local businesses <em>more customers.</em></h1>
-      <p class="hero-desc">Web designer & developer based in Ottawa. I help small businesses look professional online — with fast, modern websites that actually convert visitors into calls and bookings.</p>
+      <h1>I build websites that get Ottawa businesses <em>more customers.</em></h1>
+      <p class="hero-desc">Ottawa web designer & developer helping local businesses look professional online — with fast, modern websites that actually convert visitors into calls and bookings.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-accent">Work With Me</a>
-        <a href="#projects" class="btn-outline">View Projects ↓</a>
+        <a href="#contact" class="btn-accent">Get a Free Quote</a>
+        <a href="tel:6135583577" class="btn-outline">📞 Call Now</a>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-proof-item">
+          <span class="hero-proof-stars">★★★★★</span>
+          <span class="hero-proof-text">5.0 Client Rating</span>
+        </div>
+        <span class="hero-proof-sep">·</span>
+        <div class="hero-proof-item">
+          <span class="hero-proof-text">10+ Projects Delivered</span>
+        </div>
+        <span class="hero-proof-sep">·</span>
+        <div class="hero-proof-item">
+          <span class="hero-proof-text">Free Consultation</span>
+        </div>
       </div>
     </div>
     <div class="hero-right">
       <div class="stat-stack">
         <div class="stat-card">
-          <div class="stat-val">10<span>+</span></div>
+          <div class="stat-val"><span class="count" data-target="10">0</span><span>+</span></div>
           <div class="stat-label">Projects Completed</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">100<span>%</span></div>
+          <div class="stat-val"><span class="count" data-target="100">0</span><span>%</span></div>
           <div class="stat-label">Client Satisfaction</div>
         </div>
         <div class="stat-card">
@@ -852,120 +1289,232 @@
   </div>
 </section>
 
+<!-- ════ MARQUEE ════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Web Design <span>◆</span></div>
+    <div class="marquee-item">Development <span>◆</span></div>
+    <div class="marquee-item">SEO <span>◆</span></div>
+    <div class="marquee-item">Mobile-First <span>◆</span></div>
+    <div class="marquee-item">Ottawa <span>◆</span></div>
+    <div class="marquee-item">Fast Loading <span>◆</span></div>
+    <div class="marquee-item">Conversions <span>◆</span></div>
+    <div class="marquee-item">Local Business <span>◆</span></div>
+    <div class="marquee-item">Web Design <span>◆</span></div>
+    <div class="marquee-item">Development <span>◆</span></div>
+    <div class="marquee-item">SEO <span>◆</span></div>
+    <div class="marquee-item">Mobile-First <span>◆</span></div>
+    <div class="marquee-item">Ottawa <span>◆</span></div>
+    <div class="marquee-item">Fast Loading <span>◆</span></div>
+    <div class="marquee-item">Conversions <span>◆</span></div>
+    <div class="marquee-item">Local Business <span>◆</span></div>
+  </div>
+</div>
+
 <!-- ════ PROJECTS ════ -->
 <section class="section projects-section" id="projects">
+  <div class="bg-paths-container" id="bg-paths-projects"></div>
   <div class="container">
-    <div class="section-eyebrow">// Recent Work</div>
-    <h2 class="section-heading">Projects that <em>perform.</em></h2>
-    <p class="section-sub">Real redesigns for real Ottawa businesses. Built for speed, conversions, and mobile-first experiences.</p>
+    <div class="reveal">
+      <div class="section-eyebrow">// Recent Work</div>
+      <h2 class="section-heading">Projects that <em>perform.</em></h2>
+      <p class="section-sub">Real redesigns for real Ottawa businesses. Built for speed, SEO, conversions, and mobile-first experiences.</p>
+    </div>
 
     <div class="project-grid">
-      <!-- Project 1: Spark Auto -->
-      <div class="project">
-        <div class="project-preview" style="background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
-          <div style="font-size: 2.5rem;">⚡</div>
-          <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: #E63226; letter-spacing: -0.5px;">SPARK<span style="color: white;">AUTO</span></div>
-          <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Ottawa's Most Honest Mechanic</div>
-          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-            <span style="background: #E63226; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">20+ Years</span>
-            <span style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">4.4★ Google</span>
+      <div class="project reveal">
+        <div class="project-preview" style="background: #0D0D0F;">
+          <div class="browser-frame">
+            <div class="browser-topbar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-url">sparkauto.ca</div>
+            </div>
+            <div class="browser-body" style="background: #141414;">
+              <div class="preview-emoji">⚡</div>
+              <div class="preview-brand" style="color: #E63226;">SPARK<span style="color: white;">AUTO</span></div>
+              <div class="preview-sub">Ottawa's Most Honest Mechanic</div>
+              <div class="preview-badges">
+                <span class="preview-badge" style="background: #E63226; color: white;">20+ Years</span>
+                <span class="preview-badge-outline">4.4★ Google</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-info">
           <div class="project-tag">Auto Repair</div>
           <h3 class="project-name">Spark Auto</h3>
-          <p class="project-type">Full website redesign for a 20+ year Ottawa mechanic. Replaced an outdated Joomla site (with lorem ipsum still on it) with a conversion-focused, mobile-first experience.</p>
+          <p class="project-type">Full website redesign for a 20+ year Ottawa mechanic. Replaced an outdated Joomla site with a conversion-focused, mobile-first experience.</p>
           <div class="project-tech">
             <span class="tech-tag">HTML</span>
             <span class="tech-tag">CSS</span>
             <span class="tech-tag">Responsive</span>
             <span class="tech-tag">Dark & Red</span>
           </div>
-          <a href="spark-auto-redesign.html" class="project-link" target="_blank">
-            View Live <span class="arrow">→</span>
-          </a>
+          <a class='project-link' href='/deploy/spark-auto/' target='_blank'>View Live <span class="arrow">→</span></a>
         </div>
       </div>
 
-      <!-- Project 2: Offset Plumbing -->
-      <div class="project">
-        <div class="project-preview" style="background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
-          <div style="font-size: 2.5rem;">🔧</div>
-          <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: white; letter-spacing: -0.5px;">Offset <span style="color: #FF9B28;">Plumbing</span></div>
-          <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Ottawa's Highest Rated Plumber</div>
-          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-            <span style="background: #FF9B28; color: black; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">5.0★ Perfect</span>
-            <span style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">24/7 Emergency</span>
+      <div class="project reveal">
+        <div class="project-preview" style="background: #0D0D0F;">
+          <div class="browser-frame">
+            <div class="browser-topbar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-url">offsetplumbing.ca</div>
+            </div>
+            <div class="browser-body" style="background: #0C0C0C;">
+              <div class="preview-emoji">🔧</div>
+              <div class="preview-brand" style="color: white;">Offset <span style="color: #FF9B28;">Plumbing</span></div>
+              <div class="preview-sub">Ottawa's Highest Rated Plumber</div>
+              <div class="preview-badges">
+                <span class="preview-badge" style="background: #FF9B28; color: black;">5.0★ Perfect</span>
+                <span class="preview-badge-outline">24/7 Emergency</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-info">
           <div class="project-tag">Plumbing Services</div>
           <h3 class="project-name">Offset Plumbing</h3>
-          <p class="project-type">Premium redesign for Ottawa's highest-rated plumber (5.0★, 83 reviews). Transformed a bare-bones one-page site into a bold, trust-building experience with 24/7 emergency CTA.</p>
+          <p class="project-type">Premium redesign for Ottawa's highest-rated plumber (5.0★, 83 reviews). Transformed a bare-bones one-page site into a bold, trust-building experience.</p>
           <div class="project-tech">
             <span class="tech-tag">HTML</span>
             <span class="tech-tag">CSS</span>
             <span class="tech-tag">Responsive</span>
             <span class="tech-tag">Black & Orange</span>
           </div>
-          <a href="offset-plumbing.html" class="project-link" target="_blank">
-            View Live <span class="arrow">→</span>
-          </a>
+          <a class='project-link' href='/offset-plumbing' target='_blank'>View Live <span class="arrow">→</span></a>
         </div>
       </div>
 
-      <!-- Project 3: AK Renovations -->
-      <div class="project">
-        <div class="project-preview" style="background: #FAFAF8; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
-          <div style="font-size: 2.5rem;">🏠</div>
-          <div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.8rem; color: #B78E4E; letter-spacing: 2px;">AK</div>
-          <div style="font-size: 0.7rem; color: rgba(0,0,0,0.35); letter-spacing: 2px; text-transform: uppercase;">Renovations · Ottawa</div>
-          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-            <span style="background: #B78E4E; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">Luxury Design</span>
-            <span style="background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.4); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">Photo Gallery</span>
+      <div class="project reveal">
+        <div class="project-preview" style="background: #0D0D0F;">
+          <div class="browser-frame browser-frame--light">
+            <div class="browser-topbar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-url">akrenovations.ca</div>
+            </div>
+            <div class="browser-body" style="background: #FAFAF8;">
+              <div class="preview-emoji">🏠</div>
+              <div style="font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.8rem; color: #B78E4E; letter-spacing: 2px;">AK</div>
+              <div class="preview-sub" style="color: rgba(0,0,0,0.35);">Renovations · Ottawa</div>
+              <div class="preview-badges">
+                <span class="preview-badge" style="background: #B78E4E; color: white;">Luxury Design</span>
+                <span class="preview-badge" style="background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.4); font-weight: 600;">Photo Gallery</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-info">
           <div class="project-tag">Home Renovations</div>
           <h3 class="project-name">AK Renovations</h3>
-          <p class="project-type">Luxury editorial redesign for a basement, kitchen & bathroom renovation company. Features a photo gallery, animated service cards, scrolling marquee, and a 4-step process section.</p>
+          <p class="project-type">Luxury editorial redesign for a basement, kitchen & bathroom renovation company. Photo gallery, animated service cards, and a 4-step process section.</p>
           <div class="project-tech">
             <span class="tech-tag">HTML</span>
             <span class="tech-tag">CSS</span>
             <span class="tech-tag">Responsive</span>
             <span class="tech-tag">White & Gold</span>
           </div>
-          <a href="ak-renovations.html" class="project-link" target="_blank">
-            View Live <span class="arrow">→</span>
-          </a>
+          <a class='project-link' href='/ak-renovations' target='_blank'>View Live <span class="arrow">→</span></a>
         </div>
       </div>
 
-      <!-- Project 4: MJ Handyman -->
-      <div class="project">
-        <div class="project-preview" style="background: #1A1A1A; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
-          <div style="font-size: 2.5rem;">🔧</div>
-          <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.4rem; color: #E8C800; letter-spacing: -0.5px;">MJ <span style="color: white;">Handyman</span></div>
-          <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase;">Orléans & Ottawa</div>
-          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-            <span style="background: #E8C800; color: #1A1A1A; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700;">Est. 2017</span>
-            <span style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600;">Same-Day Service</span>
+      <div class="project reveal">
+        <div class="project-preview" style="background: #0D0D0F;">
+          <div class="browser-frame">
+            <div class="browser-topbar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-url">mjhandyman.ca</div>
+            </div>
+            <div class="browser-body" style="background: #1E1E1E;">
+              <div class="preview-emoji">🔧</div>
+              <div class="preview-brand" style="color: #E8C800;">MJ <span style="color: white;">Handyman</span></div>
+              <div class="preview-sub">Orléans & Ottawa</div>
+              <div class="preview-badges">
+                <span class="preview-badge" style="background: #E8C800; color: #1E1E1E;">Est. 2017</span>
+                <span class="preview-badge-outline">Same-Day Service</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="project-info">
           <div class="project-tag">Handyman Services</div>
           <h3 class="project-name">MJ Handyman</h3>
-          <p class="project-type">Bold, editorial website for an Orléans & Ottawa handyman service. Features a service grid, scrolling ticker, review stack, and strong same-day booking CTA.</p>
+          <p class="project-type">Bold, editorial website for an Orléans & Ottawa handyman service. Service grid, scrolling ticker, review stack, and strong same-day booking CTA.</p>
           <div class="project-tech">
             <span class="tech-tag">HTML</span>
             <span class="tech-tag">CSS</span>
             <span class="tech-tag">Responsive</span>
             <span class="tech-tag">Dark & Yellow</span>
           </div>
-          <a href="mj-handyman.html" class="project-link" target="_blank">
-            View Live <span class="arrow">→</span>
-          </a>
+          <a class='project-link' href='/mj-handyman' target='_blank'>View Live <span class="arrow">→</span></a>
         </div>
+      </div>
+
+      <!-- Project 5: Funnel Builder -->
+      <div class="project reveal">
+        <div class="project-preview" style="background: #0D0D0F;">
+          <div class="browser-frame">
+            <div class="browser-topbar">
+              <div class="browser-dots"><span></span><span></span><span></span></div>
+              <div class="browser-url">funnelbuilder.app</div>
+            </div>
+            <div class="browser-body" style="background: linear-gradient(135deg, #1a0533, #0f0a1a);">
+              <div class="preview-emoji">⚡</div>
+              <div class="preview-brand" style="background: linear-gradient(135deg, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Funnel Builder</div>
+              <div class="preview-sub">SaaS Landing Page</div>
+              <div class="preview-badges">
+                <span class="preview-badge" style="background: linear-gradient(135deg, #a855f7, #ec4899); color: white;">Next.js</span>
+                <span class="preview-badge-outline">Full-Stack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">SaaS Application</div>
+          <h3 class="project-name">Funnel Builder</h3>
+          <p class="project-type">Full-stack SaaS landing page for a drag-and-drop funnel builder. Features auth, animated stats, template previews, testimonials, and a conversion-focused CTA flow.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Clerk Auth</span>
+            <span class="tech-tag">Purple & Pink</span>
+          </div>
+          <a class='project-link' href='#' target='_blank'>Coming Soon <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROCESS ════ -->
+<section class="section process-section" id="process">
+  <div class="bg-paths-container" id="bg-paths-process"></div>
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+      <div class="section-eyebrow">// How It Works</div>
+      <h2 class="section-heading">Simple <em>process.</em></h2>
+      <p class="section-sub" style="margin: 0.5rem auto 0; text-align: center;">From first call to live website in as little as two weeks.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-num">01</div>
+        <div class="process-title">Discovery Call</div>
+        <div class="process-desc">We hop on a quick call to understand your business, goals, and what you need from your website.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-num">02</div>
+        <div class="process-title">Design & Build</div>
+        <div class="process-desc">I create a custom design tailored to your brand and build it with clean, fast code. You review and give feedback.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-num">03</div>
+        <div class="process-title">Revise & Polish</div>
+        <div class="process-desc">We fine-tune every detail — copy, colors, spacing, mobile — until you're 100% happy with the result.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-num">04</div>
+        <div class="process-title">Launch</div>
+        <div class="process-desc">Your site goes live with hosting, SSL, and basic SEO. I handle the technical setup so you don't have to.</div>
       </div>
     </div>
   </div>
@@ -973,13 +1522,14 @@
 
 <!-- ════ ABOUT ════ -->
 <section class="section about-section" id="about">
+  <div class="bg-paths-container" id="bg-paths-about"></div>
   <div class="container">
     <div class="about-layout">
-      <div class="about-text">
+      <div class="about-text reveal">
         <div class="section-eyebrow">// About Me</div>
-        <h3>I'm a web developer in Ottawa who helps local businesses <strong>look as good online</strong> as they are in person.</h3>
-        <p>Most local businesses have outdated websites — or no website at all. Meanwhile, their customers are Googling them every day. I fix that gap by designing fast, modern sites that build trust and drive action.</p>
-        <p>I specialize in one-page and multi-page websites for service businesses: contractors, auto shops, restaurants, clinics, and more. Every site I build is mobile-first, fast-loading, and designed to convert visitors into customers.</p>
+        <h3>I'm a web designer in Ottawa who helps local businesses <strong>look as good online</strong> as they are in person.</h3>
+        <p>Most Ottawa businesses have outdated websites — or no website at all. Meanwhile, their customers are searching for them every day. I fix that gap by designing fast, modern sites that build trust and drive action.</p>
+        <p>I specialize in web design for Ottawa service businesses: contractors, auto shops, restaurants, clinics, and more. Every site I build is mobile-first, fast-loading, and designed to convert Ottawa visitors into paying customers.</p>
         <div class="about-skills">
           <span class="skill-tag">HTML / CSS / JS</span>
           <span class="skill-tag">React</span>
@@ -991,9 +1541,9 @@
           <span class="skill-tag">Claude Code</span>
         </div>
       </div>
-      <div class="about-metrics">
+      <div class="about-metrics reveal reveal-delay-2">
         <div class="metric">
-          <div class="metric-val">10<span>+</span></div>
+          <div class="metric-val"><span class="count" data-target="10">0</span><span>+</span></div>
           <div class="metric-label">Projects Built</div>
         </div>
         <div class="metric">
@@ -1001,7 +1551,7 @@
           <div class="metric-label">Avg Load Time</div>
         </div>
         <div class="metric">
-          <div class="metric-val">100<span>%</span></div>
+          <div class="metric-val"><span class="count" data-target="100">0</span><span>%</span></div>
           <div class="metric-label">Mobile Responsive</div>
         </div>
         <div class="metric">
@@ -1013,36 +1563,114 @@
   </div>
 </section>
 
+<!-- ════ TESTIMONIALS ════ -->
+<section class="section testimonials-section">
+  <div class="bg-paths-container" id="bg-paths-testimonials"></div>
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+      <div class="section-eyebrow">// Testimonials</div>
+      <h2 class="section-heading">What clients <em>say.</em></h2>
+      <p class="section-sub" style="margin: 0.5rem auto 0; text-align: center;">Real feedback from real Ottawa business owners.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial reveal reveal-delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Our old website was embarrassing — still had lorem ipsum on it. Bilal rebuilt the whole thing in two weeks and now customers actually find us on Google. Huge difference."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SA</div>
+          <div>
+            <div class="testimonial-name">Spark Auto</div>
+            <div class="testimonial-role">Auto Repair · Ottawa</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal reveal-delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"We went from a one-page site to something that actually looks premium. The emergency CTA alone has brought in more calls. Worth every penny."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">OP</div>
+          <div>
+            <div class="testimonial-name">Offset Plumbing</div>
+            <div class="testimonial-role">Plumbing · Ottawa</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal reveal-delay-3">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The gallery section alone sells our work better than we ever could in person. Clean, fast, and exactly what we needed. Bilal nailed the luxury feel."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AK</div>
+          <div>
+            <div class="testimonial-name">AK Renovations</div>
+            <div class="testimonial-role">Home Renovations · Ottawa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TRUST STRIP ════ -->
+<div class="marquee-wrap" style="background: var(--bg);">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 0.5rem 1.5rem;">
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span style="font-size: 1.1rem;">🛡️</span>
+      <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: 500;">100% Satisfaction Guarantee</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span style="font-size: 1.1rem;">⚡</span>
+      <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: 500;">24h Response Time</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span style="font-size: 1.1rem;">📱</span>
+      <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: 500;">Mobile-First Design</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span style="font-size: 1.1rem;">🚀</span>
+      <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: 500;">Sub-2s Load Times</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span style="font-size: 1.1rem;">📍</span>
+      <span style="font-size: 0.78rem; color: var(--text-dim); font-weight: 500;">Ottawa-Based</span>
+    </div>
+  </div>
+</div>
+
 <!-- ════ FAQ ════ -->
 <section class="section faq-section" id="faq">
+  <div class="bg-paths-container" id="bg-paths-faq"></div>
   <div class="container">
-    <div class="section-eyebrow">// FAQ</div>
-    <h2 class="section-heading">Common <em>questions.</em></h2>
-    <p class="section-sub">Everything you need to know before we get started.</p>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <button class="faq-q">How much does a website cost?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Packages start at $1,499 for a 5-page site. Most local businesses go with the Growth plan at $3,499 which includes CMS, SEO, and a blog. I also do custom quotes for larger projects.</div></div>
+    <div class="faq-layout">
+      <div class="reveal">
+        <div class="section-eyebrow">// FAQ</div>
+        <h2 class="section-heading">Common <em>questions.</em></h2>
+        <p class="section-sub" style="margin-bottom: 0;">Everything you need to know before we get started.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">How long does it take to build?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Most websites are delivered in 2–4 weeks depending on the package. I'll give you a clear timeline before we start and keep you updated every step of the way.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Will my site work on mobile?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. Every site I build is mobile-first — meaning I design for phones first, then scale up. Over 70% of your visitors will be on mobile, so this is non-negotiable.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Can you help me rank on Google?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Every site includes basic on-page SEO (meta tags, speed optimization, schema markup). The Growth and Premium plans include local SEO optimization to help you rank in Ottawa searches.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Do you offer maintenance after launch?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Yes — I offer monthly maintenance plans starting at $99/month which includes updates, backups, security monitoring, and small content changes. No long-term contracts required.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Do I need to provide content?<span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">It helps, but it's not required. I can write copy for your site based on a short conversation about your business. Photos can be sourced from professional stock libraries or your own collection.</div></div>
+      <div class="faq-grid">
+        <div class="faq-item reveal">
+          <button class="faq-q">How much does a website cost in Ottawa?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Packages start at $1,499 for a 5-page site. Most Ottawa local businesses go with the Growth plan at $3,499 which includes CMS, SEO, and a blog. I also do custom quotes for larger projects.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-q">How long does it take to build?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Most websites are delivered in 2–4 weeks depending on the package. I'll give you a clear timeline before we start and keep you updated every step of the way.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-q">Will my site work on mobile?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Absolutely. Every site I build is mobile-first — meaning I design for phones first, then scale up. Over 70% of your visitors will be on mobile, so this is non-negotiable.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-q">Can you help my Ottawa business rank on Google?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. Every site includes basic on-page SEO (meta tags, speed optimization, schema markup). The Growth and Premium plans include local SEO optimization to help you rank in "near me" and Ottawa-specific searches.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-q">Do you offer maintenance after launch?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes — I offer monthly maintenance plans starting at $99/month which includes updates, backups, security monitoring, and small content changes. No long-term contracts required.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-q">Do I need to provide content?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">It helps, but it's not required. I can write copy for your site based on a short conversation about your business. Photos can be sourced from professional stock libraries or your own collection.</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1050,31 +1678,326 @@
 
 <!-- ════ CTA ════ -->
 <section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <div class="section-eyebrow">// Let's Work Together</div>
-    <h2>Need a website that<br>actually <em>works?</em></h2>
-    <p class="cta-desc">Whether you need a new site from scratch or a redesign that brings your business into 2025 — I'd love to chat. Free consultation, no pressure.</p>
-    <a href="mailto:bilalxmoussa@gmail.com" class="cta-email">bilalxmoussa@gmail.com</a>
-    <div class="cta-btns">
-      <a href="mailto:bilalxmoussa@gmail.com" class="btn-accent">Send Me an Email</a>
-      <a href="tel:6135583577" class="btn-outline">Call (613) 558-3577</a>
+  <div class="bg-paths-container" id="bg-paths-cta"></div>
+  <div class="cta-inner reveal">
+    <div class="cta-card">
+      <div class="section-eyebrow">// Let's Work Together</div>
+      <h2>Need a website that<br>actually <em>works?</em></h2>
+      <p class="cta-desc">Whether you need a new site from scratch or a redesign that brings your Ottawa business into 2026 — I'd love to chat. Free consultation, no pressure.</p>
+
+      <!-- Multi-step lead form -->
+      <div class="lead-form" id="leadForm">
+        <!-- Step indicators -->
+        <div class="form-steps-indicator">
+          <div class="step-dot active" data-step="1">1</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="2">2</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="3">3</div>
+        </div>
+
+        <!-- Step 1: What do you need? -->
+        <div class="form-step active" id="formStep1">
+          <div class="form-step-label">What do you need?</div>
+          <div class="form-options">
+            <label class="form-option">
+              <input type="radio" name="service" value="New Website">
+              <span class="form-option-box">
+                <span class="form-option-icon">🆕</span>
+                <span class="form-option-text">New Website</span>
+              </span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="service" value="Redesign">
+              <span class="form-option-box">
+                <span class="form-option-icon">🔄</span>
+                <span class="form-option-text">Redesign</span>
+              </span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="service" value="SEO">
+              <span class="form-option-box">
+                <span class="form-option-icon">📈</span>
+                <span class="form-option-text">SEO</span>
+              </span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="service" value="Other">
+              <span class="form-option-box">
+                <span class="form-option-icon">💬</span>
+                <span class="form-option-text">Other</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Budget & Timeline -->
+        <div class="form-step" id="formStep2">
+          <div class="form-step-label">Budget & timeline?</div>
+          <div class="form-options">
+            <label class="form-option">
+              <input type="radio" name="budget" value="Under $2K">
+              <span class="form-option-box">
+                <span class="form-option-icon">💰</span>
+                <span class="form-option-text">Under $2K</span>
+              </span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="budget" value="$2K - $5K">
+              <span class="form-option-box">
+                <span class="form-option-icon">💰💰</span>
+                <span class="form-option-text">$2K – $5K</span>
+              </span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="budget" value="$5K+">
+              <span class="form-option-box">
+                <span class="form-option-icon">💰💰💰</span>
+                <span class="form-option-text">$5K+</span>
+              </span>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="budget" value="Not Sure">
+              <span class="form-option-box">
+                <span class="form-option-icon">🤷</span>
+                <span class="form-option-text">Not Sure</span>
+              </span>
+            </label>
+          </div>
+          <button class="form-back" id="backToStep1">← Back</button>
+        </div>
+
+        <!-- Step 3: Contact info -->
+        <div class="form-step" id="formStep3">
+          <div class="form-step-label">How can I reach you?</div>
+          <div class="form-fields">
+            <input type="text" class="form-input" id="formName" placeholder="Your name" required>
+            <input type="email" class="form-input" id="formEmail" placeholder="Email address" required>
+            <input type="tel" class="form-input" id="formPhone" placeholder="Phone (optional)">
+            <textarea class="form-input form-textarea" id="formMessage" placeholder="Tell me a bit about your project (optional)" rows="3"></textarea>
+          </div>
+          <button class="btn-accent form-submit" id="formSubmit" style="width: 100%; margin-top: 0.75rem;">Send My Free Quote Request →</button>
+          <button class="form-back" id="backToStep2">← Back</button>
+        </div>
+
+        <!-- Success state -->
+        <div class="form-step" id="formSuccess">
+          <div class="form-success-icon">✓</div>
+          <div class="form-step-label" style="color: var(--green);">Request sent!</div>
+          <p style="color: var(--text-dim); font-size: 0.88rem; line-height: 1.6; margin-top: 0.5rem;">Thanks! I'll get back to you within 24 hours. For urgent requests, call me directly.</p>
+        </div>
+      </div>
+
+      <!-- Trust signals below form -->
+      <div class="cta-trust">
+        <div class="trust-badge">
+          <span class="trust-icon">⚡</span>
+          <span class="trust-text">Responds within 24h</span>
+        </div>
+        <div class="trust-badge">
+          <span class="trust-icon">🛡️</span>
+          <span class="trust-text">100% Satisfaction Guarantee</span>
+        </div>
+        <div class="trust-badge">
+          <span class="trust-icon">★</span>
+          <span class="trust-text">5.0 Rated by Ottawa Businesses</span>
+        </div>
+      </div>
+
+      <!-- Still prefer direct contact -->
+      <div class="cta-direct">
+        <span style="color: var(--text-faint); font-size: 0.75rem;">Prefer to reach out directly?</span>
+        <div class="cta-btns" style="margin-top: 0.5rem;">
+          <a href="mailto:bilalxmoussa@gmail.com" class="btn-outline" style="padding: 0.6rem 1.5rem; font-size: 0.82rem;">bilalxmoussa@gmail.com</a>
+          <a href="tel:6135583577" class="btn-outline" style="padding: 0.6rem 1.5rem; font-size: 0.82rem;">📞 (613) 558-3577</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ════ FOOTER ════ -->
 <footer>
-  <div class="footer-row">
-    <div class="footer-left">© 2025 Neon Craft — Web Designer & Developer, Ottawa ON</div>
-    <ul class="footer-right">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">neon<span>craft</span></div>
+        <div class="footer-tagline">Web design & development for local Ottawa businesses that want to look as good online as they are in person.</div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href='/services/web-design-ottawa'>Web Design Ottawa</a></li>
+            <li><a href='/services/seo-ottawa'>SEO Ottawa</a></li>
+            <li><a href='/services/web-development-ottawa'>Web Development Ottawa</a></li>
+            <li><a href='/areas/ottawa'>Ottawa Service Area</a></li>
+            <li><a href='/services/restaurant-website-design-ottawa'>Restaurant Websites</a></li>
+            <li><a href='/services/contractor-website-design-ottawa'>Contractor Websites</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href='/blog/how-much-website-cost-ottawa'>Website Pricing Guide</a></li>
+            <li><a href='/blog/local-seo-ottawa-guide'>Local SEO Guide</a></li>
+            <li><a href='/blog/web-design-trends-2026'>Web Design Trends</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:bilalxmoussa@gmail.com">bilalxmoussa@gmail.com</a></li>
+            <li><a href="tel:6135583577">(613) 558-3577</a></li>
+            <li><a href='/areas/ottawa'>Ottawa, ON</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Neon Craft — Web Design Ottawa | Ottawa Web Designer & Developer, Ottawa ON</div>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram" title="Instagram">IG</a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn">LI</a>
+        <a href="#" aria-label="GitHub" title="GitHub">GH</a>
+      </div>
+    </div>
   </div>
 </footer>
 
+<!-- Sticky Mobile CTA Bar -->
+<div class="mobile-cta-bar">
+  <a href="tel:6135583577" class="mobile-cta-call">📞 Call Now</a>
+  <a href="#contact" class="mobile-cta-msg">Get Free Quote</a>
+</div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
 <script>
+// ── Background Paths Generator
+(function() {
+  function generatePaths(container, position, subtle) {
+    var scale = subtle ? 0.35 : 1;
+    var count = subtle ? 20 : 36;
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'bg-paths-svg');
+    svg.setAttribute('viewBox', '0 0 696 316');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+
+    for (let i = 0; i < count; i++) {
+      const p = position;
+      const d = `M-${380 - i * 5 * p} -${189 + i * 6}C-${380 - i * 5 * p} -${189 + i * 6} -${312 - i * 5 * p} ${216 - i * 6} ${152 - i * 5 * p} ${343 - i * 6}C${616 - i * 5 * p} ${470 - i * 6} ${684 - i * 5 * p} ${875 - i * 6} ${684 - i * 5 * p} ${875 - i * 6}`;
+      const strokeW = (0.5 + i * 0.03) * scale;
+      const opacity = (0.1 + i * 0.03) * scale;
+      const dur = 20 + Math.random() * 10;
+      const delay = -(Math.random() * dur);
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('pathLength', '1');
+      path.setAttribute('stroke', 'rgba(109,92,255,' + opacity + ')');
+      path.setAttribute('stroke-width', strokeW);
+      path.setAttribute('class', 'bg-path');
+      path.style.setProperty('--path-dur', dur + 's');
+      path.style.setProperty('--path-delay', delay + 's');
+
+      svg.appendChild(path);
+    }
+
+    container.appendChild(svg);
+  }
+
+  // Hero — full intensity
+  const c1 = document.getElementById('bg-paths-1');
+  const c2 = document.getElementById('bg-paths-2');
+  if (c1) generatePaths(c1, 1, false);
+  if (c2) generatePaths(c2, -1, false);
+
+  // Other sections — subtle
+  const sections = [
+    { id: 'bg-paths-projects', pos: -1 },
+    { id: 'bg-paths-process', pos: 1 },
+    { id: 'bg-paths-about', pos: -1 },
+    { id: 'bg-paths-testimonials', pos: 1 },
+    { id: 'bg-paths-faq', pos: -1 },
+    { id: 'bg-paths-cta', pos: 1 }
+  ];
+  sections.forEach(function(s) {
+    const el = document.getElementById(s.id);
+    if (el) generatePaths(el, s.pos, true);
+  });
+})();
+
+// ── Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Nav scroll state + active link
+const nav = document.getElementById('mainNav');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  backToTop.classList.toggle('visible', window.scrollY > 600);
+
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
+
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── Cursor glow
+const glow = document.getElementById('cursorGlow');
+if (window.matchMedia('(pointer: fine)').matches) {
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  }, { passive: true });
+}
+
+// ── Mobile menu
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileToggle.addEventListener('click', () => {
+  mobileToggle.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileToggle.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ── FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.parentElement;
@@ -1083,6 +2006,105 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     if (!isOpen) item.classList.add('open');
   });
 });
+
+// ── Number count-up
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const duration = 1200;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
+
+// ── Multi-step lead form
+(function() {
+  const steps = [
+    document.getElementById('formStep1'),
+    document.getElementById('formStep2'),
+    document.getElementById('formStep3')
+  ];
+  const success = document.getElementById('formSuccess');
+  const dots = document.querySelectorAll('.step-dot');
+  const lines = document.querySelectorAll('.step-line');
+  let currentStep = 0;
+
+  function goToStep(n) {
+    steps.forEach((s, i) => {
+      s.classList.toggle('active', i === n);
+    });
+    dots.forEach((d, i) => {
+      d.classList.remove('active', 'done');
+      if (i < n) d.classList.add('done');
+      else if (i === n) d.classList.add('active');
+    });
+    lines.forEach((l, i) => {
+      l.classList.toggle('done', i < n);
+    });
+    currentStep = n;
+  }
+
+  // Step 1: auto-advance on selection
+  document.querySelectorAll('input[name="service"]').forEach(r => {
+    r.addEventListener('change', () => goToStep(1));
+  });
+
+  // Step 2: auto-advance on selection
+  document.querySelectorAll('input[name="budget"]').forEach(r => {
+    r.addEventListener('change', () => goToStep(2));
+  });
+
+  // Back buttons
+  document.getElementById('backToStep1').addEventListener('click', () => goToStep(0));
+  document.getElementById('backToStep2').addEventListener('click', () => goToStep(1));
+
+  // Submit form
+  document.getElementById('formSubmit').addEventListener('click', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('formName').value.trim();
+    const email = document.getElementById('formEmail').value.trim();
+    if (!name || !email) {
+      document.getElementById('formName').style.borderColor = name ? 'var(--border)' : '#ef4444';
+      document.getElementById('formEmail').style.borderColor = email ? 'var(--border)' : '#ef4444';
+      return;
+    }
+
+    const service = document.querySelector('input[name="service"]:checked');
+    const budget = document.querySelector('input[name="budget"]:checked');
+    const phone = document.getElementById('formPhone').value.trim();
+    const message = document.getElementById('formMessage').value.trim();
+
+    // Build mailto with form data
+    const subject = encodeURIComponent('New Quote Request from ' + name);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      (phone ? 'Phone: ' + phone + '\n' : '') +
+      (service ? 'Service: ' + service.value + '\n' : '') +
+      (budget ? 'Budget: ' + budget.value + '\n' : '') +
+      (message ? '\nMessage: ' + message : '')
+    );
+
+    window.location.href = 'mailto:bilalxmoussa@gmail.com?subject=' + subject + '&body=' + body;
+
+    // Show success
+    steps.forEach(s => s.classList.remove('active'));
+    success.classList.add('active');
+    dots.forEach(d => { d.classList.remove('active'); d.classList.add('done'); });
+    lines.forEach(l => l.classList.add('done'));
+  });
+})();
 </script>
 
 </body>

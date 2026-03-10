@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Neon Craft — Web Design & SEO Tips for Ottawa Businesses</title>
+  <meta name="description" content="Web design tips, SEO guides, and insights for Ottawa small businesses. Learn how to grow your online presence with Neon Craft.">
+  <meta name="keywords" content="Ottawa web design blog, SEO tips Ottawa, small business website tips, web design pricing Ottawa">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neoncraft.me/blog/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog | Neon Craft — Web Design & SEO Tips for Ottawa Businesses">
+  <meta property="og:description" content="Web design tips, SEO guides, and insights for Ottawa small businesses.">
+  <meta property="og:url" content="https://neoncraft.me/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Neon Craft">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog | Neon Craft — Web Design & SEO Tips for Ottawa Businesses">
+  <meta name="twitter:description" content="Web design tips, SEO guides, and insights for Ottawa small businesses.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Blog Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Neon Craft Blog",
+    "description": "Web design tips, SEO guides, and insights for Ottawa small businesses.",
+    "url": "https://neoncraft.me/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Neon Craft",
+      "url": "https://neoncraft.me"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "How Much Does a Website Cost in Ottawa in 2026?",
+        "url": "https://neoncraft.me/blog/how-much-website-cost-ottawa.html",
+        "datePublished": "2026-03-01",
+        "description": "A transparent breakdown of website pricing in Ottawa — from basic sites to premium builds."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Why Every Ottawa Small Business Needs a Website in 2026",
+        "url": "https://neoncraft.me/blog/why-ottawa-businesses-need-website.html",
+        "datePublished": "2026-02-20",
+        "description": "5 reasons your Ottawa small business can't afford to skip having a professional website."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Local SEO for Ottawa Businesses: A Simple Guide",
+        "url": "https://neoncraft.me/blog/local-seo-ottawa-guide.html",
+        "datePublished": "2026-02-10",
+        "description": "A step-by-step guide to ranking higher in Ottawa local search results."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Web Design Trends 2026",
+        "url": "https://neoncraft.me/blog/web-design-trends-2026.html",
+        "datePublished": "2026-03-03",
+        "description": "From dark mode to AI personalization — discover the 10 web design trends Ottawa businesses should embrace in 2026."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Get More Google Reviews",
+        "url": "https://neoncraft.me/blog/google-reviews-ottawa-business.html",
+        "datePublished": "2026-02-25",
+        "description": "Google reviews can make or break your local ranking. Here are 7 proven strategies to get more reviews for your Ottawa business."
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Website vs Social Media",
+        "url": "https://neoncraft.me/blog/website-vs-social-media-ottawa.html",
+        "datePublished": "2026-02-15",
+        "description": "Do you need a website, social media, or both? A practical guide for Ottawa small business owners."
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #09090B;
+      --surface: #111113;
+      --surface-2: #18181B;
+      --border: rgba(255,255,255,0.06);
+      --accent: #6D5CFF;
+      --accent-light: #8B7EFF;
+      --accent-glow: rgba(109,92,255,0.08);
+      --accent-glow-md: rgba(109,92,255,0.15);
+      --green: #34D399;
+      --white: #FAFAFA;
+      --text: #A1A1AA;
+      --text-dim: #71717A;
+      --text-faint: #3F3F46;
+      --serif: 'Instrument Serif', serif;
+      --sans: 'Outfit', sans-serif;
+      --mono: 'Geist Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: white; }
+
+    /* ════════ GRAIN ════════ */
+    .grain {
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* ════════ NAV ════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(9,9,11,0.88);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-weight: 700; font-size: 1.75rem;
+      color: var(--white); text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-name span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center; list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links .active { color: var(--accent-light); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-size: 0.8rem !important;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(109,92,255,0.3);
+    }
+
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 24px; height: 16px; position: relative;
+    }
+
+    .mobile-toggle span {
+      display: block; width: 100%; height: 1.5px;
+      background: var(--white); position: absolute; left: 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .mobile-toggle span:nth-child(1) { top: 0; }
+    .mobile-toggle span:nth-child(2) { top: 7px; }
+    .mobile-toggle span:nth-child(3) { top: 14px; }
+
+    .mobile-toggle.open span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+    .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.open span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+
+    /* Mobile nav panel */
+    .mobile-nav {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(9,9,11,0.96);
+      backdrop-filter: blur(24px);
+      z-index: 99;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      color: var(--white); text-decoration: none;
+      font-size: 1.5rem; font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .mobile-nav a:hover { color: var(--accent); }
+
+    /* ════════ HERO ════════ */
+    .blog-hero {
+      padding: 10rem 2.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero-glow {
+      position: absolute;
+      top: -30%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(109,92,255,0.06) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .blog-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 680px; margin: 0 auto;
+    }
+
+    .blog-hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .blog-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+    }
+
+    .blog-hero h1 em { color: var(--accent); font-style: italic; }
+
+    .blog-hero-desc {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ════════ DIVIDER ════════ */
+    .section-divider {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ════════ POST GRID ════════ */
+    .posts-section {
+      padding: 5rem 2.5rem 7rem;
+      position: relative; z-index: 2;
+    }
+
+    .posts-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s, box-shadow 0.4s;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .post-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .post-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(109,92,255,0.2);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(109,92,255,0.06);
+    }
+
+    .post-card:hover::before { transform: scaleX(1); }
+
+    .post-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .post-card:active {
+      transform: translateY(-2px);
+    }
+
+    .post-card-body {
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .post-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .post-card-category {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid rgba(109,92,255,0.12);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .post-card-date {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    .post-card-title {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      color: var(--white);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.85rem;
+      transition: color 0.3s;
+    }
+
+    .post-card:hover .post-card-title { color: var(--accent-light); }
+
+    .post-card-excerpt {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      font-weight: 300;
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s, gap 0.3s;
+    }
+
+    .post-card:hover .post-card-link {
+      color: var(--accent);
+      gap: 0.65rem;
+    }
+
+    .post-card-link .arrow {
+      transition: transform 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .post-card:hover .post-card-link .arrow {
+      transform: translateX(3px);
+    }
+
+    /* ════════ FOOTER ════════ */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 5rem 2.5rem 2.5rem;
+      position: relative; z-index: 2;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .nav-name {
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      font-family: var(--mono);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-col a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover { color: var(--accent); }
+    .footer-col a:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--text-faint);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-legal a {
+      color: var(--text-faint);
+      text-decoration: none;
+      font-size: 0.72rem;
+      transition: color 0.3s;
+    }
+
+    .footer-legal a:hover { color: var(--accent); }
+
+    /* ════════ SCROLL REVEAL ════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ════════ ANIMATIONS ════════ */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .blog-hero-inner { animation: fadeIn 0.8s ease both; }
+
+    /* ════════ RESPONSIVE ════════ */
+    @media (max-width: 1024px) {
+      .posts-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+
+      nav, .posts-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .blog-hero { padding: 8rem 1.5rem 3.5rem; }
+
+      .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      footer { padding: 3rem 1.5rem 2rem; }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-legal { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <a href="/index.html" class="nav-name">neon<span>craft</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html#projects">Projects</a></li>
+    <li><a href="/services/web-design-ottawa.html">Services</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="/index.html#about">About</a></li>
+    <li><a href="/index.html#faq">FAQ</a></li>
+    <li><a href="/index.html#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav -->
+<ul class="mobile-nav" id="mobileNav">
+  <li><a href="/index.html#projects" onclick="toggleMobileNav()">Projects</a></li>
+  <li><a href="/services/web-design-ottawa.html">Services</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/index.html#about" onclick="toggleMobileNav()">About</a></li>
+  <li><a href="/index.html#faq" onclick="toggleMobileNav()">FAQ</a></li>
+  <li><a href="/index.html#contact" class="nav-cta" onclick="toggleMobileNav()">Get in Touch</a></li>
+</ul>
+
+<!-- ════ HERO ════ -->
+<section class="blog-hero">
+  <div class="blog-hero-glow"></div>
+  <div class="blog-hero-inner">
+    <div class="blog-hero-eyebrow">// Blog</div>
+    <h1>Blog</h1>
+    <p class="blog-hero-desc">Web design tips, SEO guides, and insights for Ottawa businesses looking to grow their online presence.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════ POSTS ════ -->
+<section class="posts-section">
+  <div class="posts-container">
+    <div class="posts-grid">
+
+      <!-- Post 1 -->
+      <a href="/blog/how-much-website-cost-ottawa.html" class="post-card reveal">
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">Pricing</span>
+            <span class="post-card-date">March 1, 2026</span>
+          </div>
+          <h2 class="post-card-title">How Much Does a Website Cost in Ottawa in 2026?</h2>
+          <p class="post-card-excerpt">A transparent breakdown of website pricing in Ottawa -- from basic starter sites to premium custom builds. Know what to expect before you invest.</p>
+          <span class="post-card-link">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a href="/blog/why-ottawa-businesses-need-website.html" class="post-card reveal">
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">Strategy</span>
+            <span class="post-card-date">Feb 20, 2026</span>
+          </div>
+          <h2 class="post-card-title">Why Every Ottawa Small Business Needs a Website in 2026</h2>
+          <p class="post-card-excerpt">5 compelling reasons your Ottawa business can't afford to skip having a professional website -- and what it's costing you right now.</p>
+          <span class="post-card-link">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a href="/blog/local-seo-ottawa-guide.html" class="post-card reveal">
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">SEO</span>
+            <span class="post-card-date">Feb 10, 2026</span>
+          </div>
+          <h2 class="post-card-title">Local SEO for Ottawa Businesses: A Simple Guide</h2>
+          <p class="post-card-excerpt">A step-by-step guide to ranking higher in Ottawa local search results. Optimize your Google Business Profile, build citations, and get found.</p>
+          <span class="post-card-link">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <!-- Post 4 -->
+      <a href="/blog/web-design-trends-2026.html" class="post-card reveal">
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">Web Design</span>
+            <span class="post-card-date">March 3, 2026</span>
+          </div>
+          <h2 class="post-card-title">Web Design Trends 2026</h2>
+          <p class="post-card-excerpt">From dark mode to AI personalization — discover the 10 web design trends Ottawa businesses should embrace in 2026.</p>
+          <span class="post-card-link">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <!-- Post 5 -->
+      <a href="/blog/google-reviews-ottawa-business.html" class="post-card reveal">
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">Local SEO</span>
+            <span class="post-card-date">Feb 25, 2026</span>
+          </div>
+          <h2 class="post-card-title">How to Get More Google Reviews</h2>
+          <p class="post-card-excerpt">Google reviews can make or break your local ranking. Here are 7 proven strategies to get more reviews for your Ottawa business.</p>
+          <span class="post-card-link">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <!-- Post 6 -->
+      <a href="/blog/website-vs-social-media-ottawa.html" class="post-card reveal">
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">Digital Marketing</span>
+            <span class="post-card-date">Feb 15, 2026</span>
+          </div>
+          <h2 class="post-card-title">Website vs Social Media</h2>
+          <p class="post-card-excerpt">Do you need a website, social media, or both? A practical guide for Ottawa small business owners.</p>
+          <span class="post-card-link">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/index.html" class="nav-name">neon<span>craft</span></a>
+      <p>Web designer & developer based in Ottawa. I help small businesses look professional online and convert more customers.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="/index.html#projects">Projects</a></li>
+        <li><a href="/index.html#about">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/services/web-design-ottawa.html">Web Design</a></li>
+        <li><a href="/services/seo-ottawa.html">Local SEO</a></li>
+        <li><a href="/index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:bilalxmoussa@gmail.com">bilalxmoussa@gmail.com</a></li>
+        <li><a href="tel:6135583577">(613) 558-3577</a></li>
+        <li><a href="/index.html#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Neon Craft &mdash; Web Designer & Developer, Ottawa ON</div>
+    <ul class="footer-legal">
+      <li><a href="/index.html#projects">Projects</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  const toggle = document.querySelector('.mobile-toggle');
+  nav.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 120);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>

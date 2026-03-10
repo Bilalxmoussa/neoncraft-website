@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Website Design Ottawa | Neon Craft — Menus, Online Ordering & More</title>
+  <meta name="description" content="Restaurant website design in Ottawa by Neon Craft. We build beautiful, mobile-first restaurant websites with online menus, ordering integration, reservation systems, and Google visibility. Get more diners through your door.">
+  <meta name="keywords" content="restaurant website design Ottawa, Ottawa restaurant website, restaurant web design, Ottawa restaurant online ordering, restaurant menu website Ottawa, Ottawa restaurant SEO">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neoncraft.me/services/restaurant-website-design-ottawa.html">
+  <meta property="og:title" content="Restaurant Website Design Ottawa | Neon Craft — Menus, Online Ordering & More">
+  <meta property="og:description" content="Restaurant website design in Ottawa by Neon Craft. Beautiful, mobile-first websites with online menus, ordering, and reservation systems for Ottawa restaurants.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neoncraft.me/services/restaurant-website-design-ottawa.html">
+  <meta property="og:site_name" content="Neon Craft">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Restaurant Website Design Ottawa | Neon Craft — Menus, Online Ordering & More">
+  <meta name="twitter:description" content="Restaurant website design in Ottawa by Neon Craft. Beautiful, mobile-first websites with online menus, ordering, and reservation systems for Ottawa restaurants.">
+  <meta name="geo.region" content="CA-ON">
+  <meta name="geo.placename" content="Ottawa">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090B;
+      --surface: #111113;
+      --surface-2: #18181B;
+      --border: rgba(255,255,255,0.06);
+      --accent: #6D5CFF;
+      --accent-light: #8B7EFF;
+      --accent-glow: rgba(109,92,255,0.08);
+      --accent-glow-md: rgba(109,92,255,0.15);
+      --green: #34D399;
+      --white: #FAFAFA;
+      --text: #A1A1AA;
+      --text-dim: #71717A;
+      --text-faint: #3F3F46;
+      --serif: 'Instrument Serif', serif;
+      --sans: 'Outfit', sans-serif;
+      --mono: 'Geist Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: white; }
+
+    .grain {
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(109,92,255,0.04) 0%, transparent 70%);
+      pointer-events: none; z-index: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    /* ════════ SCROLL REVEAL ════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ════════ NAV ════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(9,9,11,0.6);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(9,9,11,0.92);
+      border-bottom-color: var(--border);
+      padding: 0.75rem 2.5rem;
+    }
+
+    .nav-name {
+      font-weight: 700; font-size: 1.75rem;
+      color: var(--white); text-decoration: none;
+      letter-spacing: -0.3px;
+      transition: transform 0.3s;
+    }
+    .nav-name:hover { transform: scale(1.02); }
+    .nav-name span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -4px; left: 0; right: 0; height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: left;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: white !important;
+      padding: 0.5rem 1.2rem; border-radius: 6px;
+      font-weight: 600 !important; font-size: 0.8rem !important;
+      transition: transform 0.25s, background 0.25s, box-shadow 0.25s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: var(--accent-light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(109,92,255,0.3);
+    }
+    .nav-cta:active { transform: translateY(0) scale(0.98); }
+
+    /* Mobile nav */
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 28px; height: 20px; position: relative; z-index: 110;
+    }
+    .mobile-toggle span {
+      display: block; width: 100%; height: 2px;
+      background: var(--white); position: absolute; left: 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .mobile-toggle span:nth-child(1) { top: 0; }
+    .mobile-toggle span:nth-child(2) { top: 9px; }
+    .mobile-toggle span:nth-child(3) { top: 18px; }
+    .mobile-toggle.open span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+    .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.open span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(9,9,11,0.97);
+      backdrop-filter: blur(32px);
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2rem; color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+      letter-spacing: -0.5px;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ════════ BREADCRUMB ════════ */
+    .breadcrumb {
+      padding: 6.5rem 2.5rem 0;
+      max-width: 1100px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .breadcrumb-list {
+      display: flex; align-items: center; gap: 0.5rem;
+      list-style: none;
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--text-faint);
+    }
+    .breadcrumb-list a {
+      color: var(--text-dim); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumb-list a:hover { color: var(--accent); }
+    .breadcrumb-sep { color: var(--text-faint); }
+    .breadcrumb-current { color: var(--text); }
+
+    /* ════════ HERO ════════ */
+    .hero {
+      min-height: 85vh;
+      display: flex; align-items: center;
+      padding: 8rem 2.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -20%; left: 30%;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(109,92,255,0.07) 0%, transparent 55%);
+      pointer-events: none; animation: glowFloat 8s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute; bottom: -30%; right: 10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(52,211,153,0.03) 0%, transparent 55%);
+      pointer-events: none; animation: glowFloat 10s ease-in-out infinite reverse;
+    }
+    @keyframes glowFloat {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -20px); }
+    }
+
+    .bg-paths-container {
+      position: absolute; inset: 0;
+      pointer-events: none; z-index: 1; overflow: hidden;
+    }
+    .bg-paths-svg { width: 100%; height: 100%; display: block; }
+    .bg-path {
+      fill: none;
+      stroke-dasharray: 0.3 0.7;
+      animation: pathFlow var(--path-dur) linear var(--path-delay) infinite;
+    }
+    @keyframes pathFlow {
+      0%   { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -1; }
+    }
+
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 10;
+      display: grid; grid-template-columns: 1.3fr 0.7fr;
+      gap: 4rem; align-items: center;
+    }
+    .hero-left { animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+      color: var(--accent); letter-spacing: 0.5px; margin-bottom: 1.5rem;
+      background: var(--accent-glow);
+      padding: 0.4rem 0.9rem; border-radius: 20px;
+      border: 1px solid rgba(109,92,255,0.1);
+    }
+    .hero-tag .dot {
+      width: 6px; height: 6px; background: var(--green);
+      border-radius: 50%; animation: pulse 2.5s infinite;
+      box-shadow: 0 0 8px rgba(52,211,153,0.4);
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      line-height: 0.95; color: var(--white);
+      letter-spacing: -2px; font-weight: 400;
+    }
+    .hero h1 em {
+      color: var(--accent); font-style: italic;
+      position: relative;
+    }
+    .hero h1 em::after {
+      content: ''; position: absolute;
+      bottom: 2px; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px; opacity: 0.5;
+    }
+    .hero-desc {
+      font-size: 1.05rem; color: var(--text);
+      line-height: 1.75; margin-top: 1.5rem;
+      max-width: 480px; font-weight: 300;
+    }
+    .hero-actions {
+      display: flex; gap: 0.75rem;
+      margin-top: 2.5rem; flex-wrap: wrap;
+    }
+
+    .btn-accent {
+      background: var(--accent); color: white;
+      padding: 0.85rem 2rem; border: none; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; font-family: var(--sans);
+      cursor: pointer; text-decoration: none;
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-accent::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(109,92,255,0.3), 0 0 0 1px rgba(109,92,255,0.2);
+    }
+    .btn-accent:hover::before { opacity: 1; }
+    .btn-accent:active { transform: translateY(0) scale(0.98); }
+    .btn-accent:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+
+    .btn-outline {
+      background: transparent; color: var(--text);
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 0.9rem; font-weight: 500; font-family: var(--sans);
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-outline:hover {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(109,92,255,0.1);
+    }
+    .btn-outline:active { transform: translateY(0) scale(0.98); }
+    .btn-outline:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+
+    /* Hero right — stat cards */
+    .hero-right { animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+    .stat-stack { display: flex; flex-direction: column; gap: 1.25rem; }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::after {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, rgba(109,92,255,0.06), transparent);
+      pointer-events: none;
+    }
+    .stat-card:hover {
+      border-color: rgba(109,92,255,0.15);
+      transform: translateX(-4px);
+      box-shadow: 4px 0 20px rgba(109,92,255,0.06);
+    }
+    .stat-val { font-family: var(--serif); font-size: 2.2rem; color: var(--white); line-height: 1; }
+    .stat-val span { color: var(--accent); }
+    .stat-label { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; font-weight: 500; }
+
+    /* ════════ SECTION SHARED ════════ */
+    .section { padding: 7rem 2.5rem; position: relative; z-index: 2; overflow: hidden; }
+    .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+
+    .section-eyebrow {
+      font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white); line-height: 1.05;
+      letter-spacing: -1.5px; margin-bottom: 0.5rem; font-weight: 400;
+    }
+    .section-heading em { color: var(--accent); }
+    .section-sub {
+      color: var(--text-dim); max-width: 440px;
+      line-height: 1.75; font-size: 0.95rem;
+      margin-bottom: 4rem; font-weight: 300;
+    }
+
+    /* ════════ SERVICE CARDS ════════ */
+    .services-section { background: var(--surface); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .service-card:hover {
+      border-color: rgba(109,92,255,0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(109,92,255,0.06);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(109,92,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .service-card:hover .service-icon {
+      background: var(--accent-glow-md);
+      border-color: rgba(109,92,255,0.2);
+    }
+    .service-card h3 {
+      font-family: var(--sans);
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+    .service-card p {
+      font-size: 0.88rem; color: var(--text-dim);
+      line-height: 1.75; font-weight: 300;
+    }
+
+    /* ════════ WHY SECTION ════════ */
+    .why-section { background: var(--bg); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+    .why-content { display: flex; flex-direction: column; gap: 1.5rem; }
+    .why-stat {
+      display: flex; align-items: center; gap: 1.25rem;
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .why-stat:hover {
+      border-color: rgba(109,92,255,0.15);
+      transform: translateX(4px);
+    }
+    .why-stat-num {
+      font-family: var(--serif);
+      font-size: 2rem; color: var(--accent);
+      line-height: 1; flex-shrink: 0;
+      min-width: 65px;
+    }
+    .why-stat-text {
+      font-size: 0.88rem; color: var(--text);
+      line-height: 1.6; font-weight: 300;
+    }
+    .why-stat-text strong {
+      color: var(--white); font-weight: 600;
+    }
+
+    /* ════════ PROCESS ════════ */
+    .process-section { background: var(--surface); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .process-grid::before {
+      content: '';
+      position: absolute; top: 2.5rem; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent) 20%, var(--accent) 80%, transparent);
+      opacity: 0.15;
+    }
+    .process-step { text-align: center; position: relative; }
+    .process-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: var(--mono); font-size: 0.75rem;
+      color: var(--accent); font-weight: 500;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      position: relative; z-index: 2;
+    }
+    .process-step:hover .process-num {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      transform: scale(1.1);
+    }
+    .process-title {
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .process-desc {
+      font-size: 0.8rem; color: var(--text-dim);
+      line-height: 1.6; max-width: 200px; margin: 0 auto;
+    }
+
+    /* ════════ FAQ ════════ */
+    .faq-section { background: var(--bg); }
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 0.4fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .faq-grid {
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; transition: border-color 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(109,92,255,0.12); }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      padding: 1.25rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; font-family: var(--sans);
+      font-size: 0.92rem; font-weight: 600;
+      color: var(--white); text-align: left;
+      transition: color 0.3s;
+    }
+    .faq-q:hover { color: var(--accent-light); }
+    .faq-q:focus-visible { outline: 2px solid var(--accent-light); outline-offset: -2px; }
+    .faq-icon {
+      font-size: 1.2rem; color: var(--accent);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0; margin-left: 1rem;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a-inner {
+      padding: 0 1.5rem 1.25rem; font-size: 0.85rem;
+      color: var(--text-dim); line-height: 1.75;
+    }
+    .faq-a-inner a { color: var(--accent); text-decoration: none; transition: color 0.3s; }
+    .faq-a-inner a:hover { color: var(--accent-light); }
+
+    /* ════════ CTA ════════ */
+    .cta-section {
+      background: var(--surface);
+      padding: 8rem 2.5rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(109,92,255,0.05), transparent 50%);
+      pointer-events: none; animation: glowFloat 12s ease-in-out infinite;
+    }
+    .cta-inner {
+      max-width: 580px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .cta-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .cta-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--white); line-height: 1;
+      letter-spacing: -1.5px; margin-bottom: 1rem; font-weight: 400;
+    }
+    .cta-section h2 em { color: var(--accent); }
+    .cta-desc {
+      color: var(--text-dim); font-size: 1rem;
+      line-height: 1.7; margin-bottom: 2.5rem;
+    }
+    .cta-email {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--accent); text-decoration: none;
+      display: inline-block; margin-bottom: 2rem;
+      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+    }
+    .cta-email:hover {
+      color: var(--accent-light);
+      text-shadow: 0 0 30px rgba(109,92,255,0.3);
+      transform: scale(1.02);
+    }
+    .cta-btns {
+      display: flex; justify-content: center;
+      gap: 0.75rem; flex-wrap: wrap;
+    }
+
+    /* ════════ INTERNAL LINKS BANNER ════════ */
+    .internal-links {
+      background: var(--surface-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2.5rem;
+      position: relative; z-index: 2;
+    }
+    .internal-links-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .internal-links-label {
+      font-family: var(--mono); font-size: 0.65rem;
+      color: var(--text-faint); text-transform: uppercase;
+      letter-spacing: 2px; flex-shrink: 0;
+    }
+    .internal-links a {
+      font-size: 0.82rem; color: var(--text-dim);
+      text-decoration: none;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border); border-radius: 6px;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .internal-links a:hover {
+      border-color: rgba(109,92,255,0.2); color: var(--accent);
+    }
+
+    /* ════════ FOOTER ════════ */
+    footer {
+      background: var(--bg);
+      padding: 3rem 2.5rem 2rem;
+      border-top: 1px solid var(--border);
+      position: relative; z-index: 2;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top {
+      display: flex; justify-content: space-between;
+      align-items: start; padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem; flex-wrap: wrap; gap: 2rem;
+    }
+    .footer-brand {
+      font-weight: 700; font-size: 1.5rem;
+      color: var(--white); letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-tagline {
+      font-size: 0.78rem; color: var(--text-dim);
+      max-width: 260px; line-height: 1.6;
+    }
+    .footer-links-group { display: flex; gap: 4rem; }
+    .footer-col h4 {
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--text-faint); text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 0.75rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy { font-size: 0.7rem; color: var(--text-faint); }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-socials a {
+      width: 32px; height: 32px; border-radius: 6px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.8rem;
+      transition: border-color 0.3s, color 0.3s, transform 0.3s;
+    }
+    .footer-socials a:hover {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ════════ BACK TO TOP ════════ */
+    .back-to-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s, border-color 0.3s;
+      z-index: 90;
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); }
+    .back-to-top:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ════════ ANIMATIONS ════════ */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ════════ RESPONSIVE ════════ */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .process-grid::before { display: none; }
+      .faq-layout { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      nav, .section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .breadcrumb { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .footer-top { flex-direction: column; }
+      .footer-links-group { gap: 2rem; flex-wrap: wrap; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cursor-glow { display: none; }
+      .cta-card { padding: 2.5rem 1.5rem; }
+      .internal-links { padding-left: 1.5rem; padding-right: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.5rem; letter-spacing: -1px; }
+    }
+  </style>
+
+  <!-- JSON-LD: Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Restaurant Website Design Ottawa",
+    "description": "Professional restaurant website design in Ottawa. Custom, mobile-first websites with online menus, ordering integration, reservation systems, and local SEO for Ottawa restaurants.",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "Neon Craft",
+      "url": "https://neoncraft.me",
+      "telephone": "+1-613-558-3577",
+      "email": "bilalxmoussa@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ottawa",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      }
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Ottawa",
+      "sameAs": "https://en.wikipedia.org/wiki/Ottawa"
+    },
+    "serviceType": "Restaurant Website Design",
+    "url": "https://neoncraft.me/services/restaurant-website-design-ottawa.html"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does a restaurant website cost in Ottawa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A professional restaurant website in Ottawa typically starts at $1,499 for a clean, mobile-friendly site with your menu, photos, and contact info. Most Ottawa restaurants choose the Growth plan at $3,499 which includes online ordering integration, a reservation system, and local SEO optimization. Custom quotes are available for multi-location restaurants or advanced features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you integrate online ordering into my restaurant website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We integrate popular online ordering platforms like Square Online, Toast, DoorDash Storefront, or custom ordering solutions directly into your Ottawa restaurant website. Orders go straight to your kitchen — no middleman commissions on direct orders through your own site."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I update my restaurant menu on the website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We build your menu with an easy-to-update system. Depending on your plan, you can update prices, items, and specials yourself through a simple content management system — or send us changes and we'll update them within 24 hours. No technical skills required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my restaurant website rank on Google in Ottawa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every restaurant website we build includes on-page SEO fundamentals — proper meta tags, schema markup for restaurants, fast load times, and mobile optimization. Our Growth and Premium plans include full local SEO to help your restaurant rank for searches like 'restaurants near me' and 'best [cuisine] in Ottawa'. We also optimize your Google Business Profile listing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build a restaurant website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most Ottawa restaurant websites are completed in 2 to 3 weeks. A basic site with your menu and contact info can be ready in as little as 10 business days. Projects with online ordering, reservation systems, or multi-location features may take 3 to 4 weeks. You'll have a clear timeline before we start."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ════ NAV ════ -->
+<nav id="mainNav">
+  <a href="/index.html" class="nav-name">neon<span>craft</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html#projects">Projects</a></li>
+    <li><a href="/services/web-design-ottawa.html" class="active">Services</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/index.html#about">About</a></li>
+    <li><a href="/index.html#faq">FAQ</a></li>
+    <li><a href="/index.html#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html#projects" class="mobile-link">Projects</a>
+  <a href="/services/web-design-ottawa.html" class="mobile-link">Services</a>
+  <a href="/blog/" class="mobile-link">Blog</a>
+  <a href="/index.html#about" class="mobile-link">About</a>
+  <a href="/index.html#faq" class="mobile-link">FAQ</a>
+  <a href="/index.html#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- ════ BREADCRUMB ════ -->
+<div class="breadcrumb">
+  <ol class="breadcrumb-list">
+    <li><a href="/index.html">Home</a></li>
+    <li class="breadcrumb-sep">/</li>
+    <li><a href="/services/web-design-ottawa.html">Services</a></li>
+    <li class="breadcrumb-sep">/</li>
+    <li class="breadcrumb-current">Restaurant Website Design Ottawa</li>
+  </ol>
+</div>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="bg-paths-container" id="bg-paths-hero-1"></div>
+  <div class="bg-paths-container" id="bg-paths-hero-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        Ottawa Restaurant Web Design
+      </div>
+      <h1>Restaurant Website Design <em>Ottawa.</em></h1>
+      <p class="hero-desc">We help Ottawa restaurants get more reservations, online orders, and walk-ins with stunning, mobile-first websites built to convert hungry visitors into loyal customers.</p>
+      <div class="hero-actions">
+        <a href="/index.html#contact" class="btn-accent">Get a Free Quote</a>
+        <a href="#services" class="btn-outline">See What We Build &#8595;</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-stack">
+        <div class="stat-card">
+          <div class="stat-val"><span class="count" data-target="90">0</span><span>%</span></div>
+          <div class="stat-label">Of Diners Research Restaurants Online</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val"><span class="count" data-target="70">0</span><span>%</span></div>
+          <div class="stat-label">Browse Menus on Mobile Devices</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">3<span>x</span></div>
+          <div class="stat-label">More Orders With Online Ordering</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ RELATED SERVICES ════ -->
+<div class="internal-links">
+  <div class="internal-links-inner">
+    <span class="internal-links-label">Also see:</span>
+    <a href="/services/web-design-ottawa.html">Web Design Ottawa</a>
+    <a href="/services/seo-ottawa.html">SEO Ottawa</a>
+    <a href="/areas/ottawa.html">Ottawa Service Area</a>
+    <a href="/blog/">Blog</a>
+  </div>
+</div>
+
+<!-- ════ SERVICES DETAIL ════ -->
+<section class="section services-section" id="services">
+  <div class="bg-paths-container" id="bg-paths-services"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">// What We Build</div>
+      <h2 class="section-heading">Restaurant website <em>features.</em></h2>
+      <p class="section-sub">Everything your Ottawa restaurant needs to look incredible online and drive more covers through the door.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">&#x1F374;</div>
+        <h3>Menu Design & Display</h3>
+        <p>Beautiful, mobile-optimized digital menus that are easy to browse and even easier to update. We organize your menu with categories, photos, dietary labels, and pricing that makes ordering effortless for your customers.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">&#x1F4E6;</div>
+        <h3>Online Ordering Integration</h3>
+        <p>Accept orders directly through your website with integrations for Square Online, Toast, DoorDash Storefront, or a custom solution. Skip the third-party commission fees and keep more profit from every online order.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">&#x1F4C5;</div>
+        <h3>Reservation Systems</h3>
+        <p>Let diners book tables directly from your website. We integrate OpenTable, Resy, or simple custom booking forms that sync with your front-of-house workflow and reduce no-shows with automated confirmations.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">&#x1F4CD;</div>
+        <h3>Google Maps & Reviews Integration</h3>
+        <p>Display your Google reviews, embed your location map, and optimize your Google Business Profile so Ottawa diners find your restaurant when they search "restaurants near me" or "best food in Ottawa."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHY RESTAURANTS NEED A WEBSITE ════ -->
+<section class="section why-section" id="why">
+  <div class="bg-paths-container" id="bg-paths-why"></div>
+  <div class="container">
+    <div class="why-grid">
+      <div class="reveal">
+        <div class="section-eyebrow">// Why It Matters</div>
+        <h2 class="section-heading">Why your Ottawa restaurant needs a <em>great website.</em></h2>
+        <p class="section-sub" style="margin-bottom: 0;">Your website is the first impression for most diners. If it looks outdated, loads slow, or doesn't show your menu — they'll go somewhere else.</p>
+      </div>
+      <div class="why-content">
+        <div class="why-stat reveal reveal-delay-1">
+          <div class="why-stat-num">90%</div>
+          <div class="why-stat-text"><strong>of diners research a restaurant online</strong> before deciding where to eat. Your website is often the first thing they see — before your Google listing, before your Instagram.</div>
+        </div>
+        <div class="why-stat reveal reveal-delay-2">
+          <div class="why-stat-num">77%</div>
+          <div class="why-stat-text"><strong>of diners visit a restaurant's website</strong> before dining there. They want to see the menu, hours, location, and atmosphere. No website means no visit for most people.</div>
+        </div>
+        <div class="why-stat reveal reveal-delay-3">
+          <div class="why-stat-num">67%</div>
+          <div class="why-stat-text"><strong>of food orders are now placed online.</strong> If your restaurant doesn't offer online ordering through your own website, you're losing revenue to third-party apps that take 15-30% commission.</div>
+        </div>
+        <div class="why-stat reveal reveal-delay-4">
+          <div class="why-stat-num">3x</div>
+          <div class="why-stat-text"><strong>more reservations</strong> from restaurants with a professional website versus those relying only on social media. A dedicated site builds trust and makes booking effortless.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROCESS ════ -->
+<section class="section process-section" id="process">
+  <div class="bg-paths-container" id="bg-paths-process"></div>
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
+      <div class="section-eyebrow">// How It Works</div>
+      <h2 class="section-heading">From concept to <em>live.</em></h2>
+      <p class="section-sub" style="margin: 0.5rem auto 0; text-align: center;">Your restaurant website goes live in as little as two weeks.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-num">01</div>
+        <div class="process-title">Discovery</div>
+        <div class="process-desc">We learn about your restaurant, cuisine, brand, and what you need your website to accomplish.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-num">02</div>
+        <div class="process-title">Design</div>
+        <div class="process-desc">We create a custom design that captures your restaurant's personality and makes your menu shine.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-num">03</div>
+        <div class="process-title">Build</div>
+        <div class="process-desc">We hand-code your site with ordering, reservations, and SEO baked in from the start.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-num">04</div>
+        <div class="process-title">Launch</div>
+        <div class="process-desc">Your restaurant goes live with hosting, SSL, analytics, and Google Business Profile optimization.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="section faq-section" id="faq">
+  <div class="bg-paths-container" id="bg-paths-faq"></div>
+  <div class="container">
+    <div class="faq-layout">
+      <div class="reveal">
+        <div class="section-eyebrow">// FAQ</div>
+        <h2 class="section-heading">Restaurant web design <em>questions.</em></h2>
+        <p class="section-sub" style="margin-bottom: 0;">Common questions Ottawa restaurant owners ask before getting started.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">How much does a restaurant website cost in Ottawa?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">A professional restaurant website in Ottawa typically starts at $1,499 for a clean, mobile-friendly site with your menu, photos, and contact info. Most Ottawa restaurants choose the Growth plan at $3,499 which includes online ordering integration, a reservation system, and local SEO optimization. Custom quotes are available for multi-location restaurants or advanced features.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-q" aria-expanded="false">Can you integrate online ordering into my restaurant website?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. We integrate popular online ordering platforms like Square Online, Toast, DoorDash Storefront, or custom ordering solutions directly into your Ottawa restaurant website. Orders go straight to your kitchen — no middleman commissions on direct orders through your own site. We can also set up delivery zones and pickup scheduling.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-q" aria-expanded="false">How do I update my restaurant menu on the website?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">We build your menu with an easy-to-update system. Depending on your plan, you can update prices, items, and daily specials yourself through a simple content management system — or send us changes and we'll update them within 24 hours. No technical skills required. Perfect for seasonal menus or weekly specials.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-q" aria-expanded="false">Will my restaurant website rank on Google in Ottawa?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Every restaurant website we build includes on-page SEO fundamentals — proper meta tags, schema markup for restaurants, fast load times, and mobile optimization. Our Growth and Premium plans include full local SEO to help your restaurant rank for searches like "restaurants near me" and "best [cuisine] in Ottawa." We also optimize your Google Business Profile. Learn more about our <a href="/services/seo-ottawa.html">SEO services</a>.</div></div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-q" aria-expanded="false">How long does it take to build a restaurant website?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Most Ottawa restaurant websites are completed in 2 to 3 weeks. A basic site with your menu and contact info can be ready in as little as 10 business days. Projects with online ordering, reservation systems, or multi-location features may take 3 to 4 weeks. You'll have a clear timeline before we start.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="cta-section" id="contact">
+  <div class="bg-paths-container" id="bg-paths-cta"></div>
+  <div class="cta-inner reveal">
+    <div class="cta-card">
+      <div class="section-eyebrow">// Let's Get Started</div>
+      <h2>Ready for a website that fills <em>tables?</em></h2>
+      <p class="cta-desc">Whether you're opening a new restaurant or need a modern redesign that drives online orders and reservations — we'd love to chat. Free consultation, no pressure.</p>
+      <a href="mailto:bilalxmoussa@gmail.com" class="cta-email">bilalxmoussa@gmail.com</a>
+      <div class="cta-btns">
+        <a href="mailto:bilalxmoussa@gmail.com" class="btn-accent">Send Us an Email</a>
+        <a href="tel:6135583577" class="btn-outline">Call (613) 558-3577</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">neon<span>craft</span></div>
+        <div class="footer-tagline">Web design & development for local Ottawa businesses that want to look as good online as they are in person.</div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/index.html#projects">Projects</a></li>
+            <li><a href="/index.html#about">About</a></li>
+            <li><a href="/index.html#faq">FAQ</a></li>
+            <li><a href="/index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/web-design-ottawa.html">Web Design Ottawa</a></li>
+            <li><a href="/services/seo-ottawa.html">SEO Ottawa</a></li>
+            <li><a href="/services/web-development-ottawa.html">Web Development Ottawa</a></li>
+            <li><a href="/services/restaurant-website-design-ottawa.html">Restaurant Websites</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/blog/how-much-website-cost-ottawa.html">Website Pricing Guide</a></li>
+            <li><a href="/blog/local-seo-ottawa-guide.html">Local SEO Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:bilalxmoussa@gmail.com">bilalxmoussa@gmail.com</a></li>
+            <li><a href="tel:6135583577">(613) 558-3577</a></li>
+            <li><a href="/areas/ottawa.html">Ottawa, ON</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Neon Craft &mdash; Restaurant Website Design Ottawa | Ottawa Web Designer & Developer, Ottawa ON</div>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram" title="Instagram">IG</a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn">LI</a>
+        <a href="#" aria-label="GitHub" title="GitHub">GH</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script>
+// ── Background Paths Generator
+(function() {
+  function generatePaths(container, position, subtle) {
+    var scale = subtle ? 0.35 : 1;
+    var count = subtle ? 20 : 36;
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'bg-paths-svg');
+    svg.setAttribute('viewBox', '0 0 696 316');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+
+    for (var i = 0; i < count; i++) {
+      var p = position;
+      var d = 'M-' + (380 - i * 5 * p) + ' -' + (189 + i * 6) + 'C-' + (380 - i * 5 * p) + ' -' + (189 + i * 6) + ' -' + (312 - i * 5 * p) + ' ' + (216 - i * 6) + ' ' + (152 - i * 5 * p) + ' ' + (343 - i * 6) + 'C' + (616 - i * 5 * p) + ' ' + (470 - i * 6) + ' ' + (684 - i * 5 * p) + ' ' + (875 - i * 6) + ' ' + (684 - i * 5 * p) + ' ' + (875 - i * 6);
+      var strokeW = (0.5 + i * 0.03) * scale;
+      var opacity = (0.1 + i * 0.03) * scale;
+      var dur = 20 + Math.random() * 10;
+      var delay = -(Math.random() * dur);
+
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('pathLength', '1');
+      path.setAttribute('stroke', 'rgba(109,92,255,' + opacity + ')');
+      path.setAttribute('stroke-width', strokeW);
+      path.setAttribute('class', 'bg-path');
+      path.style.setProperty('--path-dur', dur + 's');
+      path.style.setProperty('--path-delay', delay + 's');
+
+      svg.appendChild(path);
+    }
+
+    container.appendChild(svg);
+  }
+
+  var c1 = document.getElementById('bg-paths-hero-1');
+  var c2 = document.getElementById('bg-paths-hero-2');
+  if (c1) generatePaths(c1, 1, false);
+  if (c2) generatePaths(c2, -1, false);
+
+  var sectionPaths = [
+    { id: 'bg-paths-services', pos: -1 },
+    { id: 'bg-paths-why', pos: 1 },
+    { id: 'bg-paths-process', pos: -1 },
+    { id: 'bg-paths-faq', pos: 1 },
+    { id: 'bg-paths-cta', pos: -1 }
+  ];
+  sectionPaths.forEach(function(s) {
+    var el = document.getElementById(s.id);
+    if (el) generatePaths(el, s.pos, true);
+  });
+})();
+
+// ── Scroll reveal
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+
+// ── Nav scroll state
+var navEl = document.getElementById('mainNav');
+var backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', function() {
+  navEl.classList.toggle('scrolled', window.scrollY > 50);
+  backToTopBtn.classList.toggle('visible', window.scrollY > 600);
+}, { passive: true });
+
+backToTopBtn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+// ── Cursor glow
+var glowEl = document.getElementById('cursorGlow');
+if (window.matchMedia('(pointer: fine)').matches) {
+  document.addEventListener('mousemove', function(e) {
+    glowEl.style.left = e.clientX + 'px';
+    glowEl.style.top = e.clientY + 'px';
+  }, { passive: true });
+}
+
+// ── Mobile menu
+var mobileToggleBtn = document.getElementById('mobileToggle');
+var mobileMenuEl = document.getElementById('mobileMenu');
+mobileToggleBtn.addEventListener('click', function() {
+  mobileToggleBtn.classList.toggle('open');
+  mobileMenuEl.classList.toggle('open');
+  document.body.style.overflow = mobileMenuEl.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mobile-link').forEach(function(link) {
+  link.addEventListener('click', function() {
+    mobileToggleBtn.classList.remove('open');
+    mobileMenuEl.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ── FAQ accordion (single-open, aria-expanded)
+document.querySelectorAll('.faq-q').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = btn.parentElement;
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// ── Number count-up
+var countUpObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var el = entry.target;
+      var target = parseInt(el.dataset.target);
+      var duration = 1200;
+      var start = performance.now();
+      function step(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      countUpObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count').forEach(function(el) { countUpObserver.observe(el); });
+</script>
+
+</body>
+</html>

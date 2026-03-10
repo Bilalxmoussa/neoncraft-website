@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Design Kanata | Neon Craft — Websites for Kanata Businesses</title>
+  <meta name="description" content="Web design and development for Kanata businesses. Custom websites, local SEO, and hand-coded sites for companies in Kanata North, Kanata South, and the surrounding tech corridor. Ottawa-based web designer.">
+  <meta name="keywords" content="web design Kanata, web designer Kanata Ottawa, website design Kanata, Kanata web development, Kanata North web design, web designer near me Kanata">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neoncraft.me/areas/kanata.html">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta property="og:title" content="Web Design Kanata | Neon Craft — Websites for Kanata Businesses">
+  <meta property="og:description" content="Web design and development for Kanata businesses. Custom websites, local SEO, and hand-coded sites for Ottawa's tech hub.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neoncraft.me/areas/kanata.html">
+  <meta property="og:site_name" content="Neon Craft">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Design Kanata | Neon Craft — Websites for Kanata Businesses">
+  <meta name="twitter:description" content="Web design and development for Kanata businesses. Custom websites, local SEO, and hand-coded sites for Ottawa's tech hub.">
+  <meta name="geo.region" content="CA-ON">
+  <meta name="geo.placename" content="Kanata">
+  <meta name="geo.position" content="45.3088;-75.8985">
+  <meta name="ICBM" content="45.3088, -75.8985">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090B;
+      --surface: #111113;
+      --surface-2: #18181B;
+      --border: rgba(255,255,255,0.06);
+      --accent: #6D5CFF;
+      --accent-light: #8B7EFF;
+      --accent-glow: rgba(109,92,255,0.08);
+      --accent-glow-md: rgba(109,92,255,0.15);
+      --green: #34D399;
+      --white: #FAFAFA;
+      --text: #A1A1AA;
+      --text-dim: #71717A;
+      --text-faint: #3F3F46;
+      --serif: 'Instrument Serif', serif;
+      --sans: 'Outfit', sans-serif;
+      --mono: 'Geist Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: white; }
+
+    .grain {
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(109,92,255,0.04) 0%, transparent 70%);
+      pointer-events: none; z-index: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    /* ════════ SCROLL REVEAL ════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ════════ NAV ════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(9,9,11,0.6);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(9,9,11,0.92);
+      border-bottom-color: var(--border);
+      padding: 0.75rem 2.5rem;
+    }
+
+    .nav-name {
+      font-weight: 700; font-size: 1.75rem;
+      color: var(--white); text-decoration: none;
+      letter-spacing: -0.3px;
+      transition: transform 0.3s;
+    }
+    .nav-name:hover { transform: scale(1.02); }
+    .nav-name span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -4px; left: 0; right: 0; height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: left;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: white !important;
+      padding: 0.5rem 1.2rem; border-radius: 6px;
+      font-weight: 600 !important; font-size: 0.8rem !important;
+      transition: transform 0.25s, background 0.25s, box-shadow 0.25s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: var(--accent-light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(109,92,255,0.3);
+    }
+    .nav-cta:active { transform: translateY(0) scale(0.98); }
+
+    /* Mobile nav */
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 28px; height: 20px; position: relative; z-index: 110;
+    }
+    .mobile-toggle span {
+      display: block; width: 100%; height: 2px;
+      background: var(--white); position: absolute; left: 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .mobile-toggle span:nth-child(1) { top: 0; }
+    .mobile-toggle span:nth-child(2) { top: 9px; }
+    .mobile-toggle span:nth-child(3) { top: 18px; }
+    .mobile-toggle.open span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+    .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.open span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(9,9,11,0.97);
+      backdrop-filter: blur(32px);
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2rem; color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+      letter-spacing: -0.5px;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ════════ BREADCRUMB ════════ */
+    .breadcrumb {
+      padding: 6rem 2.5rem 0;
+      max-width: 1100px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .breadcrumb-list {
+      display: flex; align-items: center; gap: 0.5rem;
+      list-style: none;
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--text-faint);
+    }
+    .breadcrumb-list a {
+      color: var(--text-dim); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumb-list a:hover { color: var(--accent); }
+    .breadcrumb-list .sep { color: var(--text-faint); }
+    .breadcrumb-list .current { color: var(--accent); }
+
+    /* ════════ HERO ════════ */
+    .hero {
+      padding: 3rem 2.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -20%; left: 30%;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(109,92,255,0.07) 0%, transparent 55%);
+      pointer-events: none; animation: glowFloat 8s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute; bottom: -30%; right: 10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(52,211,153,0.03) 0%, transparent 55%);
+      pointer-events: none; animation: glowFloat 10s ease-in-out infinite reverse;
+    }
+    @keyframes glowFloat {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -20px); }
+    }
+
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 10;
+      display: grid; grid-template-columns: 1.3fr 0.7fr;
+      gap: 4rem; align-items: center;
+    }
+    .hero-left { animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+      color: var(--accent); letter-spacing: 0.5px; margin-bottom: 1.5rem;
+      background: var(--accent-glow);
+      padding: 0.4rem 0.9rem; border-radius: 20px;
+      border: 1px solid rgba(109,92,255,0.1);
+    }
+    .hero-tag .dot {
+      width: 6px; height: 6px; background: var(--green);
+      border-radius: 50%; animation: pulse 2.5s infinite;
+      box-shadow: 0 0 8px rgba(52,211,153,0.4);
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 0.98; color: var(--white);
+      letter-spacing: -2px; font-weight: 400;
+    }
+    .hero h1 em {
+      color: var(--accent); font-style: italic;
+      position: relative;
+    }
+    .hero h1 em::after {
+      content: ''; position: absolute;
+      bottom: 2px; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px; opacity: 0.5;
+    }
+    .hero-desc {
+      font-size: 1.05rem; color: var(--text);
+      line-height: 1.75; margin-top: 1.5rem;
+      max-width: 500px; font-weight: 300;
+    }
+    .hero-actions {
+      display: flex; gap: 0.75rem;
+      margin-top: 2.5rem; flex-wrap: wrap;
+    }
+
+    .btn-accent {
+      background: var(--accent); color: white;
+      padding: 0.85rem 2rem; border: none; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; font-family: var(--sans);
+      cursor: pointer; text-decoration: none;
+      position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-accent::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(109,92,255,0.3), 0 0 0 1px rgba(109,92,255,0.2);
+    }
+    .btn-accent:hover::before { opacity: 1; }
+    .btn-accent:active { transform: translateY(0) scale(0.98); }
+    .btn-accent:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+
+    .btn-outline {
+      background: transparent; color: var(--text);
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 0.9rem; font-weight: 500; font-family: var(--sans);
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-outline:hover {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(109,92,255,0.1);
+    }
+    .btn-outline:active { transform: translateY(0) scale(0.98); }
+    .btn-outline:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+
+    /* Hero right — stat cards */
+    .hero-right { animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+    .stat-stack { display: flex; flex-direction: column; gap: 1.25rem; }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .stat-card::after {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, rgba(109,92,255,0.06), transparent);
+      pointer-events: none;
+    }
+    .stat-card:hover {
+      border-color: rgba(109,92,255,0.15);
+      transform: translateX(-4px);
+      box-shadow: 4px 0 20px rgba(109,92,255,0.06);
+    }
+    .stat-val { font-family: var(--serif); font-size: 2.2rem; color: var(--white); line-height: 1; }
+    .stat-val span { color: var(--accent); }
+    .stat-label { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; font-weight: 500; }
+
+    /* ════════ SECTION SHARED ════════ */
+    .section { padding: 7rem 2.5rem; position: relative; z-index: 2; overflow: hidden; }
+    .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+
+    .section-eyebrow {
+      font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white); line-height: 1.05;
+      letter-spacing: -1.5px; margin-bottom: 0.5rem; font-weight: 400;
+    }
+    .section-heading em { color: var(--accent); }
+    .section-sub {
+      color: var(--text-dim); max-width: 520px;
+      line-height: 1.75; font-size: 0.95rem;
+      margin-bottom: 4rem; font-weight: 300;
+    }
+
+    /* ════════ MARKET CONTEXT ════════ */
+    .context-section { background: var(--surface); }
+    .context-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .context-text p {
+      font-size: 0.95rem; color: var(--text);
+      line-height: 1.8; margin-bottom: 1.25rem;
+    }
+    .context-text p:last-child { margin-bottom: 0; }
+    .context-text strong { color: var(--white); font-weight: 600; }
+    .context-text a {
+      color: var(--accent); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .context-text a:hover { color: var(--accent-light); }
+
+    .context-highlights {
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .highlight-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .highlight-card:hover {
+      border-color: rgba(109,92,255,0.15);
+      transform: translateX(-3px);
+    }
+    .highlight-val {
+      font-family: var(--serif); font-size: 2rem;
+      color: var(--white); line-height: 1;
+    }
+    .highlight-val span { color: var(--accent); }
+    .highlight-label {
+      font-size: 0.78rem; color: var(--text-dim);
+      margin-top: 0.3rem; font-weight: 500;
+    }
+
+    /* ════════ SERVICES OVERVIEW ════════ */
+    .services-section { background: var(--surface); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+      position: relative; overflow: hidden;
+      text-decoration: none; display: block;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover {
+      border-color: rgba(109,92,255,0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(109,92,255,0.06);
+    }
+    .service-card:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(109,92,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .service-card:hover .service-icon {
+      background: var(--accent-glow-md);
+      border-color: rgba(109,92,255,0.25);
+    }
+    .service-name {
+      font-family: var(--serif);
+      font-size: 1.35rem; color: var(--white);
+      font-weight: 400; letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      font-size: 0.85rem; color: var(--text-dim);
+      line-height: 1.75; margin-bottom: 1.25rem;
+    }
+    .service-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--accent); font-size: 0.82rem; font-weight: 600;
+      transition: gap 0.3s, color 0.3s;
+    }
+    .service-card:hover .service-link { gap: 0.6rem; color: var(--accent-light); }
+    .service-link .arrow { transition: transform 0.3s; }
+    .service-card:hover .service-link .arrow { transform: translateX(3px); }
+
+    /* ════════ NEARBY AREAS ════════ */
+    .areas-section { background: var(--bg); }
+    .areas-grid {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      justify-content: center;
+    }
+    .area-badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    .area-badge:hover {
+      border-color: rgba(109,92,255,0.25);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(109,92,255,0.1);
+      background: var(--surface-2);
+    }
+    .area-badge.featured {
+      border-color: rgba(109,92,255,0.2);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+    .area-badge.featured:hover {
+      border-color: rgba(109,92,255,0.35);
+      color: var(--accent-light);
+      background: var(--accent-glow-md);
+    }
+
+    /* ════════ TESTIMONIAL ════════ */
+    .testimonial-section { background: var(--bg); }
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3.5rem;
+      max-width: 700px; margin: 0 auto;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .testimonial-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .testimonial-quote-mark {
+      font-family: var(--serif);
+      font-size: 4rem; color: var(--accent);
+      line-height: 1; margin-bottom: 1rem;
+      opacity: 0.4;
+    }
+    .testimonial-text {
+      font-family: var(--serif);
+      font-size: 1.3rem; color: var(--white);
+      line-height: 1.6; font-style: italic;
+      font-weight: 400; letter-spacing: -0.3px;
+      margin-bottom: 2rem;
+    }
+    .testimonial-stars {
+      color: #FEBC2E;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      margin-bottom: 1.25rem;
+    }
+    .testimonial-author {
+      display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; color: white;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 0.92rem; font-weight: 600; color: var(--white);
+    }
+    .testimonial-role {
+      font-size: 0.75rem; color: var(--text-dim);
+    }
+
+    /* ════════ FAQ ════════ */
+    .faq-section { background: var(--surface); }
+    .faq-list {
+      max-width: 740px;
+      display: flex; flex-direction: column;
+      gap: 0.75rem;
+    }
+    .faq-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(109,92,255,0.12); }
+    .faq-btn {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--sans); font-size: 0.95rem; font-weight: 600;
+      color: var(--white); text-align: left;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+    .faq-btn:hover { color: var(--accent); }
+    .faq-btn:focus-visible { outline: 2px solid var(--accent-light); outline-offset: -2px; }
+    .faq-icon {
+      width: 28px; height: 28px; border-radius: 6px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(109,92,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: var(--accent);
+      flex-shrink: 0;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--accent-glow-md); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-answer-inner {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.88rem; color: var(--text);
+      line-height: 1.8;
+    }
+    .faq-answer-inner a {
+      color: var(--accent); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .faq-answer-inner a:hover { color: var(--accent-light); }
+
+    /* ════════ CTA ════════ */
+    .cta-section {
+      background: var(--bg);
+      padding: 8rem 2.5rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(109,92,255,0.05), transparent 50%);
+      pointer-events: none; animation: glowFloat 12s ease-in-out infinite;
+    }
+    .cta-inner {
+      max-width: 580px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .cta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .cta-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--white); line-height: 1;
+      letter-spacing: -1.5px; margin-bottom: 1rem; font-weight: 400;
+    }
+    .cta-section h2 em { color: var(--accent); }
+    .cta-desc {
+      color: var(--text-dim); font-size: 1rem;
+      line-height: 1.7; margin-bottom: 2.5rem;
+    }
+    .cta-email {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--accent); text-decoration: none;
+      display: inline-block; margin-bottom: 2rem;
+      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+    }
+    .cta-email:hover {
+      color: var(--accent-light);
+      text-shadow: 0 0 30px rgba(109,92,255,0.3);
+      transform: scale(1.02);
+    }
+    .cta-btns {
+      display: flex; justify-content: center;
+      gap: 0.75rem; flex-wrap: wrap;
+    }
+
+    /* ════════ FOOTER ════════ */
+    footer {
+      background: var(--bg);
+      padding: 3rem 2.5rem 2rem;
+      border-top: 1px solid var(--border);
+      position: relative; z-index: 2;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between;
+      align-items: start; padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem; flex-wrap: wrap; gap: 2rem;
+    }
+    .footer-brand {
+      font-weight: 700; font-size: 1.5rem;
+      color: var(--white); letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-tagline {
+      font-size: 0.78rem; color: var(--text-dim);
+      max-width: 260px; line-height: 1.6;
+    }
+    .footer-links-group { display: flex; gap: 4rem; }
+    .footer-col h4 {
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--text-faint); text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 0.75rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy { font-size: 0.7rem; color: var(--text-faint); }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-socials a {
+      width: 32px; height: 32px; border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.8rem;
+      transition: border-color 0.3s, color 0.3s, transform 0.3s;
+    }
+    .footer-socials a:hover {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ════════ BACK TO TOP ════════ */
+    .back-to-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s, border-color 0.3s;
+      z-index: 90;
+    }
+    .back-to-top.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .back-to-top:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ════════ RESPONSIVE ════════ */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .context-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      nav, .section, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero { padding: 2rem 1.5rem 4rem; }
+      .breadcrumb { padding: 6rem 1.5rem 0; }
+      .footer-top { flex-direction: column; }
+      .footer-links-group { gap: 2rem; flex-wrap: wrap; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .cursor-glow { display: none; }
+      .cta-card { padding: 2.5rem 1.5rem; }
+      .testimonial-card { padding: 2.5rem 1.5rem; }
+      .testimonial-text { font-size: 1.1rem; }
+      .areas-grid { gap: 0.5rem; }
+      .area-badge { padding: 0.55rem 1rem; font-size: 0.8rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+      .hero-desc { font-size: 0.95rem; }
+      .section-heading { font-size: 1.8rem; }
+      .service-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Neon Craft — Web Design Kanata",
+    "description": "Web design and development for Kanata businesses. Custom websites, local SEO, and hand-coded sites for companies in Kanata North, Kanata South, and surrounding areas.",
+    "url": "https://neoncraft.me/areas/kanata.html",
+    "telephone": "+1-613-558-3577",
+    "email": "bilalxmoussa@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kanata",
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.3088,
+      "longitude": -75.8985
+    },
+    "areaServed": [
+      { "@type": "Place", "name": "Kanata" },
+      { "@type": "Place", "name": "Kanata North" },
+      { "@type": "Place", "name": "Kanata South" },
+      { "@type": "City", "name": "Ottawa", "sameAs": "https://en.wikipedia.org/wiki/Ottawa" }
+    ],
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "serviceType": ["Web Design", "Web Development", "SEO", "Local SEO"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Services for Kanata",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Design Kanata",
+            "url": "https://neoncraft.me/services/web-design-ottawa.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SEO Kanata",
+            "url": "https://neoncraft.me/services/seo-ottawa.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Development Kanata",
+            "url": "https://neoncraft.me/services/web-development-ottawa.html"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does web design cost for a Kanata business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Website projects for Kanata businesses typically start at $1,500 for a custom-coded landing page and range up to $5,000+ for a full multi-page website with SEO. Every project is quoted individually based on scope and requirements. Contact us for a free consultation and quote."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you meet with Kanata clients in person?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. As an Ottawa-based web designer, I'm happy to meet Kanata clients in person at local coffee shops, co-working spaces, or your place of business. I also work effectively over video calls if that's more convenient for your schedule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help my Kanata business rank on Google?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Every website I build includes on-page SEO fundamentals — proper heading structure, meta tags, fast load times, and mobile optimization. For businesses that want to dominate local search in Kanata, I also offer dedicated local SEO services including Google Business Profile optimization and neighborhood-targeted content."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ════ NAV ════ -->
+<nav id="mainNav">
+  <a href="/index.html" class="nav-name">neon<span>craft</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html#projects">Projects</a></li>
+    <li><a href="/services/web-design-ottawa.html">Services</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/index.html#about">About</a></li>
+    <li><a href="/index.html#faq">FAQ</a></li>
+    <li><a href="/index.html#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/index.html#projects" class="mobile-link">Projects</a>
+  <a href="/services/web-design-ottawa.html" class="mobile-link">Services</a>
+  <a href="/blog/" class="mobile-link">Blog</a>
+  <a href="/index.html#about" class="mobile-link">About</a>
+  <a href="/index.html#faq" class="mobile-link">FAQ</a>
+  <a href="/index.html#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- ════ BREADCRUMB ════ -->
+<div class="breadcrumb">
+  <ol class="breadcrumb-list">
+    <li><a href="/index.html">Home</a></li>
+    <li class="sep">/</li>
+    <li><a href="/areas/ottawa.html">Service Areas</a></li>
+    <li class="sep">/</li>
+    <li class="current">Kanata</li>
+  </ol>
+</div>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        Serving Kanata businesses
+      </div>
+      <h1>Web Design &amp; Development in <em>Kanata</em></h1>
+      <p class="hero-desc">Helping Kanata businesses stand out online with custom-coded websites that load fast, rank on Google, and convert visitors into customers. From tech startups in Kanata North to shops along Hazeldean Road.</p>
+      <div class="hero-actions">
+        <a href="/index.html#contact" class="btn-accent">Get a Free Quote</a>
+        <a href="#services" class="btn-outline">View Services &darr;</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-stack">
+        <div class="stat-card">
+          <div class="stat-val"><span class="count" data-target="100">0</span><span>k+</span></div>
+          <div class="stat-label">Kanata Residents &mdash; Your Potential Customers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Tech <span>Hub</span></div>
+          <div class="stat-label">Ottawa's Silicon Valley North</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Local</div>
+          <div class="stat-label">Ottawa-Based &amp; Available for In-Person Meetings</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ MARKET CONTEXT ════ -->
+<section class="section context-section" id="context">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">// Why Kanata Businesses Need Great Websites</div>
+      <h2 class="section-heading">The Kanata <em>market.</em></h2>
+    </div>
+
+    <div class="context-layout">
+      <div class="context-text reveal">
+        <p>Kanata is one of Ottawa's fastest-growing and most dynamic communities. Known nationally as <strong>Canada's Silicon Valley North</strong>, the Kanata North Business Park alone houses over 540 companies and 33,000 employees across the technology, defense, and telecommunications sectors. But Kanata is far more than just a tech corridor &mdash; it is a thriving suburban community with a diverse economy that includes retail, healthcare, fitness studios, restaurants, professional services, and skilled trades.</p>
+        <p>With a population exceeding <strong>100,000 residents</strong> spread across Kanata North, Kanata South, Bridlewood, Beaverbrook, and Morgan's Grant, local businesses face serious competition for attention. The Kanata Centrum, Hazeldean Mall, and the commercial strips along Terry Fox Drive and March Road draw thousands of shoppers weekly. If your business does not have a strong online presence, those potential customers will find a competitor who does. <strong>A professional website is the minimum</strong> for credibility in a community this connected.</p>
+        <p>I build websites specifically for businesses operating in the Kanata market. From <a href="/services/seo-ottawa.html">local SEO strategies</a> targeting &ldquo;near me&rdquo; searches by Kanata residents to <a href="/services/web-design-ottawa.html">designs that reflect your brand&rsquo;s professionalism</a>, every project is built to perform. No templates, no WordPress bloat &mdash; just <a href="/services/web-development-ottawa.html">fast, hand-coded websites</a> that help Kanata businesses compete online.</p>
+      </div>
+      <div class="context-highlights reveal reveal-delay-2">
+        <div class="highlight-card">
+          <div class="highlight-val">100k<span>+</span></div>
+          <div class="highlight-label">Kanata Population &mdash; Growing Fast</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-val">540<span>+</span></div>
+          <div class="highlight-label">Companies in Kanata North Tech Park</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-val">3<span>s</span></div>
+          <div class="highlight-label">Average Patience for a Slow Website</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SERVICES OVERVIEW ════ -->
+<section class="section services-section" id="services">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">// What I Offer</div>
+      <h2 class="section-heading">Services for <em>Kanata.</em></h2>
+      <p class="section-sub">Every service is tailored to help Kanata businesses compete online &mdash; from design and development to search engine optimization.</p>
+    </div>
+
+    <div class="services-grid">
+      <a href="/services/web-design-ottawa.html" class="service-card reveal">
+        <div class="service-icon">&#10024;</div>
+        <h3 class="service-name">Web Design</h3>
+        <p class="service-desc">Custom website designs for Kanata businesses that look premium, load in under 2 seconds, and turn visitors into paying customers. Mobile-first and built to stand out from template sites.</p>
+        <span class="service-link">Learn more <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a href="/services/seo-ottawa.html" class="service-card reveal reveal-delay-1">
+        <div class="service-icon">&#128269;</div>
+        <h3 class="service-name">Local SEO</h3>
+        <p class="service-desc">Get found when Kanata residents search for your services. Google Business Profile optimization, on-page SEO, and content strategies targeting Kanata-specific keywords.</p>
+        <span class="service-link">Learn more <span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a href="/services/web-development-ottawa.html" class="service-card reveal reveal-delay-2">
+        <div class="service-icon">&lt;/&gt;</div>
+        <h3 class="service-name">Web Development</h3>
+        <p class="service-desc">Hand-coded websites with zero template bloat. Custom HTML, CSS, and JavaScript built for speed, accessibility, and search engine performance. No WordPress overhead.</p>
+        <span class="service-link">Learn more <span class="arrow">&rarr;</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TESTIMONIAL ════ -->
+<section class="section testimonial-section">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 3rem;">
+      <div class="section-eyebrow">// Kanata Client</div>
+      <h2 class="section-heading">What Kanata businesses <em>say.</em></h2>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="testimonial-quote-mark">&ldquo;</div>
+      <p class="testimonial-text">We were buried on page three of Google and losing business to competitors with better websites. Bilal rebuilt our site from scratch and within a month we were getting calls from customers who found us online. Best investment we made for our Kanata location.</p>
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">KF</div>
+        <div style="text-align: left;">
+          <div class="testimonial-name">Kanata Fitness Studio</div>
+          <div class="testimonial-role">Health &amp; Fitness &middot; Kanata, ON</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ NEARBY AREAS ════ -->
+<section class="section areas-section" id="areas">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 3.5rem;">
+      <div class="section-eyebrow">// Nearby Service Areas</div>
+      <h2 class="section-heading">Also serving <em>nearby.</em></h2>
+      <p class="section-sub" style="margin: 0.5rem auto 0; text-align: center;">In addition to Kanata, I build websites for businesses across the greater Ottawa region.</p>
+    </div>
+
+    <div class="areas-grid reveal">
+      <a href="/areas/ottawa.html" class="area-badge featured">Ottawa</a>
+      <a href="/areas/nepean.html" class="area-badge featured">Nepean</a>
+      <a href="/areas/barrhaven.html" class="area-badge featured">Barrhaven</a>
+      <a href="/areas/orleans.html" class="area-badge featured">Orl&eacute;ans</a>
+      <span class="area-badge">Stittsville</span>
+      <span class="area-badge">Bells Corners</span>
+      <span class="area-badge">Bridlewood</span>
+      <span class="area-badge">Beaverbrook</span>
+      <span class="area-badge">Morgan's Grant</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">// Frequently Asked Questions</div>
+      <h2 class="section-heading">Kanata web design <em>FAQ.</em></h2>
+      <p class="section-sub">Common questions from Kanata business owners about web design, SEO, and working with a local developer.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-btn" aria-expanded="false">
+          How much does web design cost for a Kanata business?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Website projects for Kanata businesses typically start at $1,500 for a custom-coded landing page and range up to $5,000+ for a full multi-page website with SEO optimization. Every project is quoted individually based on your specific needs, number of pages, and features required. I offer free consultations to discuss your project and provide an accurate quote &mdash; no hidden fees, no surprise charges. <a href="/blog/how-much-website-cost-ottawa.html">Read my full pricing guide</a>.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-btn" aria-expanded="false">
+          Do you meet with Kanata clients in person?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Absolutely. As an Ottawa-based web designer, I am happy to meet Kanata clients at local coffee shops, co-working spaces along March Road, or at your place of business. Many of my Kanata clients prefer an initial in-person meeting followed by video check-ins throughout the project. Whatever works best for your schedule &mdash; I am flexible and local.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-btn" aria-expanded="false">
+          Can you help my Kanata business rank on Google?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Yes. Every website I build includes on-page SEO fundamentals &mdash; proper heading structure, meta tags, fast load times, mobile optimization, and structured data markup. For businesses that want to dominate local search results in Kanata, I also offer dedicated <a href="/services/seo-ottawa.html">local SEO services</a> including Google Business Profile optimization, location-specific content, and keyword targeting for searches like &ldquo;web design Kanata&rdquo; and similar terms your customers are using.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner reveal">
+    <div class="cta-card">
+      <div class="section-eyebrow">// Let's Work Together</div>
+      <h2>Kanata business needs<br>a better <em>website?</em></h2>
+      <p class="cta-desc">Whether you are on March Road, Hazeldean, or Terry Fox Drive &mdash; I work with Kanata businesses across the community. Free consultation, no pressure.</p>
+      <a href="mailto:bilalxmoussa@gmail.com" class="cta-email">bilalxmoussa@gmail.com</a>
+      <div class="cta-btns">
+        <a href="mailto:bilalxmoussa@gmail.com" class="btn-accent">Send Me an Email</a>
+        <a href="tel:6135583577" class="btn-outline">Call (613) 558-3577</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">neon<span>craft</span></div>
+        <div class="footer-tagline">Web design &amp; development for local Ottawa businesses that want to look as good online as they are in person.</div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/index.html#projects">Projects</a></li>
+            <li><a href="/index.html#about">About</a></li>
+            <li><a href="/index.html#faq">FAQ</a></li>
+            <li><a href="/index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/web-design-ottawa.html">Web Design</a></li>
+            <li><a href="/services/seo-ottawa.html">SEO</a></li>
+            <li><a href="/services/web-development-ottawa.html">Web Development</a></li>
+            <li><a href="/areas/ottawa.html">All Service Areas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/blog/how-much-website-cost-ottawa.html">Pricing Guide</a></li>
+            <li><a href="/blog/local-seo-ottawa-guide.html">Local SEO Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:bilalxmoussa@gmail.com">bilalxmoussa@gmail.com</a></li>
+            <li><a href="tel:6135583577">(613) 558-3577</a></li>
+            <li><a href="/areas/ottawa.html">Ottawa, ON</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Neon Craft &mdash; Web Design Kanata | Serving Ottawa &amp; Surrounding Areas</div>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram" title="Instagram">IG</a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn">LI</a>
+        <a href="#" aria-label="GitHub" title="GitHub">GH</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script>
+// ── Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Nav scroll state
+const nav = document.getElementById('mainNav');
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  backToTop.classList.toggle('visible', window.scrollY > 600);
+}, { passive: true });
+
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── Cursor glow
+const glow = document.getElementById('cursorGlow');
+if (window.matchMedia('(pointer: fine)').matches) {
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  }, { passive: true });
+}
+
+// ── Mobile menu
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileToggle.addEventListener('click', () => {
+  mobileToggle.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileToggle.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ── Number count-up
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const duration = 1200;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
+
+// ── FAQ accordion
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      openItem.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+
+    // Open clicked (if it was closed)
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Web Design Trends Ottawa Businesses Should Know in 2026 | Neon Craft</title>
+  <meta name="description" content="Discover the top 10 web design trends for 2026 that Ottawa businesses should adopt — from dark mode and micro-animations to AI personalization and accessibility-first design.">
+  <meta name="keywords" content="web design trends 2026, website design trends, modern website design, Ottawa web design, web design Ottawa 2026">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neoncraft.me/blog/web-design-trends-2026.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="10 Web Design Trends Ottawa Businesses Should Know in 2026 | Neon Craft">
+  <meta property="og:description" content="The top 10 web design trends shaping Ottawa business websites in 2026 — and how to use them to stand out.">
+  <meta property="og:url" content="https://neoncraft.me/blog/web-design-trends-2026.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Neon Craft">
+  <meta property="article:published_time" content="2026-03-03">
+  <meta property="article:author" content="Bilal Moussa">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="10 Web Design Trends Ottawa Businesses Should Know in 2026 | Neon Craft">
+  <meta name="twitter:description" content="The top 10 web design trends shaping Ottawa business websites in 2026 — and how to use them to stand out.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "10 Web Design Trends Ottawa Businesses Should Know in 2026",
+    "description": "Discover the top 10 web design trends for 2026 that Ottawa businesses should adopt — from dark mode and micro-animations to AI personalization and accessibility-first design.",
+    "url": "https://neoncraft.me/blog/web-design-trends-2026.html",
+    "datePublished": "2026-03-03",
+    "dateModified": "2026-03-03",
+    "author": {
+      "@type": "Person",
+      "name": "Bilal Moussa",
+      "url": "https://neoncraft.me"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Neon Craft",
+      "url": "https://neoncraft.me"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://neoncraft.me/blog/web-design-trends-2026.html"
+    },
+    "wordCount": 900,
+    "inLanguage": "en-CA"
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #09090B;
+      --surface: #111113;
+      --surface-2: #18181B;
+      --border: rgba(255,255,255,0.06);
+      --accent: #6D5CFF;
+      --accent-light: #8B7EFF;
+      --accent-glow: rgba(109,92,255,0.08);
+      --accent-glow-md: rgba(109,92,255,0.15);
+      --green: #34D399;
+      --white: #FAFAFA;
+      --text: #A1A1AA;
+      --text-dim: #71717A;
+      --text-faint: #3F3F46;
+      --serif: 'Instrument Serif', serif;
+      --sans: 'Outfit', sans-serif;
+      --mono: 'Geist Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: white; }
+
+    .grain {
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* ════════ NAV ════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(9,9,11,0.88);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-weight: 700; font-size: 1.75rem;
+      color: var(--white); text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-name span { color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links .active { color: var(--accent-light); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: white !important;
+      padding: 0.5rem 1.2rem; border-radius: 6px;
+      font-weight: 600 !important; font-size: 0.8rem !important;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .nav-cta:hover {
+      background: var(--accent-light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(109,92,255,0.3);
+    }
+
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 24px; height: 16px; position: relative;
+    }
+    .mobile-toggle span {
+      display: block; width: 100%; height: 1.5px;
+      background: var(--white); position: absolute; left: 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .mobile-toggle span:nth-child(1) { top: 0; }
+    .mobile-toggle span:nth-child(2) { top: 7px; }
+    .mobile-toggle span:nth-child(3) { top: 14px; }
+    .mobile-toggle.open span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+    .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.open span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(9,9,11,0.96);
+      backdrop-filter: blur(24px);
+      z-index: 99;
+      flex-direction: column; justify-content: center; align-items: center;
+      gap: 2rem; list-style: none;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--white); text-decoration: none;
+      font-size: 1.5rem; font-weight: 600;
+      transition: color 0.3s;
+    }
+    .mobile-nav a:hover { color: var(--accent); }
+
+    /* ════════ BREADCRUMB ════════ */
+    .breadcrumb {
+      padding: 6.5rem 2.5rem 0;
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .breadcrumb-inner {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-faint);
+    }
+    .breadcrumb-inner a {
+      color: var(--text-dim); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumb-inner a:hover { color: var(--accent); }
+    .breadcrumb-inner .sep { color: var(--text-faint); }
+    .breadcrumb-inner .current { color: var(--text-dim); }
+
+    /* ════════ ARTICLE HERO ════════ */
+    .article-hero {
+      padding: 2.5rem 2.5rem 3rem;
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .article-hero-glow {
+      position: absolute;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(109,92,255,0.05) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .article-hero-inner {
+      position: relative; z-index: 2;
+      animation: fadeIn 0.8s ease both;
+    }
+
+    .article-meta {
+      display: flex; align-items: center; gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .article-category {
+      font-family: var(--mono);
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid rgba(109,92,255,0.12);
+      padding: 0.3rem 0.7rem; border-radius: 4px;
+    }
+
+    .article-date, .article-read-time {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    .article-dot {
+      width: 3px; height: 3px;
+      background: var(--text-faint);
+      border-radius: 50%;
+    }
+
+    .article-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      font-weight: 400;
+    }
+
+    .article-hero h1 em { color: var(--accent); font-style: italic; }
+
+    /* ════════ ARTICLE BODY ════════ */
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2.5rem 5rem;
+      position: relative; z-index: 2;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+    }
+
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: 1.85rem;
+      color: var(--white);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .article-body h3 {
+      font-family: var(--sans);
+      font-size: 1.15rem;
+      color: var(--white);
+      font-weight: 600;
+      margin-top: 2.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .article-body a {
+      color: var(--accent-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.3s;
+    }
+    .article-body a:hover { color: var(--accent); }
+    .article-body a:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+
+    .article-body strong { color: var(--white); font-weight: 600; }
+
+    .article-body ul, .article-body ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.5rem;
+    }
+
+    .article-body li {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+
+    .article-body li::marker { color: var(--accent); }
+
+    /* Tip box */
+    .tip-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0 2.25rem;
+    }
+
+    .tip-box-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .tip-box p {
+      font-size: 0.92rem !important;
+      line-height: 1.7 !important;
+      color: var(--text-dim) !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Trend number */
+    .trend-number {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ════════ CTA SECTION ════════ */
+    .article-cta {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(109,92,255,0.04), transparent 55%);
+      pointer-events: none;
+    }
+
+    .article-cta h2 {
+      font-family: var(--serif) !important;
+      font-size: 1.8rem !important;
+      color: var(--white) !important;
+      margin-top: 0 !important;
+      margin-bottom: 0.75rem !important;
+      position: relative; z-index: 2;
+    }
+
+    .article-cta h2 em { color: var(--accent); font-style: italic; }
+
+    .article-cta p {
+      color: var(--text-dim) !important;
+      font-size: 0.95rem !important;
+      margin-bottom: 1.75rem !important;
+      position: relative; z-index: 2;
+    }
+
+    .article-cta .btn-accent {
+      display: inline-block;
+      position: relative; z-index: 2;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+      padding: 0.85rem 2rem;
+      border: none; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      font-family: var(--sans);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-accent:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(109,92,255,0.25);
+    }
+    .btn-accent:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .btn-accent:active { transform: translateY(0); }
+
+    /* ════════ RELATED POSTS ════════ */
+    .related-section {
+      padding: 5rem 2.5rem;
+      position: relative; z-index: 2;
+    }
+
+    .related-container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .related-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.25rem;
+    }
+
+    .related-heading {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--white);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 2rem;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .related-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-decoration: none;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s, box-shadow 0.4s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .related-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(109,92,255,0.2);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    }
+    .related-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .related-card:active { transform: translateY(-1px); }
+
+    .related-card-category {
+      font-family: var(--mono);
+      font-size: 0.58rem; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.75rem;
+    }
+
+    .related-card-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--white);
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .related-card:hover .related-card-title { color: var(--accent-light); }
+
+    .related-card-date {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-faint);
+      margin-top: auto;
+      padding-top: 0.75rem;
+    }
+
+    /* ════════ FOOTER ════════ */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 5rem 2.5rem 2.5rem;
+      position: relative; z-index: 2;
+    }
+
+    .footer-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 3rem; margin-bottom: 3rem;
+    }
+
+    .footer-brand .nav-name { display: inline-block; margin-bottom: 1rem; }
+    .footer-brand p {
+      font-size: 0.82rem; color: var(--text-dim);
+      line-height: 1.7; max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--white); margin-bottom: 1.25rem;
+      font-family: var(--mono);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.7rem;
+    }
+
+    .footer-col a {
+      color: var(--text-dim); text-decoration: none;
+      font-size: 0.82rem; font-weight: 400;
+      transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-col a:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+
+    .footer-bottom {
+      max-width: 1100px; margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .footer-copy { font-size: 0.72rem; color: var(--text-faint); }
+
+    .footer-legal {
+      display: flex; gap: 1.5rem; list-style: none;
+    }
+    .footer-legal a {
+      color: var(--text-faint); text-decoration: none;
+      font-size: 0.72rem; transition: color 0.3s;
+    }
+    .footer-legal a:hover { color: var(--accent); }
+
+    /* ════════ SCROLL REVEAL ════════ */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════ RESPONSIVE ════════ */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      nav { padding: 1rem 1.5rem; }
+      .breadcrumb { padding: 6.5rem 1.5rem 0; }
+      .article-hero { padding: 2rem 1.5rem 2.5rem; }
+      .article-body { padding: 0 1.5rem 4rem; }
+      .related-section { padding: 4rem 1.5rem; }
+      .related-grid { grid-template-columns: 1fr; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .article-cta { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <a href="/index.html" class="nav-name">neon<span>craft</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html#projects">Projects</a></li>
+    <li><a href="/services/web-design-ottawa.html">Services</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="/index.html#about">About</a></li>
+    <li><a href="/index.html#faq">FAQ</a></li>
+    <li><a href="/index.html#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<ul class="mobile-nav" id="mobileNav">
+  <li><a href="/index.html#projects" onclick="toggleMobileNav()">Projects</a></li>
+  <li><a href="/services/web-design-ottawa.html">Services</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/index.html#about" onclick="toggleMobileNav()">About</a></li>
+  <li><a href="/index.html#faq" onclick="toggleMobileNav()">FAQ</a></li>
+  <li><a href="/index.html#contact" class="nav-cta" onclick="toggleMobileNav()">Get in Touch</a></li>
+</ul>
+
+<!-- ════ BREADCRUMB ════ -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="/index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="/blog/">Blog</a>
+    <span class="sep">/</span>
+    <span class="current">10 Web Design Trends for 2026</span>
+  </div>
+</div>
+
+<!-- ════ ARTICLE HERO ════ -->
+<section class="article-hero">
+  <div class="article-hero-glow"></div>
+  <div class="article-hero-inner">
+    <div class="article-meta">
+      <span class="article-category">Web Design</span>
+      <span class="article-date">March 3, 2026</span>
+      <span class="article-dot"></span>
+      <span class="article-read-time">5 min read</span>
+    </div>
+    <h1>10 Web Design Trends Ottawa Businesses Should Know in <em>2026</em></h1>
+  </div>
+</section>
+
+<!-- ════ ARTICLE BODY ════ -->
+<article class="article-body">
+
+  <p class="reveal">The web moves fast. What looked modern two years ago can already feel dated, and your Ottawa customers notice. Whether you're launching a new site or thinking about a <a href="/services/web-design-ottawa.html">website redesign</a>, knowing what's trending helps you make smarter investments.</p>
+
+  <p class="reveal">Here are the 10 web design trends that matter most for Ottawa businesses in 2026 -- and how you can use them to stand out from local competitors.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 01</span>Dark Mode as Default</h3>
+  <p class="reveal">Dark backgrounds with light text are no longer a novelty -- they're the expectation for premium brands. Dark interfaces reduce eye strain, save battery on mobile devices, and make colours and imagery pop. For Ottawa businesses like restaurants, studios, and tech companies, a dark mode design immediately signals sophistication without saying a word.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 02</span>Micro-Animations &amp; Subtle Motion</h3>
+  <p class="reveal">Small, purposeful animations -- a button that lifts on hover, a card that fades in as you scroll -- make your site feel alive. They guide user attention and create a sense of polish. Ottawa service businesses can use micro-animations to draw eyes to their phone number, booking form, or key selling points without being distracting.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 03</span>AI-Powered Personalization</h3>
+  <p class="reveal">Websites are getting smarter. AI tools can now show different content based on a visitor's location, behaviour, or referral source. Imagine an Ottawa HVAC company's site automatically highlighting furnace repair in January and AC installation in June. Personalization boosts conversions because visitors see exactly what's relevant to them.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 04</span>Mobile-First (For Real This Time)</h3>
+  <p class="reveal">Over 65% of local searches in Ottawa happen on phones. In 2026, mobile-first isn't just about responsive layouts -- it means designing for thumbs, optimizing tap targets, and ensuring your most important content loads in the first viewport. If your site requires pinching and zooming, you're losing customers to competitors who got this right.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 05</span>Blazing Page Speed</h3>
+  <p class="reveal">Google's Core Web Vitals are now a confirmed ranking factor, and Ottawa businesses competing for "near me" searches can't afford slow load times. The trend is toward lightweight, hand-coded sites that load in under 2 seconds -- not bloated WordPress themes with 30 plugins. Speed is both a <a href="/blog/local-seo-ottawa-guide.html">ranking signal</a> and a trust signal.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 06</span>Minimalist Typography</h3>
+  <p class="reveal">Big, bold type with generous whitespace is replacing cluttered layouts packed with stock photos. The trend pairs a distinctive serif or display font for headings with a clean sans-serif for body text. For Ottawa businesses, this means your homepage can communicate authority with just a strong headline, a subhead, and a single call-to-action -- no visual noise required.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 07</span>Bold, Layered Gradients</h3>
+  <p class="reveal">Flat solid colours are giving way to rich, multi-layered gradients that add depth and personality. Combined with grain textures and subtle noise overlays, gradients make digital surfaces feel almost tactile. Ottawa brands can use custom gradient palettes to stand out from the sea of generic template-based sites in their industry.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 08</span>Scroll-Driven Animations</h3>
+  <p class="reveal">Scroll-triggered effects -- parallax movement, elements that animate into view, progress indicators -- create an interactive storytelling experience. When an Ottawa contractor's project gallery reveals before-and-after photos as you scroll, it's more engaging than a static image grid. The key is restraint: animate to communicate, not to show off.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 09</span>Accessibility-First Design</h3>
+  <p class="reveal">Inclusive design is no longer optional. Ontario's AODA regulations require websites to meet WCAG 2.1 AA standards, and Google rewards accessible sites with better rankings. This means proper contrast ratios, keyboard navigation, semantic HTML, and descriptive alt text. The good news: accessible design almost always results in <a href="/blog/why-ottawa-businesses-need-website.html">better design for everyone</a>.</p>
+
+  <h3 class="reveal"><span class="trend-number">Trend 10</span>Local &amp; Personalized Content</h3>
+  <p class="reveal">Generic websites that could belong to any city are losing to sites with strong local identity. Mentioning Ottawa neighbourhoods (Westboro, the Glebe, Kanata), featuring local landmarks, and writing content that speaks directly to Ottawa residents builds trust and boosts local SEO. Your website should feel like it belongs here -- because your business does.</p>
+
+  <div class="tip-box reveal">
+    <div class="tip-box-label">The Bottom Line</div>
+    <p>You don't need to adopt all 10 trends at once. Focus on the ones that align with your business goals: <strong>page speed</strong> and <strong>mobile-first</strong> if you rely on local search traffic, <strong>micro-animations</strong> and <strong>dark mode</strong> if you want a premium feel, and <strong>accessibility</strong> because it's both the right thing to do and an <a href="/blog/local-seo-ottawa-guide.html">SEO advantage</a>.</p>
+  </div>
+
+  <h2 class="reveal">Ready to Modernize Your Website?</h2>
+
+  <p class="reveal">If your Ottawa business website still looks like it was built in 2020, your customers can tell. A modern, trend-aware design isn't about chasing fads -- it's about meeting the expectations your visitors already have. Every one of these trends points in the same direction: <strong>faster, cleaner, more intentional design that puts your customer first.</strong></p>
+
+  <p class="reveal">Curious how your current site measures up? Check out our guide on <a href="/blog/how-much-website-cost-ottawa.html">how much a website costs in Ottawa</a> to understand your options, or get in touch for a free review.</p>
+
+  <!-- CTA -->
+  <div class="article-cta reveal">
+    <h2>Need a modern website for your Ottawa <em>business?</em></h2>
+    <p>I build fast, beautiful, trend-forward websites designed to convert Ottawa customers. Let's talk about what your site could look like in 2026.</p>
+    <a href="/services/web-design-ottawa.html" class="btn-accent">View Web Design Services</a>
+  </div>
+
+</article>
+
+<!-- ════ RELATED POSTS ════ -->
+<section class="related-section">
+  <div class="related-container">
+    <div class="related-eyebrow">// Keep Reading</div>
+    <h2 class="related-heading">Related Articles</h2>
+    <div class="related-grid">
+      <a href="/blog/how-much-website-cost-ottawa.html" class="related-card reveal">
+        <div class="related-card-category">Pricing</div>
+        <div class="related-card-title">How Much Does a Website Cost in Ottawa in 2026?</div>
+        <div class="related-card-date">March 1, 2026</div>
+      </a>
+      <a href="/blog/why-ottawa-businesses-need-website.html" class="related-card reveal">
+        <div class="related-card-category">Strategy</div>
+        <div class="related-card-title">Why Every Ottawa Small Business Needs a Website in 2026</div>
+        <div class="related-card-date">Feb 20, 2026</div>
+      </a>
+      <a href="/blog/local-seo-ottawa-guide.html" class="related-card reveal">
+        <div class="related-card-category">SEO</div>
+        <div class="related-card-title">Local SEO for Ottawa Businesses: A Simple Guide</div>
+        <div class="related-card-date">Feb 10, 2026</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/index.html" class="nav-name">neon<span>craft</span></a>
+      <p>Web designer & developer based in Ottawa. I help small businesses look professional online and convert more customers.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="/index.html#projects">Projects</a></li>
+        <li><a href="/index.html#about">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/services/web-design-ottawa.html">Web Design</a></li>
+        <li><a href="/services/seo-ottawa.html">Local SEO</a></li>
+        <li><a href="/index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:bilalxmoussa@gmail.com">bilalxmoussa@gmail.com</a></li>
+        <li><a href="tel:6135583577">(613) 558-3577</a></li>
+        <li><a href="/index.html#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Neon Craft &mdash; Web Designer & Developer, Ottawa ON</div>
+    <ul class="footer-legal">
+      <li><a href="/index.html#projects">Projects</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+function toggleMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  const toggle = document.querySelector('.mobile-toggle');
+  nav.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => { entry.target.classList.add('visible'); }, i * 100);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
