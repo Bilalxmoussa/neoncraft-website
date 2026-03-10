@@ -1,0 +1,24 @@
+name: Deploy NeonCraft to Hostinger
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'deploy/neon-craft/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Hostinger via rsync
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avz --delete
+          path: deploy/neon-craft/
+          remote_path: /home/u788930128/public_html/
+          remote_host: 82.29.191.98
+          remote_port: 65002
+          remote_user: u788930128
+          remote_key: ${{ secrets.HOSTINGER_SSH_KEY }}
