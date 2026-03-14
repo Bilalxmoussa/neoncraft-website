@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HijazStays — Cheapest Hotels & Transport in Makkah & Madinah</title>
+<meta name="description" content="HijazStays — The cheapest hotels and transport in Makkah and Madinah. Direct deals, no middlemen. Personal quotes for Hajj and Umrah pilgrims via WhatsApp."/>
+<meta name="keywords" content="HijazStays, Hajj, Umrah, Makkah hotels, Madinah hotels, pilgrimage transport, cheap Makkah hotel, cheap Madinah hotel, Haram hotel, bus Makkah Madinah"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://hijazstays.com/"/>
+<meta property="og:title" content="HijazStays — Cheapest Hotels & Transport in Makkah & Madinah"/>
+<meta property="og:description" content="Direct hotel deals and bus transport in the Holy Cities. Cheaper than Booking.com. WhatsApp us for a free quote."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://hijazstays.com/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="HijazStays — Cheapest Hotels & Transport in Makkah & Madinah"/>
+<meta name="twitter:description" content="Direct hotel deals and bus transport in the Holy Cities. Cheaper than Booking.com. WhatsApp us for a free quote."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230f4c2a'/><text x='50' y='68' font-size='56' font-weight='bold' font-family='serif' text-anchor='middle' fill='%23c8860a'>H</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --green: #0f4c2a;
+    --green-mid: #1a6b3a;
+    --green-light: #2d8f52;
+    --gold: #c8860a;
+    --gold-light: #e6a020;
+    --gold-pale: #fdf3e0;
+    --cream: #faf7f2;
+    --dark: #0a1f12;
+    --text: #2c3e2d;
+    --muted: #6b7c6e;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── GEOMETRIC PATTERN ── */
+  .geo-pattern {
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(200,134,10,0.06) 10px, rgba(200,134,10,0.06) 11px),
+      repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(200,134,10,0.06) 10px, rgba(200,134,10,0.06) 11px);
+  }
+
+  /* ── FOCUS & ACTIVE STATES ── */
+  .nav-cta:focus-visible,
+  .btn-whatsapp:focus-visible,
+  .btn-call:focus-visible,
+  .service-cta-link:focus-visible,
+  .float-wa:focus-visible,
+  .form-submit:focus-visible,
+  footer a:focus-visible {
+    outline: 3px solid var(--gold-light);
+    outline-offset: 3px;
+  }
+
+  .nav-cta:active,
+  .btn-whatsapp:active,
+  .btn-call:active,
+  .float-wa:active {
+    transform: translateY(0) !important;
+  }
+  .form-submit:active {
+    transform: translateY(0);
+  }
+  .service-cta-link:active {
+    gap: 6px;
+  }
+
+  .why-card:focus-visible,
+  .trust-card:focus-visible,
+  .test-card:focus-visible {
+    outline: 3px solid var(--gold-light);
+    outline-offset: 3px;
+  }
+
+  .form-group input:focus-visible,
+  .form-group select:focus-visible,
+  .form-group textarea:focus-visible {
+    border-color: var(--green-mid);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(26,107,58,0.15);
+    outline: none;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,31,18,0.96);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1rem, 5vw, 3rem);
+    height: 64px;
+    border-bottom: 1px solid rgba(200,134,10,0.3);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold-light); font-weight: 400; }
+  .nav-cta {
+    display: flex; align-items: center; gap: 10px;
+    background: #25D366;
+    color: white; font-size: 0.85rem; font-weight: 600;
+    padding: 9px 18px; border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(37,211,102,0.4); }
+  .nav-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center;
+    padding: 100px clamp(1rem, 5vw, 3rem) 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,107,58,0.45) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 80%, rgba(200,134,10,0.12) 0%, transparent 60%);
+  }
+
+  /* Decorative crescent */
+  .hero-crescent {
+    position: absolute; top: 80px; right: clamp(20px, 8vw, 120px);
+    font-size: clamp(4rem, 10vw, 8rem);
+    opacity: 0.07;
+    animation: float 6s ease-in-out infinite;
+    user-select: none;
+  }
+  .hero-star {
+    position: absolute; bottom: 100px; left: clamp(20px, 6vw, 80px);
+    font-size: clamp(3rem, 7vw, 6rem);
+    opacity: 0.05;
+    animation: float 8s ease-in-out infinite reverse;
+    user-select: none;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Geometric ring decoration */
+  .hero-ring {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(600px, 90vw); height: min(600px, 90vw);
+    border-radius: 50%;
+    border: 1px solid rgba(200,134,10,0.08);
+    pointer-events: none;
+  }
+  .hero-ring::before {
+    content: '';
+    position: absolute; inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,134,10,0.05);
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 820px; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,134,10,0.15);
+    border: 1px solid rgba(200,134,10,0.4);
+    color: var(--gold-light);
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 7px 18px; border-radius: 50px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 10px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,255,255,0.65);
+    max-width: 560px; margin: 0 auto 16px;
+    line-height: 1.6;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-arabic {
+    font-size: 1.1rem;
+    color: rgba(200,134,10,0.7);
+    letter-spacing: 0.05em;
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s 0.25s ease both;
+  }
+
+  .hero-btns {
+    display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25D366; color: white;
+    font-size: 1rem; font-weight: 700;
+    padding: 16px 32px; border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(37,211,102,0.45); }
+  .btn-whatsapp svg { width: 22px; height: 22px; }
+
+  .btn-call {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent;
+    color: white; font-size: 1rem; font-weight: 600;
+    padding: 16px 32px; border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-call:hover { border-color: var(--gold-light); background: rgba(200,134,10,0.1); }
+
+  .hero-note {
+    margin-top: 24px;
+    font-size: 0.82rem; color: rgba(255,255,255,0.4);
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    background: var(--gold-pale);
+    border-top: 1px solid rgba(200,134,10,0.2);
+    border-bottom: 1px solid rgba(200,134,10,0.2);
+    padding: 28px clamp(1rem, 5vw, 3rem);
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0;
+  }
+  .stat-item {
+    flex: 1; min-width: 160px; max-width: 240px;
+    text-align: center;
+    padding: 12px 20px;
+    border-right: 1px solid rgba(200,134,10,0.2);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: clamp(60px, 8vw, 100px) clamp(1rem, 5vw, 3rem); }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--green);
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-body {
+    font-size: 1rem; color: var(--muted);
+    line-height: 1.7; margin-top: 14px;
+    max-width: 560px;
+  }
+
+  /* ── WHY US ── */
+  .why-section {
+    background: var(--green);
+    color: white;
+  }
+  .why-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  .why-text .section-title { color: white; }
+  .why-text .section-title em { color: var(--gold-light); }
+  .why-text .section-body { color: rgba(255,255,255,0.65); max-width: 100%; }
+  .why-cards {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .why-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 22px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .why-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+  .why-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .why-card h3 { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 6px; }
+  .why-card p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+  /* ── SERVICES ── */
+  .services-section { background: var(--cream); }
+  .services-inner { max-width: 1100px; margin: 0 auto; }
+  .services-header { text-align: center; margin-bottom: 50px; }
+  .services-header .section-body { margin: 14px auto 0; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 20px; padding: 34px 28px;
+    position: relative; overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--gold));
+  }
+  .service-emoji { font-size: 2.4rem; margin-bottom: 16px; }
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--green); margin-bottom: 10px;
+  }
+  .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+  .service-features { list-style: none; }
+  .service-features li {
+    font-size: 0.85rem; color: var(--text);
+    padding: 5px 0;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .service-features li::before {
+    content: '\2713'; color: var(--green-mid);
+    font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .service-cta-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 18px;
+    color: var(--gold); font-size: 0.88rem; font-weight: 600;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .service-cta-link:hover { gap: 10px; }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    background: white;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .how-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px; margin-top: 50px;
+    position: relative;
+  }
+  .how-step { position: relative; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    color: white; font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 6px 20px rgba(15,76,42,0.25);
+  }
+  .how-step h3 { font-size: 1rem; font-weight: 700; color: var(--green); margin-bottom: 8px; }
+  .how-step p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── COMPARISON ── */
+  .compare-section { background: var(--cream); }
+  .compare-inner { max-width: 900px; margin: 0 auto; }
+  .compare-header { text-align: center; margin-bottom: 40px; }
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    background: white; border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.07);
+  }
+  .compare-table th {
+    padding: 18px 20px; text-align: center;
+    font-size: 0.9rem; font-weight: 700;
+  }
+  .compare-table th:first-child { text-align: left; background: #f8f8f8; }
+  .compare-table th.us { background: var(--green); color: white; }
+  .compare-table th.them { background: #f0f0f0; color: var(--muted); }
+  .compare-table td {
+    padding: 14px 20px; text-align: center;
+    font-size: 0.88rem; color: var(--text);
+    border-top: 1px solid #f0f0f0;
+  }
+  .compare-table td:first-child { text-align: left; font-weight: 500; }
+  .compare-table tr:hover td { background: rgba(15,76,42,0.02); }
+  .yes { color: #1a6b3a; font-weight: 700; font-size: 1rem; }
+  .no { color: #c0392b; font-size: 1rem; }
+  .partial { color: var(--gold); font-size: 0.85rem; }
+
+  /* ── QUOTE FORM ── */
+  .form-section {
+    background: var(--dark);
+    position: relative; overflow: hidden;
+  }
+  .form-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(26,107,58,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .form-inner {
+    max-width: 1100px; margin: 0 auto; position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; align-items: center;
+  }
+  .form-left .section-title { color: white; }
+  .form-left .section-title em { color: var(--gold-light); }
+  .form-left .section-body { color: rgba(255,255,255,0.55); max-width: 100%; }
+  .form-contacts { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    color: rgba(255,255,255,0.7); font-size: 0.95rem;
+  }
+  .contact-icon {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-item a { color: var(--gold-light); text-decoration: none; font-weight: 600; }
+  .contact-item a:hover { text-decoration: underline; }
+
+  .quote-form {
+    background: white; border-radius: 24px;
+    padding: clamp(28px, 4vw, 44px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+  }
+  .quote-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 700;
+    color: var(--green); margin-bottom: 24px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text); letter-spacing: 0.04em; text-transform: uppercase; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 16px;
+    border: 1.5px solid #e8e8e8;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem; color: var(--text);
+    background: #fafafa;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--green-mid);
+    background: white;
+  }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-submit {
+    width: 100%; padding: 16px;
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    color: white; font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    border: none; border-radius: 12px; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 20px rgba(15,76,42,0.3);
+    margin-top: 6px;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(15,76,42,0.4); }
+  .form-submit:disabled {
+    opacity: 0.7; cursor: not-allowed;
+    transform: none; box-shadow: 0 6px 20px rgba(15,76,42,0.2);
+  }
+  .form-note {
+    text-align: center; margin-top: 12px;
+    font-size: 0.78rem; color: var(--muted);
+  }
+  .form-success {
+    display: none; text-align: center; padding: 30px 20px;
+  }
+  .form-success .success-icon { font-size: 3rem; margin-bottom: 12px; }
+  .form-success h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--green); margin-bottom: 8px; }
+  .form-success p { font-size: 0.9rem; color: var(--muted); }
+
+  /* ── TRUST SIGNALS ── */
+  .trust-section { background: var(--gold-pale); }
+  .trust-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+  .trust-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px; margin-top: 48px;
+  }
+  .trust-card {
+    background: white; border-radius: 16px; padding: 28px 20px;
+    border: 1px solid rgba(200,134,10,0.15);
+    transition: transform 0.2s;
+  }
+  .trust-card:hover { transform: translateY(-3px); }
+  .trust-card .t-icon { font-size: 2rem; margin-bottom: 12px; }
+  .trust-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+  .trust-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { background: white; }
+  .test-inner { max-width: 1000px; margin: 0 auto; }
+  .test-header { text-align: center; margin-bottom: 48px; }
+  .test-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+  }
+  .test-card {
+    background: var(--cream); border-radius: 20px; padding: 28px;
+    border-left: 4px solid var(--green);
+    transition: transform 0.2s;
+  }
+  .test-card:hover { transform: translateY(-3px); }
+  .test-stars { color: var(--gold); font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+  .test-text { font-size: 0.92rem; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .test-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .test-name { font-weight: 700; font-size: 0.9rem; color: var(--green); }
+  .test-location { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    text-align: center; padding: 40px clamp(1rem, 5vw, 3rem);
+    font-size: 0.85rem; line-height: 1.8;
+  }
+  footer .f-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 8px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  footer .f-logo span { color: var(--gold-light); font-weight: 400; }
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ── FLOATING WHATSAPP ── */
+  .float-wa {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+    text-decoration: none;
+    animation: pulse 2.5s infinite;
+    transition: transform 0.2s;
+  }
+  .float-wa:hover { transform: scale(1.1); }
+  .float-wa svg { width: 30px; height: 30px; }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 6px 40px rgba(37,211,102,0.8); }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .why-inner, .form-inner { grid-template-columns: 1fr; gap: 40px; }
+    .why-cards { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(200,134,10,0.2); }
+    .stat-item:last-child { border-bottom: none; }
+    .compare-table { font-size: 0.8rem; }
+    .compare-table th, .compare-table td { padding: 10px 10px; }
+  }
+  @media (max-width: 480px) {
+    .why-cards { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .btn-whatsapp, .btn-call { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Hijaz<span>Stays</span></div>
+  <a href="https://wa.me/966509214940" class="nav-cta">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    WhatsApp Us
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-crescent">&#9770;</div>
+  <div class="hero-star">&#10022;</div>
+  <div class="hero-ring"></div>
+  <div class="hero-content">
+    <div class="hero-badge">&#128332; HijazStays &mdash; Makkah &amp; Madinah Specialists</div>
+    <h1>The <em>Cheapest</em> Hotels &amp;<br/>Transport in the Holy Cities</h1>
+    <p class="hero-sub">Cheaper than Booking.com. Cheaper than Expedia. Direct deals, no middlemen. Call or WhatsApp us for your personal quote.</p>
+    <p class="hero-arabic">&#1582;&#1583;&#1605;&#1577; &#1590;&#1610;&#1608;&#1601; &#1575;&#1604;&#1585;&#1581;&#1605;&#1606; &mdash; Serving the Guests of Allah</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/966509214940?text=Assalamu%20Alaikum%2C%20I%20would%20like%20a%20quote%20for%20Makkah%20or%20Madinah%20hotels" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp for a Free Quote
+      </a>
+      <a href="tel:+16135583577" class="btn-call">&#128222; Call Us Now</a>
+    </div>
+    <p class="hero-note">We respond within minutes &middot; Available 7 days a week</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-num">10M+</div>
+    <div class="stat-label">Pilgrims Annually</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">2</div>
+    <div class="stat-label">Holy Cities Covered</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">#1</div>
+    <div class="stat-label">Lowest Prices Guaranteed</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">Support via WhatsApp</div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="why-section geo-pattern">
+  <div class="why-inner">
+    <div class="why-text reveal">
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title">Nobody Knows the<br/><em>Holy Cities</em> Like We Do</h2>
+      <p class="section-body">We are not a general travel platform. We live and breathe Makkah and Madinah. Every hotel we work with, every bus route we offer &mdash; chosen specifically for pilgrims like you.</p>
+      <div style="margin-top:28px;">
+        <a href="https://wa.me/966509214940" class="btn-whatsapp" style="font-size:0.9rem; padding:13px 26px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Get Your Free Quote
+        </a>
+      </div>
+    </div>
+    <div class="why-cards reveal">
+      <div class="why-card">
+        <div class="why-icon">&#128176;</div>
+        <h3>Lowest Prices</h3>
+        <p>Direct deals with hotels. No middlemen. Always cheaper than Booking.com.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128205;</div>
+        <h3>Haram Proximity</h3>
+        <p>We know exactly which hotels are closest to Masjid al-Haram and al-Nabawi.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128652;</div>
+        <h3>Bus Transport</h3>
+        <p>Makkah to Madinah, airport transfers, Ziyarat tours &mdash; all in one place.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#129309;</div>
+        <h3>Personal Service</h3>
+        <p>Real people who care about your journey. We handle everything for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div class="section-tag">Our Services</div>
+      <h2 class="section-title">Everything You Need for Your<br/><em>Holy Journey</em></h2>
+      <p class="section-body">Call or WhatsApp us and we'll build your perfect package.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-emoji">&#127976;</div>
+        <h3>Hotels in Makkah</h3>
+        <p>We have direct deals with hotels of all budgets, from walking distance to the Haram to affordable options further out.</p>
+        <ul class="service-features">
+          <li>Steps from Masjid al-Haram options</li>
+          <li>Kaaba view rooms available</li>
+          <li>Budget to luxury &mdash; all price ranges</li>
+          <li>Zamzam Tower area specialists</li>
+          <li>Wheelchair accessible options</li>
+        </ul>
+        <a href="https://wa.me/966509214940?text=I%20need%20a%20quote%20for%20a%20hotel%20in%20Makkah" class="service-cta-link">Get Makkah Quote &rarr;</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-emoji">&#128332;</div>
+        <h3>Hotels in Madinah</h3>
+        <p>Stay close to Masjid al-Nabawi and visit the resting place of our beloved Prophet &#65018; with ease and comfort.</p>
+        <ul class="service-features">
+          <li>Walking distance to al-Nabawi</li>
+          <li>All budgets accommodated</li>
+          <li>Family rooms available</li>
+          <li>Long stay discounts</li>
+          <li>Group booking specialists</li>
+        </ul>
+        <a href="https://wa.me/966509214940?text=I%20need%20a%20quote%20for%20a%20hotel%20in%20Madinah" class="service-cta-link">Get Madinah Quote &rarr;</a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-emoji">&#128652;</div>
+        <h3>Bus Transportation</h3>
+        <p>Comfortable, reliable transport between Makkah and Madinah, plus all local transfers for your complete journey.</p>
+        <ul class="service-features">
+          <li>Makkah &#8596; Madinah intercity coach</li>
+          <li>Jeddah airport transfers</li>
+          <li>Hotel to Haram daily transport</li>
+          <li>Mina, Arafat, Muzdalifah (Hajj)</li>
+          <li>Ziyarat religious site tours</li>
+        </ul>
+        <a href="https://wa.me/966509214940?text=I%20need%20a%20quote%20for%20bus%20transport" class="service-cta-link">Get Transport Quote &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="how-inner reveal">
+    <div class="section-tag">Simple Process</div>
+    <h2 class="section-title">Getting Your Quote is <em>Easy</em></h2>
+    <p class="section-body" style="margin:14px auto 0;">No forms, no waiting days. Just message us and we handle everything.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <h3>Contact Us</h3>
+        <p>WhatsApp or call us with your travel dates, number of people, and cities you need.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <h3>Get Your Quote</h3>
+        <p>We send you the best available options with our lowest prices &mdash; usually within minutes.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <h3>Confirm &amp; Pay</h3>
+        <p>Choose what you like, pay securely, and receive your confirmation instantly.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">4</div>
+        <h3>Travel in Peace</h3>
+        <p>Arrive in Makkah or Madinah knowing everything is taken care of. May Allah accept. &#128588;</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="compare-section">
+  <div class="compare-inner reveal">
+    <div class="compare-header">
+      <div class="section-tag">Price Comparison</div>
+      <h2 class="section-title">Why Pay More on <em>Booking.com?</em></h2>
+      <p class="section-body" style="margin:14px auto 0;">We offer what no general platform can match.</p>
+    </div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="us">&#10022; Us</th>
+          <th class="them">Booking.com</th>
+          <th class="them">Expedia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Cheapest prices</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+        <tr><td>Makkah &amp; Madinah specialists</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+        <tr><td>Distance from Haram info</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+        <tr><td>Bus transport included</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+        <tr><td>Personal quote &amp; advice</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+        <tr><td>Kaaba view rooms</td><td class="yes">&#10003;</td><td class="partial">Sometimes</td><td class="no">&#10007;</td></tr>
+        <tr><td>Arabic &amp; Urdu support</td><td class="yes">&#10003;</td><td class="partial">Partial</td><td class="partial">Partial</td></tr>
+        <tr><td>Group &amp; mosque rates</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="form-section">
+  <div class="form-inner">
+    <div class="form-left reveal">
+      <div class="section-tag" style="color:var(--gold-light)">Free Quote</div>
+      <h2 class="section-title">Tell Us What<br/>You <em>Need</em></h2>
+      <p class="section-body">Fill in the form or contact us directly. We'll get back to you with the best price &mdash; fast.</p>
+      <div class="form-contacts">
+        <div class="contact-item">
+          <div class="contact-icon">&#128172;</div>
+          <div>WhatsApp: <a href="https://wa.me/966509214940">+966 50 921 4940</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128222;</div>
+          <div>Call: <a href="tel:+16135583577">+1 (613) 558-3577</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9200;</div>
+          <div>Available 7 days a week &middot; Fast response</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="quote-form" id="quoteForm">
+        <h3>Request a Free Quote</h3>
+        <form id="quoteFormEl" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Ahmed" required/>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Khan" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp Number</label>
+              <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1 647 000 0000" required/>
+            </div>
+            <div class="form-group">
+              <label for="people">Number of People</label>
+              <select id="people" name="people">
+                <option>1 person</option>
+                <option>2 people</option>
+                <option>3-5 people</option>
+                <option>6-10 people</option>
+                <option>11-20 people</option>
+                <option>20+ (group)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date-from">Travel Date (From)</label>
+              <input type="date" id="date-from" name="date-from"/>
+            </div>
+            <div class="form-group">
+              <label for="date-to">Travel Date (To)</label>
+              <input type="date" id="date-to" name="date-to"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">I Need</label>
+            <select id="service" name="service">
+              <option>Hotel in Makkah only</option>
+              <option>Hotel in Madinah only</option>
+              <option>Hotels in both Makkah &amp; Madinah</option>
+              <option>Hotels + Bus Transport</option>
+              <option>Full package (Hotels + Buses + Airport Transfer)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notes">Additional Notes (optional)</label>
+            <textarea id="notes" name="notes" placeholder="e.g. I need a room close to Haram, wheelchair accessible, specific budget..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send My Quote Request &#128332;</button>
+        </form>
+        <p class="form-note">We'll reply via WhatsApp within minutes. No spam, ever.</p>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">&#9989;</div>
+        <h4>Request Sent!</h4>
+        <p>JazakAllahu Khayran. We'll WhatsApp you with your quote very soon.</p>
+        <br/>
+        <a href="https://wa.me/966509214940" class="btn-whatsapp" style="display:inline-flex;margin-top:10px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Also WhatsApp Us Directly
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST SIGNALS -->
+<section class="trust-section">
+  <div class="trust-inner reveal">
+    <div class="section-tag">You're in Safe Hands</div>
+    <h2 class="section-title">Why Pilgrims <em>Trust</em> Us</h2>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="t-icon">&#128588;</div>
+        <h4>Serving Allah's Guests</h4>
+        <p>Every booking is made with sincerity. Your Umrah matters to us deeply.</p>
+      </div>
+      <div class="trust-card">
+        <div class="t-icon">&#128274;</div>
+        <h4>Direct Hotel Deals</h4>
+        <p>No middlemen. We work directly with hotels so you always get the real lowest price.</p>
+      </div>
+      <div class="trust-card">
+        <div class="t-icon">&#128172;</div>
+        <h4>Real People, Real Help</h4>
+        <p>You speak to a real person every time. Not a bot. Not a call center. Us.</p>
+      </div>
+      <div class="trust-card">
+        <div class="t-icon">&#9889;</div>
+        <h4>Fast Confirmation</h4>
+        <p>Once you confirm, you get your hotel voucher and bus ticket quickly and securely.</p>
+      </div>
+      <div class="trust-card">
+        <div class="t-icon">&#127758;</div>
+        <h4>Serving Pilgrims Worldwide</h4>
+        <p>Customers from Canada, USA, UK, and beyond trust us for their holy journey.</p>
+      </div>
+      <div class="trust-card">
+        <div class="t-icon">&#128222;</div>
+        <h4>Always Available</h4>
+        <p>Questions before, during, or after your trip &mdash; we are always just a message away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="test-inner">
+    <div class="test-header reveal">
+      <div class="section-tag">Testimonials</div>
+      <h2 class="section-title">What Pilgrims Are <em>Saying</em></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-text">"I was quoted $180/night on Booking.com. They got me the same hotel for $110. I saved over $400 on my trip. Absolutely amazing service. JazakAllahu Khayran."</p>
+        <div class="test-author">
+          <div class="test-avatar">A</div>
+          <div>
+            <div class="test-name">Ahmed R.</div>
+            <div class="test-location">Toronto, Canada</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-text">"Our mosque group of 35 people needed hotels in both cities plus transport. They handled everything perfectly. Every room was close to the Haram. We will use them again."</p>
+        <div class="test-author">
+          <div class="test-avatar">S</div>
+          <div>
+            <div class="test-name">Sister Fatima</div>
+            <div class="test-location">London, UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-text">"My parents are elderly and needed a wheelchair accessible room very close to Haram. They found us the perfect hotel at the best price. My parents made their Umrah in comfort. Alhamdulillah."</p>
+        <div class="test-author">
+          <div class="test-avatar">M</div>
+          <div>
+            <div class="test-name">Mohammad K.</div>
+            <div class="test-location">Mississauga, Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="background:var(--green); text-align:center; padding:70px clamp(1rem,5vw,3rem);">
+  <div class="reveal">
+    <div class="section-tag" style="color:var(--gold-light)">Ready to Book?</div>
+    <h2 class="section-title" style="color:white; margin-bottom:14px;">Get Your Free Quote <em>Now</em></h2>
+    <p style="color:rgba(255,255,255,0.65); font-size:1rem; margin-bottom:32px;">WhatsApp us or call us. Tell us your dates and we'll find you the best price &mdash; faster than any website.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
+      <a href="https://wa.me/966509214940?text=Assalamu%20Alaikum%2C%20I%20would%20like%20a%20quote%20please" class="btn-whatsapp" style="font-size:1.05rem; padding:18px 36px;">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp for Free Quote
+      </a>
+      <a href="tel:+16135583577" class="btn-call" style="font-size:1.05rem; padding:18px 36px;">&#128222; Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Hijaz<span>Stays</span></div>
+  <p>Exclusively serving pilgrims to the two Holy Cities</p>
+  <p style="margin-top:8px;">Canada &middot; <a href="https://wa.me/966509214940">WhatsApp</a> &middot; <a href="tel:+16135583577">Call Us</a></p>
+  <p style="margin-top:16px; font-size:0.75rem; opacity:0.5;">&copy; 2026 HijazStays. All rights reserved.</p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/966509214940?text=Assalamu%20Alaikum%2C%20I%20need%20a%20quote" class="float-wa" title="WhatsApp Us">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "HijazStays",
+  "description": "The cheapest hotels and transport in Makkah and Madinah. Direct deals for Hajj and Umrah pilgrims.",
+  "url": "https://hijazstays.com",
+  "telephone": "+966509214940",
+  "areaServed": [
+    { "@type": "City", "name": "Makkah", "address": { "@type": "PostalAddress", "addressCountry": "SA" } },
+    { "@type": "City", "name": "Madinah", "address": { "@type": "PostalAddress", "addressCountry": "SA" } }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "150",
+    "bestRating": "5"
+  },
+  "offerCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Pilgrimage Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Makkah Hotel Booking" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Madinah Hotel Booking" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bus Transportation (Makkah-Madinah)" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airport Transfers" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ziyarat Tours" } }
+    ]
+  }
+}
+</script>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form submit
+  document.getElementById('quoteFormEl').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    setTimeout(function() {
+      document.getElementById('quoteForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }, 800);
+  });
+</script>
+
+</body>
+</html>
