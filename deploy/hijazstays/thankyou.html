@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — HijazStays</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #C6963A;
+  --gold2: #E8C97A;
+  --dark: #0C0B09;
+  --ink: #1A1714;
+  --text: #F0EBE0;
+  --muted: #9A9080;
+  --border: rgba(198,150,58,0.22);
+}
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--gold);
+  text-align: center;
+  padding: 9px 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* ── LOGO ── */
+.logo-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold2);
+  letter-spacing: 0.08em;
+}
+
+/* ── MAIN ── */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 80px;
+  text-align: center;
+}
+
+/* ── CRESCENT ANIMATION ── */
+.icon-wrap {
+  position: relative;
+  width: 110px; height: 110px;
+  margin: 0 auto 36px;
+}
+.icon-circle {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  animation: scaleIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+  position: relative; z-index: 1;
+}
+.icon-circle::before {
+  content: '';
+  position: absolute; inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(198,150,58,0.15);
+  animation: ripple 2.5s ease-out infinite;
+}
+.icon-circle::after {
+  content: '';
+  position: absolute; inset: -20px;
+  border-radius: 50%;
+  border: 1px solid rgba(198,150,58,0.07);
+  animation: ripple 2.5s 0.5s ease-out infinite;
+}
+.crescent {
+  font-size: 2.8rem;
+  animation: fadeIn 0.4s 0.4s ease both;
+}
+
+/* ── HEADLINE ── */
+.thankyou-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+.thankyou-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  animation: fadeUp 0.5s 0.3s ease both;
+}
+.thankyou-title span { color: var(--gold2); font-style: italic; }
+.thankyou-sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.75;
+  margin: 0 auto 44px;
+  animation: fadeUp 0.5s 0.4s ease both;
+}
+
+/* ── STEPS CARD ── */
+.steps-card {
+  background: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: 520px;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto 40px;
+  animation: fadeUp 0.6s 0.45s ease both;
+  position: relative;
+}
+.steps-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.steps-header {
+  padding: 20px 28px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.steps-header p {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.step:last-child { border-bottom: none; }
+.step:hover { background: rgba(198,150,58,0.03); }
+.step-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(198,150,58,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-text strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.step-text span {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── WHATSAPP CTA ── */
+.wa-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 28px;
+  background: #1a2e1c;
+  border: 1px solid rgba(37,211,102,0.25);
+  border-radius: 6px;
+  text-decoration: none;
+  color: #25D366;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  animation: fadeUp 0.6s 0.55s ease both;
+  margin-bottom: 40px;
+}
+.wa-cta:hover {
+  background: #1f3622;
+  border-color: rgba(37,211,102,0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37,211,102,0.12);
+}
+.wa-cta svg { fill: #25D366; width: 20px; flex-shrink: 0; }
+
+/* ── SHARE / SOCIAL ── */
+.share-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.6s ease both;
+  margin-bottom: 16px;
+}
+.share-label {
+  font-size: 0.74rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.share-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.share-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 22px 20px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #3a352c;
+  letter-spacing: 0.06em;
+}
+footer a { color: #5a5248; text-decoration: none; }
+
+/* ── ANIMATIONS ── */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ripple {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+</style>
+</head>
+<body>
+
+<!-- Urgency bar -->
+<div class="topbar">🕌 Limited spots for Hajj 2026 — Enquire now before packages fill</div>
+
+<!-- Logo -->
+<div class="logo-bar">
+  <div class="logo">HijazStays</div>
+</div>
+
+<main>
+
+  <!-- Icon -->
+  <div class="icon-wrap">
+    <div class="icon-circle">
+      <div class="crescent">☪️</div>
+    </div>
+  </div>
+
+  <!-- Headline -->
+  <div class="thankyou-label">Enquiry Received</div>
+  <h1 class="thankyou-title">JazakAllahu <span>Khayran</span></h1>
+  <p class="thankyou-sub">Your enquiry has been received. A HijazStays consultant will contact you within <strong style="color:var(--text)">24 hours</strong> to discuss your package, insha'Allah.</p>
+
+  <!-- What happens next -->
+  <div class="steps-card">
+    <div class="steps-header"><p>What happens next</p></div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>We review your enquiry</strong>
+        <span>Our team looks at your travel dates, group size, and any special requirements.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>We prepare your personalised quote</strong>
+        <span>Hotels near the Haram, transport options, and pricing — all tailored to you.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>We reach out within 24 hours</strong>
+        <span>Expect a call or WhatsApp message from our Canadian contact to walk you through everything.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp shortcut -->
+  <a href="https://wa.me/16135583577" target="_blank" class="wa-cta">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.859L.057 23.5l5.797-1.521A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.58-.485-5.084-1.334l-.364-.216-3.44.903.918-3.352-.237-.384A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    Can't wait? Message us on WhatsApp now
+  </a>
+
+  <!-- Share -->
+  <div class="share-row">
+    <span class="share-label">Know someone going for Hajj or Umrah?</span>
+    <a class="share-btn" href="https://wa.me/?text=I%20just%20enquired%20with%20HijazStays%20for%20my%20Hajj%20%26%20Umrah%20travel%20%E2%80%94%20check%20them%20out%3A%20https%3A%2F%2Fhijazstays.com" target="_blank">
+      <svg width="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.859L.057 23.5l5.797-1.521A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.58-.485-5.084-1.334l-.364-.216-3.44.903.918-3.352-.237-.384A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Share on WhatsApp
+    </a>
+    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://hijazstays.com" target="_blank">
+      <svg width="14" viewBox="0 0 24 24" fill="#4267B2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      Share on Facebook
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 HijazStays · <a href="https://hijazstays.com">hijazstays.com</a> · <a href="https://wa.me/16135583577">+1 613-558-3577</a> · All rights reserved</p>
+</footer>
+
+</body>
+</html>

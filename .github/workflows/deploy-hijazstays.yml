@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'deploy/makkah-travel/**'
+      - 'deploy/hijazstays/**'
 
 jobs:
   deploy:
@@ -20,8 +21,14 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -p 65002 82.29.191.98 >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Deploy to Hostinger
+      - name: Deploy main site
         run: |
           rsync -avz -e "ssh -i ~/.ssh/deploy_key -p 65002" \
             deploy/makkah-travel/ \
             u788930128@82.29.191.98:/home/u788930128/domains/hijazstays.com/public_html/
+
+      - name: Deploy funnel pages
+        run: |
+          rsync -avz -e "ssh -i ~/.ssh/deploy_key -p 65002" \
+            deploy/hijazstays/ \
+            u788930128@82.29.191.98:/home/u788930128/domains/hijazstays.com/public_html/funnel/
